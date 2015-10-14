@@ -4,7 +4,7 @@ The Guardian - EON
 
 ## Pushing your commits to `master` and `gh-pages`
 
-The `gh-pages` branch contains the files that are served at: http://taseenb.github.io/interactive-el-paso/
+The `gh-pages` branch contains the files that are served at: http://taseenb.github.io/interactive-eon/
 
 That branch should always mirror the `master`. You can push to both branches manually or you can configure your hidden `.git/config` file to automatically push to both branches.
 
