@@ -1,0 +1,38 @@
+
+$tablet: 'only screen and (min-width : 740px) and (max-width : 979px)';
+$above-tablet: 'only screen and (min-width : 980px)';
+
+
+.only-tablet,
+.only-above-tablet,
+.only-tablet-and-above {
+  display: none;
+}
+
+
+@media #{$tablet} {
+  .only-mobile,
+  .only-above-tablet {
+    display: none;
+  }
+  .only-tablet,
+  .only-tablet-and-below,
+  .only-tablet-and-above {
+    display: block;
+  }
+}
+
+
+@media #{$above-tablet} {
+  .only-mobile,
+  .only-tablet,
+  .only-tablet-and-below,
+  .only-mobile-and-tablet {
+    display: none;
+  }
+
+  .only-above-tablet,
+  .only-tablet-and-above {
+    display: block;
+  }
+}

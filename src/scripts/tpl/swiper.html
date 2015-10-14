@@ -1,0 +1,81 @@
+<!--<img src="img/back-to-list.png" class="back-to-list only-mobile">-->
+
+<!-- Slider main container -->
+<div class="swiper-container">
+
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+
+        <% items.forEach(function(item, i) { %>
+        <div class="swiper-slide">
+
+            <div class="h1-wrapper">
+                <img src="img/back-to-list.png" class="back-to-list only-tablet-and-above">
+
+                <h1>
+                    <span><%= item.name %></span>
+                </h1>
+            </div>
+
+            <div class="details-wrapper">
+
+                <div class="anim">
+
+                    <% if (lazyLoading) { %>
+
+                    <img data-src="img/animations/<%= optimizedFolder %><%= item.anim %>" class="anim-img swiper-lazy">
+
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+
+                    <% } else { %>
+
+                    <img src="img/animations/<%= optimizedFolder %><%= item.anim %>" class="anim-img">
+
+                    <% } %>
+
+                    <img src="img/back-to-list.png" class="back-to-list only-mobile slide-nav-ui">
+
+                </div>
+
+
+                <div class="details">
+
+                    <h2><%= copy['history-title'] %></h2>
+
+                    <p class="history-text">
+                        <%= item.copy.history %>
+                    </p>
+
+                    <h2><%= copy['tip-title'] %></h2>
+
+                    <p class="history-text">
+                        <%= item.copy.tip %>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <% }); %>
+
+    </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev" class="arrow only-tablet-and-above"></div>
+    <div class="swiper-button-next" class="arrow only-tablet-and-above"></div>
+
+
+    <div class="mobile-nav only-mobile slide-nav-ui">
+
+        <div class="arrow swiper-button-prev hidden"></div>
+        <div class="arrow swiper-button-next hidden"></div>
+
+    </div>
+
+
+</div>
+
+

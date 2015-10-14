@@ -1,0 +1,29 @@
+{
+  "boss": true,
+  "curly": true,
+  "trailing": true,
+  "indent": 2,
+  "devel": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "immed": true,
+  "latedef": "nofunc",
+  "newcap": false,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": "vars",
+  "browser": true,
+  "globals": {
+    // Setting an entry to true enables reading and writing to that variable.
+    // Setting it to false will trigger JSHint to consider that variable read-only.
+    "App": true,
+    "Modernizr": true,
+    "define": true,
+    "require": true,
+    "$": true,
+    "_": true,
+    "Swiper": true,
+    "iframeMessenger": true
+  }
+}

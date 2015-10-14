@@ -1,0 +1,13 @@
+#debug {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  font-size: 12px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  background-color: red;
+  color: white;
+  text-align: right;
+}

@@ -1,0 +1,29 @@
+#content {
+
+  position: relative;
+  font-family: "Guardian Sans Web", sans-serif;
+
+
+  .content-element {
+    z-index: 10;
+    opacity: 1;
+    @include css3-prefix(transition-duration, 0.4s);
+    @include css3-prefix(transition-property, opacity);
+    overflow: hidden;
+    height: auto;
+    position: relative;
+
+    &.hidden {
+      z-index: -1000;
+      opacity: 0;
+      height: 0px !important;
+      //width: 0px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      position: absolute !important;
+      top: -2000px;
+      left: -2000px;
+    }
+  }
+
+}

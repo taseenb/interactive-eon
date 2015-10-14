@@ -1,0 +1,52 @@
+/**
+ * Base URL
+ * HTTP path or url where the browser will look for fonts
+ * URL can be an absolute HTTP (`//pasteup.guim.co.uk/fonts/`) or relative (`../`)
+ */
+
+// if you use an asset domain, you would set it to:
+// $guss-webfonts-base-url: '//assets.yourdomain.com/path/to/guss-webfonts';
+//$guss-webfonts-base-url: '../bower_components/guss-webfonts/';
+$guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
+
+/**
+ * Charset
+ *
+ * - ascii: 256 characters only, very small
+ * - latin1: latin 1 character set
+ * - original: full character set
+ */
+$guss-webfonts-charset: 'original';
+
+/**
+ * Hinting
+ *
+ * - cleartype: larger file, better rendering in Windows
+ * - auto: even larger file, better rendering in Windows in Chrome with
+ *   font-smoothing disabled (the default in XP pre-servicepack 1)
+ * - off: smaller files, render well on HiDPI displays
+ */
+$guss-webfonts-hinting: 'off';
+
+/**
+ * Kerning
+ *
+ * - on: larger file, better rendering
+ * - off: smaller files
+ */
+$guss-webfonts-kerning: 'on';
+
+/**
+ * Version
+ *
+ * Version of the fonts to use
+ */
+$guss-webfonts-version: '0.1.0';
+
+
+@import '../bower_components/guss-webfonts/src/_webfonts';
+
+
+//@include guss-webfonts('Guardian Sans Web');
+
+@include guss-webfonts();
