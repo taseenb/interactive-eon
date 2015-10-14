@@ -1,5 +1,5 @@
 # interactive-el-paso
-The Guardian - El Paso
+The Guardian - EON
 
 
 ## Pushing your commits to `master` and `gh-pages`
