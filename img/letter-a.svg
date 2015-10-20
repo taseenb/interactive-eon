@@ -1,0 +1,32 @@
+<svg class="letter" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="52.5px" height="52.5px" viewBox="0 0 52.5 52.5" enable-background="new 0 0 52.5 52.5" xml:space="preserve">
+<g>
+	<g id="XMLID_1_">
+		<g>
+			<path fill="#92C1E9" d="M26.25,1.25c13.809,0,25,11.192,25,25.003c0,13.808-11.191,24.996-25,24.996
+				c-13.808,0-25-11.188-25-24.996C1.25,12.442,12.442,1.25,26.25,1.25z"/>
+		</g>
+		<g>
+			
+				<path fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M51.25,26.253c0,13.808-11.191,24.996-25,24.996c-13.808,0-25-11.188-25-24.996c0-13.811,11.192-25.003,25-25.003
+				C40.059,1.25,51.25,12.442,51.25,26.253z"/>
+		</g>
+	</g>
+	<g id="XMLID_2_">
+		<g>
+			<path fill="#FFFFFF" d="M29.758,11.496l7.363,28.479H30.76l-2.23-10.719h-5.688l-2.214,10.719h-6.229l7.452-28.479H29.758z
+				 M27.627,23.69l-1.981-6.262L23.96,23.69H27.627z"/>
+			<polygon fill="#92C1E9" points="25.646,17.429 27.627,23.69 23.96,23.69 			"/>
+		</g>
+		<g>
+			
+				<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+				14.399,39.975 21.851,11.496 29.758,11.496 37.121,39.975 30.76,39.975 28.529,29.256 22.842,29.256 20.628,39.975 			"/>
+			
+				<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+				23.96,23.69 25.646,17.429 27.627,23.69 			"/>
+		</g>
+	</g>
+</g>
+</svg>

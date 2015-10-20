@@ -1,0 +1,68 @@
+.question {
+
+  min-height: 100%;
+
+  //background-size: 100% auto;
+  //background-repeat: no-repeat;
+  //background-position: center;
+
+
+  @media(min-width: 980px) {
+    font-size: 0;
+    white-space: nowrap;
+    height: 100%;
+  }
+
+  .animation {
+
+    margin: 0 auto;
+
+    @media(min-width: 980px) {
+      width: 62%;
+      height: 100%;
+    }
+  }
+
+  .options-wrapper {
+
+    @import 'options/title';
+    @import 'options/answer';
+
+    padding: 0 20px 20px 20px;
+    position: relative;
+    padding-bottom: 40px;
+
+    @media(min-width: 980px) {
+      width: 38% !important;
+    }
+
+  }
+
+  .animation,
+  .options-wrapper {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+
+    @media(min-width: 480px) {
+      width: 85%;
+    }
+
+    @media(min-width: 660px) {
+      width: 75%;
+    }
+
+    @media(min-width: 740px) {
+      width: 62%;
+    }
+
+    @media(min-width: 980px) {
+      white-space: normal;
+      font-size: 14px;
+      display: inline-block;
+      vertical-align: middle;
+      box-sizing: border-box;
+    }
+  }
+
+}

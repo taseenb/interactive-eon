@@ -2,62 +2,61 @@ define( function ( require ) {
 
   'use strict';
 
-  $( function () {
+  // Create App global
+  window.App = window.App || {};
+
+  // Backbone
+  //var _ = require( 'backbone' );
+  var Backbone = require( 'backbone' );
+  var Router = require( 'router' );
 
 
-    // Create App global
-    window.App = window.App || {};
+  // Mediator - pub/sub
+  var Mediator = require( 'mediator-js' );
+  App.mediator = new Mediator();
 
 
-    // Mediator - pub/sub
-    var Mediator = require( 'mediator-js' );
-    App.mediator = new Mediator();
+  // Resize event (published by mediator on every window resize)
+  var resizeEvent = require( 'resize' );
+  resizeEvent.initialize();
 
 
-    // Resize event (published by mediator on every window resize)
-    var resizeEvent = require( 'resize' );
-    resizeEvent.initialize();
-
-    // Support
-    App.supportTransitions = $( 'html' ).hasClass( 'csstransitions' );
-    App.isTouch = $( 'html' ).hasClass( 'touch' );
-    App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
+  // Support
+  var $html = $( 'html' );
+  App.supportTransitions = $html.hasClass( 'csstransitions' ); // used to determine if we are on a modern browser (> IE9)
+  App.isTouch = $html.hasClass( 'touch' );
+  App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
 
 
-    // Disable console.log on IE 9
-    if ( !App.supportTransitions ) {
-      window.console = {
-        log: $.noop()
-      };
+  // Disable console.log on IE 9
+  if ( !App.supportTransitions ) {
+    window.console = {
+      log: $.noop()
+    };
+  }
+
+
+  // Get data and start main view
+  $.ajax( {
+    url: 'data/data.js',
+    dataType: 'jsonp',
+    jsonpCallback: 'callback',
+    cache: false,
+    type: 'GET',
+    success: function ( data ) {
+
+      // Make data global
+      App.data = data;
+
+      // Create new user to track answers
+      var UserView = require( 'views/userView' );
+      App.user = new UserView();
+
+      // Start router
+      App.router = new Router();
+      Backbone.history.start();
+
     }
-
-
-    // Import Swiper
-    App.swiper = require( 'swiper' );
-
-
-    // Get data and start main view
-    $.ajax( {
-      url: 'data/data.js',
-      dataType: 'jsonp',
-      jsonpCallback: 'callback',
-      cache: false,
-      type: 'GET',
-      success: function ( data ) {
-        App.data = data;
-
-        console.log( data );
-        //console.log( App.width, App.height );
-
-        // Main view
-        var MainView = require( 'views/mainView.js' );
-        App.mainView = new MainView( '#main' );
-        App.mainView.render();
-      }
-    } );
-
-
   } );
-
 
 } );

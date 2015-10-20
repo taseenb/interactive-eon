@@ -1,0 +1,46 @@
+.answer {
+
+  position: relative;
+  margin-bottom: 25px;
+  cursor: pointer;
+
+  &:hover {
+    .letter {
+      @include transform(scale(1.15, 1.15));
+    }
+  }
+
+  .letter {
+    position: absolute;
+    display: block;
+    text-align: center;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    //border: 2px solid #333;
+    @include border-radius(50%);
+    z-index: 10;
+
+    @include css3-prefix(transition-duration, 0.4s);
+    @include css3-prefix(transition-property, transform);
+  }
+
+  .text {
+    display: block;
+    padding: 20px;
+    font-size: 15px;
+    border: 2px solid #333;
+  }
+
+  .bottom {
+    display: block;
+    height: 15px;
+    border-bottom: 2px solid #333;
+    border-left: 2px solid #333;
+    border-right: 2px solid #333;
+
+    background-image: url('#{$img-path}dots.png');
+  }
+
+}

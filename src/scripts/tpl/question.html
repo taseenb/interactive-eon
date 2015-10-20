@@ -1,0 +1,40 @@
+<div id="question-<%= idx %>" class="question content-element hidden"
+     style="background-color: <%= question.bgColor %>; <% if (question.bgImg) { %>background-image: url('img/<%= question.bgImg %>') <% } %>">
+
+    <div class="inner">
+
+        <img src="<%= imgSrc %>" class="animation">
+
+        <div class="options-wrapper">
+
+            <h1>
+                    <span class="counter" style="background-color: <%= question.uiBgColor %>">
+                        <span class="current"><%= question.idx %></span>
+                        <span class="total">/<%= questionsCount %></span>
+                    </span>
+
+                <div class="title-wrapper">
+                    <span class="title" style="background-color: <%= question.uiBgColor %>"><%= question.text %></span>
+                </div>
+            </h1>
+
+            <% question.answers.forEach(function(answer, i) { %>
+
+            <div class="answer" data-value="<%= answer.value %>">
+
+                <%= alphabet[i] %>
+
+                <span class="text" style="background-color: <%= questionColor[i] %>"><%= answer.text %></span>
+
+                <span class="bottom" style="background-color: <%= questionColor[i] %>"></span>
+            </div>
+
+            <% }); %>
+
+            <a href="#<%= idx-1 %>">Prev</a> - <a href="#<%= idx+1 %>">Next</a>
+
+        </div>
+
+    </div>
+
+</div>

@@ -22,8 +22,10 @@
     "define": true,
     "require": true,
     "$": true,
+    "jQuery": true,
     "_": true,
     "Swiper": true,
-    "iframeMessenger": true
+    "iframeMessenger": true,
+    "ga": true
   }
 }

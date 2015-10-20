@@ -2,55 +2,124 @@ define( function ( require ) {
 
   'use strict';
 
+
   var _ = require( 'underscore' );
-  var headerTpl = require( 'text!tpl/header.html' );
+  var Backbone = require( 'backbone' );
+
   var contentTpl = require( 'text!tpl/content.html' );
-  var footerTpl = require( 'text!tpl/footer.html' );
 
   // Views
-  //var ListView = require( 'views/listView.js' );
+  var QuestionView = require( 'views/questionView.js' );
+  var SummaryView = require( 'views/summaryView.js' );
+
+  // Google Analytics
+  //var ga = require( 'analytics' );
 
 
-  var View = function ( el ) {
+  var View = Backbone.View.extend( {
 
-    this.$el = $( el );
-    this.el = this.$el[0];
-
-    this.initialize();
-  };
-
-  View.prototype = {
+    template: _.template( contentTpl ),
 
     initialize: function () {
 
       App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
+      this.questionsViews = {};
+
     },
 
     render: function () {
 
-      var html = '';
-      html += _.template( headerTpl )( {
+      var html = this.template( {
         copy: App.data.copy
       } );
-      html += _.template( contentTpl )( {
-        copy: App.data.copy
-      } );
-      html += _.template( footerTpl )();
       this.$el.html( html );
 
       this.setupElements();
       this.setupEvents();
-
-      // Create list view
-      //App.listView = new ListView( '#list' );
-      //App.listView.render();
 
       // Update iframeMessenger with new iframe height
       this.onResize();
     },
 
     setupElements: function () {
+
+      this.$questions = this.$el.find( '#questions' );
+
+      this.$summary = this.$el.find( '#summary' );
+
+    },
+
+    openQuestion: function ( idx ) {
+
+      if ( !this.questionsViews[idx] ) {
+
+        this.renderQuestion( idx );
+
+      } else {
+
+        this.showQuestion( idx );
+
+      }
+
+    },
+
+    renderQuestion: function ( idx ) {
+
+      this.questionsViews[idx] = new QuestionView( {parent: '#questions'} );
+      this.questionsViews[idx].render( idx );
+
+      setTimeout( this.showQuestion.bind( this, idx ), 250 );
+
+      // Load animation
+      //$.ajax( {
+      //  url: imgSrc,
+      //  dataType: 'text',
+      //  success: function ( code ) {
+      //
+      //    this.questionsViews[idx] = new QuestionView( {parent: '#questions', animationCode: code} );
+      //    this.questionsViews[idx].render( idx );
+      //
+      //    setTimeout( this.showQuestion.bind( this, idx ), 250 );
+      //
+      //  }.bind( this ),
+      //
+      //  error: function ( a, b, c ) {
+      //    console.log( a, b, c );
+      //  }
+      //} );
+
+    },
+
+    showQuestion: function ( idx ) {
+
+      _.each( this.questionsViews, function ( view, i ) {
+        this.hide( view );
+      }.bind( this ) );
+
+      this.show( this.questionsViews[idx] );
+
+    },
+
+    renderSummary: function () {
+
+      this.summaryView = new SummaryView( '#summary' );
+      this.summaryView.render();
+
+    },
+
+    updateSummary: function () {
+
+    },
+
+    showSummary: function () {
+
+      if ( !this.summaryView ) {
+        this.renderSummary();
+      }
+
+      this.hide( this.$questions );
+      this.show( this.summaryView );
 
     },
 
@@ -63,29 +132,21 @@ define( function ( require ) {
 
     show: function ( view ) {
 
-      if ( view === 'list' ) {
-        this.showView( App.listView );
-        this.hideView( App.swiperView );
-      } else if ( view === 'swiper' ) {
-        this.showView( App.swiperView );
-        this.hideView( App.listView );
+      if ( view instanceof Backbone.View ) {
+        view.$el.removeClass( 'hidden' );
+      } else if ( view instanceof jQuery ) {
+        view.removeClass( 'hidden' );
       }
 
-      this.onResize();
-
     },
 
-    showView: function ( view ) {
+    hide: function ( view ) {
 
-      view.$el.removeClass( 'hidden' );
-      view.onShow();
-
-    },
-
-    hideView: function ( view ) {
-
-      view.$el.addClass( 'hidden' );
-      view.onHide();
+      if ( view instanceof Backbone.View ) {
+        view.$el.addClass( 'hidden' );
+      } else if ( view instanceof jQuery ) {
+        view.addClass( 'hidden' );
+      }
 
     },
 
@@ -95,7 +156,8 @@ define( function ( require ) {
 
     }
 
-  };
+  } );
+
 
   return View;
 
