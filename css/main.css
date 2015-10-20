@@ -1136,7 +1136,7 @@ body {
               display: block;
               text-align: center;
               top: -20px;
-              left: -20px;
+              left: 0px;
               width: 40px;
               height: 40px;
               -webkit-border-radius: 50%;
@@ -1161,6 +1161,7 @@ body {
             #main #content #questions .question .options-wrapper .answer .text {
               display: block;
               padding: 20px;
+              margin-left: 20px;
               font-size: 15px;
               border: 2px solid #333; }
             #main #content #questions .question .options-wrapper .answer .bottom {
@@ -1169,6 +1170,7 @@ body {
               border-bottom: 2px solid #333;
               border-left: 2px solid #333;
               border-right: 2px solid #333;
+              margin-left: 20px;
               background-image: url("../img/dots.png"); }
           @media (min-width: 980px) {
             #main #content #questions .question .options-wrapper {
