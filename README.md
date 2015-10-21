@@ -14,3 +14,18 @@ You can do this simply by adding these 2 lines to the `[remote "origin"]` sectio
   push = refs/heads/master:refs/heads/master
   push = refs/heads/master:refs/heads/gh-pages
 ```
+
+
+## Scroll to top of the iframe
+
+```
+  iframeMessenger.scrollTo( 0, 0 );
+  
+  iframeMessenger.getPositionInformation( function ( obj ) {
+  
+    var y = Math.abs( obj.iframeTop );
+    iframeMessenger.scrollTo( 0, y );
+    
+  } );
+      
+```
