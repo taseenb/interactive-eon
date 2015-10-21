@@ -146,7 +146,7 @@ callback( {
       "title": "16:00",
       "text": "It’s 4pm, you’re feeling drained but it’s time for a team meeting. Do you...",
       "animationName": "Q6",
-      "ui": "pink",
+      "ui": "green",
       "bg": "blue",
       "bgImg": "",
       "answers": [
