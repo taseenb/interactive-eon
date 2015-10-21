@@ -1,11 +1,11 @@
-<div id="question-<%= idx %>" class="question content-element hidden"
-     style="background-color: <%= question.bgColor %>; <% if (question.bgImg) { %>background-image: url('img/<%= question.bgImg %>') <% } %>">
+<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %> bg-<%= question.bg %>"
+     style="<% if (question.bgImg) { %>background-image: url('img/<%= question.bgImg %>') <% } %>">
 
     <div id="question-inner-<%= idx %>" class="inner">
 
         <img src="<%= imgSrc %>" class="animation">
 
-        <div class="options-wrapper">
+        <div class="options-wrapper pink">
 
             <h1>
                     <!--<span class="counter" style="background-color: <%= question.uiBgColor %>">-->
@@ -13,10 +13,10 @@
                         <!--<span class="total">/<%= questionsCount %></span>-->
                     <!--</span>-->
 
-                <img class="counter" src="img/question-numbers/<%= idx + 1 %>.png">
+                <div class="counter" ><%= counterSvg %></div>
 
                 <div class="title-wrapper">
-                    <span class="title" style="background-color: <%= question.uiBgColor %>"><%= question.text %></span>
+                    <span class="title"><%= question.text %></span>
                 </div>
             </h1>
 

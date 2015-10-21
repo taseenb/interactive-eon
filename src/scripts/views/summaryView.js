@@ -21,7 +21,10 @@ define( function ( require ) {
     render: function ( ) {
 
       this.html = this.template( {
-        data: App.data
+        data: App.data,
+        results: {
+          items: [1, 2, 3, 4, 5, 6, 7, 8]
+        }
       } );
 
       this.$el.append( this.html );

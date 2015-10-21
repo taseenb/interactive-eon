@@ -20,6 +20,7 @@ var require = {
     "letter-a": "../../img/letter-a.svg",
     "letter-b": "../../img/letter-b.svg",
     "letter-c": "../../img/letter-c.svg",
+    "counterSvg": "../../img/question-numbers.svg",
 
 
   }

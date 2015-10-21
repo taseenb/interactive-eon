@@ -10,3 +10,17 @@
 
 // Swiper
 @import 'vendors/swiper';
+
+
+
+// Main elements
+@import 'app/header';
+@import 'app/content';
+@import 'app/footer';
+
+// Contents
+@import 'app/questions';
+@import 'app/summary';
+
+// Questions
+@import 'app/questions/question';

@@ -20,7 +20,7 @@ define( function ( require ) {
     // Create user data
     resetUserData: function () {
 
-      var questions = App.data.questions;
+      var questions = App.data.questions; //
 
       var data = [];
 

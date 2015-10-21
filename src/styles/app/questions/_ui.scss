@@ -1,0 +1,93 @@
+&.bg-blue {
+  background-color: $bgBlue;
+}
+
+&.bg-pink {
+  background-color: $bgPink;
+}
+
+&.bg-green {
+  background-color: $bgGreen;
+}
+
+
+&.ui-blue {
+
+  .circle {
+    fill: $bgBlue;
+  }
+
+  .options-wrapper .title {
+    background-color: $bgBlue;
+  }
+}
+
+&.ui-pink {
+
+  .circle {
+    fill: $bgPink;
+  }
+
+  .options-wrapper .title {
+    background-color: $bgPink;
+  }
+}
+
+&.ui-green {
+
+  .circle {
+    fill: $bgGreen;
+  }
+
+  .options-wrapper .title {
+    background-color: $bgGreen;
+  }
+}
+
+&#question-0 {
+  .question-counter-0 {
+    display: block;
+  }
+}
+
+&#question-1 {
+  .question-counter-1 {
+    display: block;
+  }
+}
+
+&#question-2 {
+  .question-counter-2 {
+    display: block;
+  }
+}
+
+&#question-3 {
+  .question-counter-3 {
+    display: block;
+  }
+}
+
+&#question-4 {
+  .question-counter-4 {
+    display: block;
+  }
+}
+
+&#question-5 {
+  .question-counter-5 {
+    display: block !important;
+  }
+}
+
+&#question-6 {
+  .question-counter-6 {
+    display: block !important;
+  }
+}
+
+&#question-7 {
+  .question-counter-7 {
+    display: block;
+  }
+}

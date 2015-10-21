@@ -11,6 +11,7 @@ define( function ( require ) {
   var svgLetterA = require( 'text!letter-a' );
   var svgLetterB = require( 'text!letter-b' );
   var svgLetterC = require( 'text!letter-c' );
+  var counterSvg = require( 'text!counterSvg' );
 
 
   var View = Backbone.View.extend( {
@@ -43,6 +44,7 @@ define( function ( require ) {
           '#f9a36a',
           '#f6f06b'
         ],
+        counterSvg: counterSvg,
         imgSrc: 'img/animations/' + svg
 
       } );

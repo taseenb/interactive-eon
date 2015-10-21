@@ -1,9 +1,37 @@
 <div class="inner">
 
-    <div class="">
-        summary here
+<div class="result-header">
+
+    <h1 class="result-title">
+        You're quite efficient... but
+        <br>there is room for improvement
+    </h1>
+
+    <div class="result-look">
+        <div class="intro">
+            <strong>Here's how your day looks</strong>
+            <span>Click on the nodes to reveal more</span>
+        </div>
+
+        <div id="graph-wrapper">
+            GRAPH HERE
+        </div>
+
     </div>
 
-    <a href="#" class="restart">RESTART</a>
+</div>
+
+<div class="result-list">
+
+    <% _.each(results.items, function(item, i) { %>
+    <div id="result-list-item-<%= i %>" class="list-item">
+            item <%= i %>
+    </div>
+    <% }); %>
+
+</div>
+
+
+<a href="#" class="restart">RESTART</a>
 
 </div>

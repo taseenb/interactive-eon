@@ -6,9 +6,9 @@ callback( {
       "title": "07:00",
       "text": "It’s 7am and your alarm is blaring. Do you...",
       "animationName": "Q1",
-      "bgColor": "#21C28C",
+      "ui": "blue",
+      "bg": "green",
       "bgImg": "pattern-dots.svg",
-      "uiBgColor": "#92C1E9",
       "answers": [
         {
           "text": "Growl, press snooze and drift back to sleep until the alarm finally shakes you out of bed 15 minutes later.",
@@ -34,9 +34,9 @@ callback( {
       "title": "09:00",
       "text": "You arrive at work. While you wait for the computer to log you in, you...",
       "animationName": "Q2",
-      "bgColor": "#92C1E9",
+      "ui": "green",
+      "bg": "blue",
       "bgImg": "",
-      "uiBgColor": "#92C1E9",
       "answers": [
         {
           "text": "Immediately whip out your phone and start replying to emails, while waiting for your computer to log in.",
@@ -62,9 +62,9 @@ callback( {
       "title": "11:30",
       "text": "It’s been the morning from hell - and it’s still only 11am. Do you...",
       "animationName": "Q3",
-      "bgColor": "#db71aa",
+      "ui": "blue",
+      "bg": "pink",
       "bgImg": "pattern-dots.svg",
-      "uiBgColor": "#92C1E9",
       "answers": [
         {
           "text": "Punch the wall and shout obscenities as you sweep dramatically out of the room, slamming the door behind you.",
@@ -90,9 +90,9 @@ callback( {
       "title": "13:00",
       "text": "It’s time for lunch and you’re famished. Do you...",
       "animationName": "Q4",
-      "bgColor": "#92C1E9",
-      "bgImg": "",
-      "uiBgColor": "#92C1E9",
+      "ui": "green",
+      "bg": "pink",
+      "bgImg": "pattern-dots.svg",
       "answers": [
         {
           "text": "Head for a fast food restaurant and order an extra large burger and fries.",
@@ -118,9 +118,9 @@ callback( {
       "title": "14:30",
       "text": "It’s the post-lunch slump and you’re feeling sleepy. Do you...",
       "animationName": "Q5",
-      "bgColor": "#21C28C",
+      "ui": "green",
+      "bg": "blue",
       "bgImg": "",
-      "uiBgColor": "#92C1E9",
       "answers": [
         {
           "text": "Grab an extra strong coffee and wait for the caffeine to kick in.",
@@ -146,9 +146,9 @@ callback( {
       "title": "16:00",
       "text": "It’s 4pm, you’re feeling drained but it’s time for a team meeting. Do you...",
       "animationName": "Q6",
-      "bgColor": "#92C1E9",
+      "ui": "pink",
+      "bg": "blue",
       "bgImg": "",
-      "uiBgColor": "#92C1E9",
       "answers": [
         {
           "text": "Remove all the chairs in the meeting room, hold the meeting standing up or confidently announce “Let’s walk and talk, people.”",
@@ -174,9 +174,9 @@ callback( {
       "title": "18:00",
       "text": "You are on the commuter train home. Do you...",
       "animationName": "Q7",
-      "bgColor": "#21C28C",
+      "ui": "green",
+      "bg": "blue",
       "bgImg": "",
-      "uiBgColor": "#92C1E9",
       "answers": [
         {
           "text": "Play Candy Crush. You’re on level 250 and your friend is only one level above you. Winning is everything.",
@@ -202,9 +202,9 @@ callback( {
       "title": "22:30",
       "text": "It’s been a long day, but it’s finally time for bed. Do you...",
       "animationName": "Q8",
-      "bgColor": "#92C1E9",
-      "bgImg": "",
-      "uiBgColor": "#92C1E9",
+      "ui": "blue",
+      "bg": "pink",
+      "bgImg": "pattern-dots.svg",
       "answers": [
         {
           "text": "Get out your laptop or smartphone and get ahead with some work.",
