@@ -33,11 +33,21 @@ define( function ( require ) {
 
     setupElements: function () {
 
+      this.$restart = this.$('.restart');
+
     },
 
     setupEvents: function () {
 
-      //this.$el.on( 'click', '.open-item', this.openItem.bind( this ) );
+      var click = App.isTouch ? 'touchstart' : 'click';
+      this.$restart.on( click, this.restart.bind( this ) );
+
+    },
+
+    restart: function(e) {
+
+      e.preventDefault();
+      App.router.restart();
 
     },
 

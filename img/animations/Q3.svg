@@ -103,19 +103,7 @@
     
 </style>       
     
-<g>
-	<g id="XMLID_622_">
-		<g>
-			<pattern  id="SVGID_1_" xlink:href="#bodky_x5F_nove_6" patternTransform="matrix(2.5594 0 0 2.5594 11776.4453 12035.3672)">
-			</pattern>
-			<rect y="74" fill="url(#SVGID_1_)" width="460" height="386"/>
-		</g>
-		<g>
-			
-				<line fill="none" stroke="#3E0F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="0" y1="74" x2="460" y2="74"/>
-		</g>
-	</g>
-</g>
+
 <g id="XMLID_399_">
 	<g>
 		<rect x="57.719" y="261.606" fill="#6287C5" width="361.76" height="174.13"/>

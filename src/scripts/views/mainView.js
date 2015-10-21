@@ -71,39 +71,34 @@ define( function ( require ) {
 
       setTimeout( this.showQuestion.bind( this, idx ), 250 );
 
-      // Load animation
-      //$.ajax( {
-      //  url: imgSrc,
-      //  dataType: 'text',
-      //  success: function ( code ) {
-      //
-      //    this.questionsViews[idx] = new QuestionView( {parent: '#questions', animationCode: code} );
-      //    this.questionsViews[idx].render( idx );
-      //
-      //    setTimeout( this.showQuestion.bind( this, idx ), 250 );
-      //
-      //  }.bind( this ),
-      //
-      //  error: function ( a, b, c ) {
-      //    console.log( a, b, c );
-      //  }
-      //} );
-
     },
 
     showQuestion: function ( idx ) {
 
-      _.each( this.questionsViews, function ( view, i ) {
-        this.hide( view );
-      }.bind( this ) );
+      // Hide summary if necessary
+      if ( this.summaryView ) {
+        this.hide( this.summaryView );
+        this.show( this.$questions );
+      }
 
-      this.show( this.questionsViews[idx] );
+      // Hide all question views
+      _.each( this.questionsViews, function ( view, i ) {
+
+        console.log(i, idx);
+
+        if ( parseInt(i) !== parseInt(idx) ) {
+          this.hide( view );
+        } else {
+          this.show( view );
+        }
+
+      }.bind( this ) );
 
     },
 
     renderSummary: function () {
 
-      this.summaryView = new SummaryView( '#summary' );
+      this.summaryView = new SummaryView( {el: '#summary'} );
       this.summaryView.render();
 
     },
@@ -128,6 +123,29 @@ define( function ( require ) {
       //var event = App.isTouch ? 'touchstart' : 'click';
       // this.$el.on( event, this.onClick.bind( this ) );
 
+      //if ( App.transitionend ) {
+      //  $(document).on( App.transitionend, '.content-element', function ( e ) {
+      //
+      //    //e.stopPropagation(); //
+      //
+      //    var el = e.originalEvent.target;
+      //
+      //    //console.log( e.currentTarget.id );
+      //    //if ( el.id === 'question-inner-' + this.idx ) {
+      //    //  console.log( e.originalEvent );
+      //    //  console.log( e.originalEvent.target.id );
+      //    //  console.log( e.originalEvent.propertyName );
+      //
+      //      var $el = $( el );
+      //
+      //      if ( $el.hasClass( 'hidden' ) ) {
+      //        $el.addClass('absolute-hidden');
+      //      }
+      //
+      //    //}
+      //  }.bind( this ) );
+      //}
+
     },
 
     show: function ( view ) {
@@ -147,6 +165,17 @@ define( function ( require ) {
       } else if ( view instanceof jQuery ) {
         view.addClass( 'hidden' );
       }
+
+    },
+
+    resetAll: function () {
+
+      // Reset user state, question state, DOM state
+      _.each( this.questionsViews, function ( view, i ) {
+
+        view.reset();
+
+      } );
 
     },
 

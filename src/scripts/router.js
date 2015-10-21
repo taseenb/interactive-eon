@@ -12,7 +12,7 @@ define( function ( require ) {
     routes: {
 
       '': 'question',
-      ':idx': 'question'
+      //':idx': 'question'
 
     },
 
@@ -26,15 +26,61 @@ define( function ( require ) {
       this.mainView = new MainView( {el: '#main'} );
       this.mainView.render();
 
+      this.currentQuestion = 0;
+
     },
 
-    question: function ( idx ) {
+    question: function () {
 
-      idx = this.validate( idx );
+      //var idx = this.validate( idx );
 
-      console.log( 'question idx: ' + idx );
+      console.log( 'question idx: ' + this.currentQuestion );
 
-      this.mainView.openQuestion( idx );
+      if ( this.currentQuestion >= this.questionsCount ) {
+
+        this.mainView.showSummary();
+
+      } else {
+
+        this.mainView.openQuestion( this.currentQuestion );
+
+      }
+
+    },
+
+    //question: function ( idx ) {
+    //
+    //  idx = this.validate( idx );
+    //
+    //  console.log( 'question idx: ' + idx );
+    //
+    //  if (idx >= this.questionsCount) {
+    //
+    //    this.mainView.showSummary();
+    //
+    //  } else {
+    //
+    //    this.mainView.openQuestion( idx );
+    //
+    //  }
+    //
+    //},
+
+    next: function () {
+
+      this.currentQuestion += 1;
+
+      this.question();
+
+    },
+
+    restart: function () {
+
+      this.mainView.resetAll();
+
+      this.currentQuestion = 0;
+
+      this.question();
 
     },
 
@@ -42,7 +88,7 @@ define( function ( require ) {
 
       var validIdx = parseInt( idx );
 
-      if ( _.isNaN( validIdx ) || validIdx >= this.questionsCount ) {
+      if ( _.isNaN( validIdx ) || validIdx <= -1 ) {
         validIdx = 0;
       }
 

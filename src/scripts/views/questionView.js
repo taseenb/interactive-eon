@@ -58,11 +58,51 @@ define( function ( require ) {
 
     setupElements: function () {
 
+      this.$answers = this.$( '.answer' );
+
+      this.$inner = this.$( '#question-inner-' + this.idx );
+
     },
 
     setupEvents: function () {
 
-      //this.$el.on( 'click', '.open-item', this.openItem.bind( this ) );
+      var click = App.isTouch ? 'touchstart' : 'click';
+      this.$answers.on( click, this.selectAnswer.bind( this ) );
+
+    },
+
+    selectAnswer: function ( e ) {
+
+      console.log( e );
+
+      if ( !this.done ) {
+
+        this.done = true;
+
+        // Update DOM element
+        var $answer = $( e.currentTarget );
+        $answer.addClass( 'selected' );
+
+        // Get values
+        var value = $answer.data( 'value' );
+        var idx = $answer.data( 'idx' );
+
+        // Record user state
+        App.user.questions[this.idx].chosenAnswer = idx;
+        App.user.questions[this.idx].value = value;
+
+        App.router.next();
+
+      }
+
+    },
+
+    reset: function () {
+
+      this.done = false;
+      this.$answers.removeClass( 'selected' );
+      App.user.questions[this.idx].chosenAnswer = null;
+      App.user.questions[this.idx].value = null;
 
     },
 

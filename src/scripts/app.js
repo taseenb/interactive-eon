@@ -29,12 +29,13 @@ define( function ( require ) {
 
 
   // Disable console.log on IE 9
-  if ( !App.supportTransitions ) {
-    window.console = {
-      log: $.noop()
-    };
-  }
+  //if ( !App.supportTransitions ) {
+  //  window.console = {
+  //    log: $.noop()
+  //  };
+  //}
 
+  console.log( 'still alive' );
 
   // Get data and start main view
   $.ajax( {
@@ -45,12 +46,16 @@ define( function ( require ) {
     type: 'GET',
     success: function ( data ) {
 
+      console.log( 'ajax done' );
+
       // Make data global
       App.data = data;
 
       // Create new user to track answers
       var UserView = require( 'views/userView' );
       App.user = new UserView();
+
+      console.log( App.user.questions );
 
       // Start router
       App.router = new Router();

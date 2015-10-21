@@ -1,4 +1,4 @@
-/*! app / v0.0.1October 20, 2015 */
+/*! app / v0.0.1October 21, 2015 */
 /**
  * @license almond 0.3.1 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -4274,7 +4274,7 @@ define('text',['module'], function (module) {
 define('text!tpl/content.html',[],function () { return '<div id="content">\n\n\n    <div id="questions" class="content-element"></div>\n\n    <div id="summary" class="content-element hidden"></div>\n\n    <!--<div class="content-element"></div>-->\n\n\n</div>';});
 
 
-define('text!tpl/question.html',[],function () { return '<div id="question-<%= idx %>" class="question content-element hidden"\n     style="background-color: <%= question.bgColor %>; <% if (question.bgImg) { %>background-image: url(\'img/<%= question.bgImg %>\') <% } %>">\n\n    <div class="inner">\n\n        <img src="<%= imgSrc %>" class="animation">\n\n        <div class="options-wrapper">\n\n            <h1>\n                    <span class="counter" style="background-color: <%= question.uiBgColor %>">\n                        <span class="current"><%= question.idx %></span>\n                        <span class="total">/<%= questionsCount %></span>\n                    </span>\n\n                <div class="title-wrapper">\n                    <span class="title" style="background-color: <%= question.uiBgColor %>"><%= question.text %></span>\n                </div>\n            </h1>\n\n            <% question.answers.forEach(function(answer, i) { %>\n\n            <div class="answer" data-value="<%= answer.value %>">\n\n                <%= alphabet[i] %>\n\n                <span class="text" style="background-color: <%= questionColor[i] %>"><%= answer.text %></span>\n\n                <span class="bottom" style="background-color: <%= questionColor[i] %>"></span>\n            </div>\n\n            <% }); %>\n\n            <a href="#<%= idx-1 %>">Prev</a> - <a href="#<%= idx+1 %>">Next</a>\n\n        </div>\n\n    </div>\n\n</div>';});
+define('text!tpl/question.html',[],function () { return '<div id="question-<%= idx %>" class="question content-element hidden"\n     style="background-color: <%= question.bgColor %>; <% if (question.bgImg) { %>background-image: url(\'img/<%= question.bgImg %>\') <% } %>">\n\n    <div id="question-inner-<%= idx %>" class="inner">\n\n        <img src="<%= imgSrc %>" class="animation">\n\n        <div class="options-wrapper">\n\n            <h1>\n                    <!--<span class="counter" style="background-color: <%= question.uiBgColor %>">-->\n                        <!--<span class="current"><%= question.idx %></span>-->\n                        <!--<span class="total">/<%= questionsCount %></span>-->\n                    <!--</span>-->\n\n                <img class="counter" src="img/question-numbers/<%= idx + 1 %>.png">\n\n                <div class="title-wrapper">\n                    <span class="title" style="background-color: <%= question.uiBgColor %>"><%= question.text %></span>\n                </div>\n            </h1>\n\n            <% question.answers.forEach(function(answer, i) { %>\n\n            <div class="answer" data-value="<%= answer.value %>" data-idx="<%= i %>">\n\n                <%= alphabet[i] %>\n\n                <span class="text" style="background-color: <%= questionColor[i] %>"><%= answer.text %></span>\n\n                <span class="bottom" style="background-color: <%= questionColor[i] %>"></span>\n\n            </div>\n\n            <% }); %>\n\n            <!--<a href="#<%= idx-1 %>">Prev</a> - <a href="#<%= idx+1 %>">Next</a>-->\n\n        </div>\n\n    </div>\n\n</div>';});
 
 
 define('text!letter-a',[],function () { return '<svg class="letter" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\r\n\t width="52.5px" height="52.5px" viewBox="0 0 52.5 52.5" enable-background="new 0 0 52.5 52.5" xml:space="preserve">\r\n<g>\r\n\t<g id="XMLID_1_">\r\n\t\t<g>\r\n\t\t\t<path fill="#92C1E9" d="M26.25,1.25c13.809,0,25,11.192,25,25.003c0,13.808-11.191,24.996-25,24.996\r\n\t\t\t\tc-13.808,0-25-11.188-25-24.996C1.25,12.442,12.442,1.25,26.25,1.25z"/>\r\n\t\t</g>\r\n\t\t<g>\r\n\t\t\t\r\n\t\t\t\t<path fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="\r\n\t\t\t\tM51.25,26.253c0,13.808-11.191,24.996-25,24.996c-13.808,0-25-11.188-25-24.996c0-13.811,11.192-25.003,25-25.003\r\n\t\t\t\tC40.059,1.25,51.25,12.442,51.25,26.253z"/>\r\n\t\t</g>\r\n\t</g>\r\n\t<g id="XMLID_2_">\r\n\t\t<g>\r\n\t\t\t<path fill="#FFFFFF" d="M29.758,11.496l7.363,28.479H30.76l-2.23-10.719h-5.688l-2.214,10.719h-6.229l7.452-28.479H29.758z\r\n\t\t\t\t M27.627,23.69l-1.981-6.262L23.96,23.69H27.627z"/>\r\n\t\t\t<polygon fill="#92C1E9" points="25.646,17.429 27.627,23.69 23.96,23.69 \t\t\t"/>\r\n\t\t</g>\r\n\t\t<g>\r\n\t\t\t\r\n\t\t\t\t<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="\r\n\t\t\t\t14.399,39.975 21.851,11.496 29.758,11.496 37.121,39.975 30.76,39.975 28.529,29.256 22.842,29.256 20.628,39.975 \t\t\t"/>\r\n\t\t\t\r\n\t\t\t\t<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="\r\n\t\t\t\t23.96,23.69 25.646,17.429 27.627,23.69 \t\t\t"/>\r\n\t\t</g>\r\n\t</g>\r\n</g>\r\n</svg>\r\n';});
@@ -4345,11 +4345,51 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
     setupElements: function () {
 
+      this.$answers = this.$( '.answer' );
+
+      this.$inner = this.$( '#question-inner-' + this.idx );
+
     },
 
     setupEvents: function () {
 
-      //this.$el.on( 'click', '.open-item', this.openItem.bind( this ) );
+      var click = App.isTouch ? 'touchstart' : 'click';
+      this.$answers.on( click, this.selectAnswer.bind( this ) );
+
+    },
+
+    selectAnswer: function ( e ) {
+
+      console.log( e );
+
+      if ( !this.done ) {
+
+        this.done = true;
+
+        // Update DOM element
+        var $answer = $( e.currentTarget );
+        $answer.addClass( 'selected' );
+
+        // Get values
+        var value = $answer.data( 'value' );
+        var idx = $answer.data( 'idx' );
+
+        // Record user state
+        App.user.questions[this.idx].chosenAnswer = idx;
+        App.user.questions[this.idx].value = value;
+
+        App.router.next();
+
+      }
+
+    },
+
+    reset: function () {
+
+      this.done = false;
+      this.$answers.removeClass( 'selected' );
+      App.user.questions[this.idx].chosenAnswer = null;
+      App.user.questions[this.idx].value = null;
 
     },
 
@@ -4369,7 +4409,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
 } );
 
-define('text!tpl/summary.html',[],function () { return '<div class="summary-inner">\n\n    summary here\n\n</div>';});
+define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="">\n        summary here\n    </div>\n\n    <a href="#" class="restart">RESTART</a>\n\n</div>';});
 
 define( 'views/summaryView.js',['require','backbone','text!tpl/summary.html'],function ( require ) {
 
@@ -4406,11 +4446,21 @@ define( 'views/summaryView.js',['require','backbone','text!tpl/summary.html'],fu
 
     setupElements: function () {
 
+      this.$restart = this.$('.restart');
+
     },
 
     setupEvents: function () {
 
-      //this.$el.on( 'click', '.open-item', this.openItem.bind( this ) );
+      var click = App.isTouch ? 'touchstart' : 'click';
+      this.$restart.on( click, this.restart.bind( this ) );
+
+    },
+
+    restart: function(e) {
+
+      e.preventDefault();
+      App.router.restart();
 
     },
 
@@ -4498,39 +4548,34 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       setTimeout( this.showQuestion.bind( this, idx ), 250 );
 
-      // Load animation
-      //$.ajax( {
-      //  url: imgSrc,
-      //  dataType: 'text',
-      //  success: function ( code ) {
-      //
-      //    this.questionsViews[idx] = new QuestionView( {parent: '#questions', animationCode: code} );
-      //    this.questionsViews[idx].render( idx );
-      //
-      //    setTimeout( this.showQuestion.bind( this, idx ), 250 );
-      //
-      //  }.bind( this ),
-      //
-      //  error: function ( a, b, c ) {
-      //    console.log( a, b, c );
-      //  }
-      //} );
-
     },
 
     showQuestion: function ( idx ) {
 
-      _.each( this.questionsViews, function ( view, i ) {
-        this.hide( view );
-      }.bind( this ) );
+      // Hide summary if necessary
+      if ( this.summaryView ) {
+        this.hide( this.summaryView );
+        this.show( this.$questions );
+      }
 
-      this.show( this.questionsViews[idx] );
+      // Hide all question views
+      _.each( this.questionsViews, function ( view, i ) {
+
+        console.log(i, idx);
+
+        if ( parseInt(i) !== parseInt(idx) ) {
+          this.hide( view );
+        } else {
+          this.show( view );
+        }
+
+      }.bind( this ) );
 
     },
 
     renderSummary: function () {
 
-      this.summaryView = new SummaryView( '#summary' );
+      this.summaryView = new SummaryView( {el: '#summary'} );
       this.summaryView.render();
 
     },
@@ -4555,6 +4600,29 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       //var event = App.isTouch ? 'touchstart' : 'click';
       // this.$el.on( event, this.onClick.bind( this ) );
 
+      //if ( App.transitionend ) {
+      //  $(document).on( App.transitionend, '.content-element', function ( e ) {
+      //
+      //    //e.stopPropagation(); //
+      //
+      //    var el = e.originalEvent.target;
+      //
+      //    //console.log( e.currentTarget.id );
+      //    //if ( el.id === 'question-inner-' + this.idx ) {
+      //    //  console.log( e.originalEvent );
+      //    //  console.log( e.originalEvent.target.id );
+      //    //  console.log( e.originalEvent.propertyName );
+      //
+      //      var $el = $( el );
+      //
+      //      if ( $el.hasClass( 'hidden' ) ) {
+      //        $el.addClass('absolute-hidden');
+      //      }
+      //
+      //    //}
+      //  }.bind( this ) );
+      //}
+
     },
 
     show: function ( view ) {
@@ -4574,6 +4642,17 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       } else if ( view instanceof jQuery ) {
         view.addClass( 'hidden' );
       }
+
+    },
+
+    resetAll: function () {
+
+      // Reset user state, question state, DOM state
+      _.each( this.questionsViews, function ( view, i ) {
+
+        view.reset();
+
+      } );
 
     },
 
@@ -4603,7 +4682,7 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
     routes: {
 
       '': 'question',
-      ':idx': 'question'
+      //':idx': 'question'
 
     },
 
@@ -4617,15 +4696,61 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
       this.mainView = new MainView( {el: '#main'} );
       this.mainView.render();
 
+      this.currentQuestion = 0;
+
     },
 
-    question: function ( idx ) {
+    question: function () {
 
-      idx = this.validate( idx );
+      //var idx = this.validate( idx );
 
-      console.log( 'question idx: ' + idx );
+      console.log( 'question idx: ' + this.currentQuestion );
 
-      this.mainView.openQuestion( idx );
+      if ( this.currentQuestion >= this.questionsCount ) {
+
+        this.mainView.showSummary();
+
+      } else {
+
+        this.mainView.openQuestion( this.currentQuestion );
+
+      }
+
+    },
+
+    //question: function ( idx ) {
+    //
+    //  idx = this.validate( idx );
+    //
+    //  console.log( 'question idx: ' + idx );
+    //
+    //  if (idx >= this.questionsCount) {
+    //
+    //    this.mainView.showSummary();
+    //
+    //  } else {
+    //
+    //    this.mainView.openQuestion( idx );
+    //
+    //  }
+    //
+    //},
+
+    next: function () {
+
+      this.currentQuestion += 1;
+
+      this.question();
+
+    },
+
+    restart: function () {
+
+      this.mainView.resetAll();
+
+      this.currentQuestion = 0;
+
+      this.question();
 
     },
 
@@ -4633,7 +4758,7 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
       var validIdx = parseInt( idx );
 
-      if ( _.isNaN( validIdx ) || validIdx >= this.questionsCount ) {
+      if ( _.isNaN( validIdx ) || validIdx <= -1 ) {
         validIdx = 0;
       }
 
@@ -5071,25 +5196,29 @@ define( 'views/userView',['require','backbone'],function ( require ) {
 
     initialize: function () {
 
-      this.data = this.resetUserData( App.data.questions );
+      this.questions = this.resetUserData();
 
-      console.log( this.data );
+      //console.log( this.data );
 
     },
 
 
     // Create user data
-    resetUserData: function ( questions ) {
+    resetUserData: function () {
 
-      var data = {
-        questions: []
-      };
+      var questions = App.data.questions;
+
+      var data = [];
 
       questions.forEach( function ( el, i ) {
 
-        data.questions[i] = {};
-        data.questions[i].idx = i;
-        data.questions[i].chosenAnswer = null;
+        var userData = {
+          idx: i,
+          chosenAnswer: null,
+          value: null
+        };
+
+        data[i] = userData;
 
       } );
 
@@ -5135,12 +5264,13 @@ define( 'app',['require','backbone','router','mediator-js','resize','views/userV
 
 
   // Disable console.log on IE 9
-  if ( !App.supportTransitions ) {
-    window.console = {
-      log: $.noop()
-    };
-  }
+  //if ( !App.supportTransitions ) {
+  //  window.console = {
+  //    log: $.noop()
+  //  };
+  //}
 
+  console.log( 'still alive' );
 
   // Get data and start main view
   $.ajax( {
@@ -5151,12 +5281,16 @@ define( 'app',['require','backbone','router','mediator-js','resize','views/userV
     type: 'GET',
     success: function ( data ) {
 
+      console.log( 'ajax done' );
+
       // Make data global
       App.data = data;
 
       // Create new user to track answers
       var UserView = require( 'views/userView' );
       App.user = new UserView();
+
+      console.log( App.user.questions );
 
       // Start router
       App.router = new Router();

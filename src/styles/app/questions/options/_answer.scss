@@ -4,10 +4,28 @@
   margin-bottom: 25px;
   cursor: pointer;
 
-  &:hover {
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  //.no-touch & {
+    &:hover {
+      .letter {
+        @include transform(scale(1.15, 1.15));
+      }
+    }
+  //}
+
+  &.selected {
+
     .letter {
       @include transform(scale(1.15, 1.15));
     }
+
+    .text {
+      font-weight: bold;
+    }
+
   }
 
   .letter {
@@ -22,7 +40,7 @@
     @include border-radius(50%);
     z-index: 10;
 
-    @include css3-prefix(transition-duration, 0.4s);
+    @include css3-prefix(transition-duration, 0.3s);
     @include css3-prefix(transition-property, transform);
   }
 

@@ -1,7 +1,7 @@
 #content {
 
   position: relative;
-  height: 100%;
+  //height: 100%;
   min-height: 100%;
 
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
@@ -16,21 +16,25 @@
   .content-element {
     z-index: 10;
     opacity: 1;
-    @include css3-prefix(transition-duration, 0.8s);
-    @include css3-prefix(transition-property, opacity);
-    //height: auto;
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include css3-prefix(transition-duration, 0.5s);
+    @include css3-prefix(transition-property, (opacity));
+
+    //> .inner {
+    //  @include transform(translateY(0));
+    //  @include css3-prefix(transition-duration, 1s);
+    //  @include css3-prefix(transition-property, (transform));
+    //}
 
     &.hidden {
-      z-index: -1000;
       opacity: 0;
-      height: 0px !important;
-      //width: 0px !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      position: absolute !important;
-      top: -2000px;
-      left: -2000px;
+      z-index: 1;
+
+      //> .inner {
+      //  @include transform(translateY(2%));
+      //}
     }
   }
 

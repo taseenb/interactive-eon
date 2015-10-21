@@ -10,25 +10,29 @@ define( function ( require ) {
 
     initialize: function () {
 
-      this.data = this.resetUserData( App.data.questions );
+      this.questions = this.resetUserData();
 
-      console.log( this.data );
+      //console.log( this.data );
 
     },
 
 
     // Create user data
-    resetUserData: function ( questions ) {
+    resetUserData: function () {
 
-      var data = {
-        questions: []
-      };
+      var questions = App.data.questions;
+
+      var data = [];
 
       questions.forEach( function ( el, i ) {
 
-        data.questions[i] = {};
-        data.questions[i].idx = i;
-        data.questions[i].chosenAnswer = null;
+        var userData = {
+          idx: i,
+          chosenAnswer: null,
+          value: null
+        };
+
+        data[i] = userData;
 
       } );
 
