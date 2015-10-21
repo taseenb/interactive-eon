@@ -32,8 +32,6 @@ define( function ( require ) {
 
     question: function () {
 
-      //var idx = this.validate( idx );
-
       console.log( 'question idx: ' + this.currentQuestion );
 
       if ( this.currentQuestion >= this.questionsCount ) {
@@ -47,24 +45,6 @@ define( function ( require ) {
       }
 
     },
-
-    //question: function ( idx ) {
-    //
-    //  idx = this.validate( idx );
-    //
-    //  console.log( 'question idx: ' + idx );
-    //
-    //  if (idx >= this.questionsCount) {
-    //
-    //    this.mainView.showSummary();
-    //
-    //  } else {
-    //
-    //    this.mainView.openQuestion( idx );
-    //
-    //  }
-    //
-    //},
 
     next: function () {
 
@@ -82,6 +62,8 @@ define( function ( require ) {
 
       this.question();
 
+      this.scrollTop();
+
     },
 
     validate: function ( idx ) {
@@ -93,6 +75,19 @@ define( function ( require ) {
       }
 
       return validIdx;
+
+    },
+
+    scrollTop: function () {
+
+      iframeMessenger.scrollTo( 0, 0 );
+
+      iframeMessenger.getPositionInformation( function ( obj ) {
+
+        var y = Math.abs( obj.iframeTop );
+        iframeMessenger.scrollTo( 0, y );
+
+      } );
 
     }
 

@@ -4365,8 +4365,6 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
     selectAnswer: function ( e ) {
 
-      console.log( e );
-
       if ( !this.done ) {
 
         this.done = true;
@@ -4569,8 +4567,6 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       // Hide all question views
       _.each( this.questionsViews, function ( view, i ) {
 
-        console.log(i, idx);
-
         if ( parseInt(i) !== parseInt(idx) ) {
           this.hide( view );
         } else {
@@ -4607,29 +4603,6 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       //var event = App.isTouch ? 'touchstart' : 'click';
       // this.$el.on( event, this.onClick.bind( this ) );
-
-      //if ( App.transitionend ) {
-      //  $(document).on( App.transitionend, '.content-element', function ( e ) {
-      //
-      //    //e.stopPropagation(); //
-      //
-      //    var el = e.originalEvent.target;
-      //
-      //    //console.log( e.currentTarget.id );
-      //    //if ( el.id === 'question-inner-' + this.idx ) {
-      //    //  console.log( e.originalEvent );
-      //    //  console.log( e.originalEvent.target.id );
-      //    //  console.log( e.originalEvent.propertyName );
-      //
-      //      var $el = $( el );
-      //
-      //      if ( $el.hasClass( 'hidden' ) ) {
-      //        $el.addClass('absolute-hidden');
-      //      }
-      //
-      //    //}
-      //  }.bind( this ) );
-      //}
 
     },
 
@@ -4710,8 +4683,6 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
     question: function () {
 
-      //var idx = this.validate( idx );
-
       console.log( 'question idx: ' + this.currentQuestion );
 
       if ( this.currentQuestion >= this.questionsCount ) {
@@ -4725,24 +4696,6 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
       }
 
     },
-
-    //question: function ( idx ) {
-    //
-    //  idx = this.validate( idx );
-    //
-    //  console.log( 'question idx: ' + idx );
-    //
-    //  if (idx >= this.questionsCount) {
-    //
-    //    this.mainView.showSummary();
-    //
-    //  } else {
-    //
-    //    this.mainView.openQuestion( idx );
-    //
-    //  }
-    //
-    //},
 
     next: function () {
 
@@ -4760,6 +4713,8 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
       this.question();
 
+      this.scrollTop();
+
     },
 
     validate: function ( idx ) {
@@ -4771,6 +4726,19 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
       }
 
       return validIdx;
+
+    },
+
+    scrollTop: function () {
+
+      iframeMessenger.scrollTo( 0, 0 );
+
+      iframeMessenger.getPositionInformation( function ( obj ) {
+
+        var y = Math.abs( obj.iframeTop );
+        iframeMessenger.scrollTo( 0, y );
+
+      } );
 
     }
 
@@ -5278,8 +5246,6 @@ define( 'app',['require','backbone','router','mediator-js','resize','views/userV
   //  };
   //}
 
-  console.log( 'still alive' );
-
   // Get data and start main view
   $.ajax( {
     url: 'data/data.js',
@@ -5289,16 +5255,12 @@ define( 'app',['require','backbone','router','mediator-js','resize','views/userV
     type: 'GET',
     success: function ( data ) {
 
-      console.log( 'ajax done' );
-
       // Make data global
       App.data = data;
 
       // Create new user to track answers
       var UserView = require( 'views/userView' );
       App.user = new UserView();
-
-      console.log( App.user.questions );
 
       // Start router
       App.router = new Router();

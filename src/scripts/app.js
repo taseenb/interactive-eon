@@ -35,8 +35,6 @@ define( function ( require ) {
   //  };
   //}
 
-  console.log( 'still alive' );
-
   // Get data and start main view
   $.ajax( {
     url: 'data/data.js',
@@ -46,16 +44,12 @@ define( function ( require ) {
     type: 'GET',
     success: function ( data ) {
 
-      console.log( 'ajax done' );
-
       // Make data global
       App.data = data;
 
       // Create new user to track answers
       var UserView = require( 'views/userView' );
       App.user = new UserView();
-
-      console.log( App.user.questions );
 
       // Start router
       App.router = new Router();

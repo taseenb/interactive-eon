@@ -75,8 +75,6 @@ define( function ( require ) {
 
     selectAnswer: function ( e ) {
 
-      console.log( e );
-
       if ( !this.done ) {
 
         this.done = true;

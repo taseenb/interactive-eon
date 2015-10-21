@@ -84,8 +84,6 @@ define( function ( require ) {
       // Hide all question views
       _.each( this.questionsViews, function ( view, i ) {
 
-        console.log(i, idx);
-
         if ( parseInt(i) !== parseInt(idx) ) {
           this.hide( view );
         } else {
@@ -122,29 +120,6 @@ define( function ( require ) {
 
       //var event = App.isTouch ? 'touchstart' : 'click';
       // this.$el.on( event, this.onClick.bind( this ) );
-
-      //if ( App.transitionend ) {
-      //  $(document).on( App.transitionend, '.content-element', function ( e ) {
-      //
-      //    //e.stopPropagation(); //
-      //
-      //    var el = e.originalEvent.target;
-      //
-      //    //console.log( e.currentTarget.id );
-      //    //if ( el.id === 'question-inner-' + this.idx ) {
-      //    //  console.log( e.originalEvent );
-      //    //  console.log( e.originalEvent.target.id );
-      //    //  console.log( e.originalEvent.propertyName );
-      //
-      //      var $el = $( el );
-      //
-      //      if ( $el.hasClass( 'hidden' ) ) {
-      //        $el.addClass('absolute-hidden');
-      //      }
-      //
-      //    //}
-      //  }.bind( this ) );
-      //}
 
     },
 
