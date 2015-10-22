@@ -64,24 +64,15 @@
         position: relative;
         z-index: 5;
 
-        //.ct-grids {
-        //  background-image: url('#{$img-path}graph-bg.png');
-        //  background-size: auto 100%;
-        //  background-position: left center;
-        //  background-repeat: repeat-x;
-        //}
-
         .ct-line {
           stroke: $bgPink;
           stroke-width: 7px;
         }
 
         .ct-point {
-
           stroke: blue;
           stroke-width: 20px;
           stroke-linecap: square;
-
         }
       }
 
