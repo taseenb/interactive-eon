@@ -12134,7 +12134,9 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       this.$el.append( this.html );
 
-      this.renderGraph();
+      if ( !App.isPhone ) {
+        this.renderGraph();
+      }
 
       this.renderSwiper();
 

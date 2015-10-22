@@ -34,7 +34,9 @@ define( function ( require ) {
 
       this.$el.append( this.html );
 
-      this.renderGraph();
+      if ( !App.isPhone ) {
+        this.renderGraph();
+      }
 
       this.renderSwiper();
 
