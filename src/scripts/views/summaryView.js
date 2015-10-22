@@ -45,9 +45,15 @@ define( function ( require ) {
 
         spaceBetween: 50,
 
+        effect: App.isTouch ? 'slide' : 'fade',
+
+        fade: {
+          crossFade: true
+        },
+
         // Navigation arrows
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+        nextButton: '.text-box .next', //.swiper-button-next',
+        prevButton: '.text-box .prev'//'.swiper-button-prev'
 
       } );
 

@@ -43,10 +43,25 @@
                         <img class="deco" src="img/summary/bundle-2.png">
                     </div>
 
-                    <strong>
+                    <strong class="introTip">
                         <%= questions[i].answers[answer.chosenAnswer].introTip %>
                     </strong>
-                    <span><%= questions[i].tip %></span>
+
+                    <span class="tip">
+                        <%= questions[i].tip %>
+                    </span>
+
+                    <div class="arrows-wrapper">
+
+                        <% if (i >= userAnswers.length-1) { %>
+                        <span class="restart">RESTART</span>
+                        <% } %>
+
+                        <span class="prev">PREV</span>
+                        <span class="next">NEXT</span>
+                    </div>
+
+
 
                 </div>
 
@@ -56,12 +71,10 @@
         </div>
 
         <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <!--<div class="swiper-button-prev"></div>-->
+        <!--<div class="swiper-button-next"></div>-->
 
     </div>
 
-
-    <a href="#" class="restart">RESTART</a>
 
 </div>

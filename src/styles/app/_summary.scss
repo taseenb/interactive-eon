@@ -10,7 +10,6 @@
   }
 
   .inner {
-
     position: relative;
     margin: 0 auto;
     padding: 15px;
@@ -19,13 +18,13 @@
       width: 85%;
     }
 
-    @media(min-width: 660px) {
-      width: 75%;
-    }
+    //@media(min-width: 660px) {
+    //  width: 75%;
+    //}
 
-    @media(min-width: 740px) {
-      width: 62%;
-    }
+    //@media(min-width: 740px) {
+    //  width: 62%;
+    //}
 
     @media(min-width: 980px) {
       max-width: 1024px;

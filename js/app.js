@@ -7853,7 +7853,7 @@ else if (typeof define === 'function' && define.amd) {
     });
 };
 
-define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n                <span>Click on the nodes to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div class="graph">\n                    GRAPH HERE\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong>\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n                    <span><%= questions[i].tip %></span>\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n        <!-- If we need navigation buttons -->\n        <div class="swiper-button-prev"></div>\n        <div class="swiper-button-next"></div>\n\n    </div>\n\n\n    <a href="#" class="restart">RESTART</a>\n\n</div>';});
+define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n                <span>Click on the nodes to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div class="graph">\n                    GRAPH HERE\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong class="introTip">\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n\n                    <span class="tip">\n                        <%= questions[i].tip %>\n                    </span>\n\n                    <div class="arrows-wrapper">\n\n                        <% if (i >= userAnswers.length-1) { %>\n                        <span class="restart">RESTART</span>\n                        <% } %>\n\n                        <span class="prev">PREV</span>\n                        <span class="next">NEXT</span>\n                    </div>\n\n\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n        <!-- If we need navigation buttons -->\n        <!--<div class="swiper-button-prev"></div>-->\n        <!--<div class="swiper-button-next"></div>-->\n\n    </div>\n\n\n</div>';});
 
 define( 'views/summaryView.js',['require','backbone','swiper','text!tpl/summary.html'],function ( require ) {
 
@@ -7902,9 +7902,15 @@ define( 'views/summaryView.js',['require','backbone','swiper','text!tpl/summary.
 
         spaceBetween: 50,
 
+        effect: App.isTouch ? 'slide' : 'fade',
+
+        fade: {
+          crossFade: true
+        },
+
         // Navigation arrows
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+        nextButton: '.text-box .next', //.swiper-button-next',
+        prevButton: '.text-box .prev'//'.swiper-button-prev'
 
       } );
 

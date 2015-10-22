@@ -1586,12 +1586,6 @@ footer {
     @media (min-width: 480px) {
       #summary .inner {
         width: 85%; } }
-    @media (min-width: 660px) {
-      #summary .inner {
-        width: 75%; } }
-    @media (min-width: 740px) {
-      #summary .inner {
-        width: 62%; } }
     @media (min-width: 980px) {
       #summary .inner {
         max-width: 1024px;
@@ -1815,7 +1809,8 @@ footer {
     .result-header .result-overview .graph-wrapper {
       display: block;
       position: relative;
-      height: 160px; }
+      height: 160px;
+      margin-bottom: 10px; }
       .result-header .result-overview .graph-wrapper .graph {
         background-color: #FFF;
         height: 100%;
@@ -1890,11 +1885,32 @@ footer {
       font-size: 14px;
       line-height: 18px;
       padding: 15px; }
-    .result-list .list-item .text-box span {
+    .result-list .list-item .text-box .tip {
       display: block;
       font-size: 13px;
       line-height: 16px;
       padding: 0 15px 15px 15px; }
+    .result-list .list-item .text-box .arrows-wrapper {
+      text-align: right;
+      margin: 0 15px 15px 15px; }
+      .result-list .list-item .text-box .arrows-wrapper .restart,
+      .result-list .list-item .text-box .arrows-wrapper .prev,
+      .result-list .list-item .text-box .arrows-wrapper .next {
+        cursor: pointer;
+        display: inline-block;
+        padding: 10px;
+        border: 2px solid #333;
+        background-color: #21C28C;
+        font-size: 10px;
+        margin-left: 15px; }
+        .result-list .list-item .text-box .arrows-wrapper .restart.swiper-button-disabled,
+        .result-list .list-item .text-box .arrows-wrapper .prev.swiper-button-disabled,
+        .result-list .list-item .text-box .arrows-wrapper .next.swiper-button-disabled {
+          display: none; }
+      .result-list .list-item .text-box .arrows-wrapper .restart {
+        float: left;
+        background-color: #db71aa;
+        margin: 0 !important; }
 
 @media (min-width: 980px) {
   .result-list {
