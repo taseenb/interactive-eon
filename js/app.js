@@ -7902,7 +7902,15 @@ define( 'views/summaryView.js',['require','backbone','swiper','text!tpl/summary.
 
         spaceBetween: 50,
 
+        roundLengths: true,
+
         effect: App.isTouch ? 'slide' : 'fade',
+
+        simulateTouch: false,
+
+        shortSwipes: App.isTouch,
+
+        longSwipes: App.isTouch,
 
         fade: {
           crossFade: true
