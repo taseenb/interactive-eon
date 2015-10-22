@@ -9,6 +9,8 @@ var require = {
     "mediator-js": "vendors/mediator",
     "text": "vendors/text",
     "swiper": "vendors/swiper.jquery",
+    "chartist": "vendors/chartist",
+    "chartist.plugins.tooltips": "vendors/chartist-plugin-tooltip",
 
     "analytics": "analytics",
     //"swiper": "vendors/idangerous.swiper-2.7.6",

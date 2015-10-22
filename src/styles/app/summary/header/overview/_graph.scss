@@ -7,15 +7,92 @@
     position: relative;
     height: 160px;
     margin-bottom: 10px;
+    overflow: visible;
+
+    .labels {
+      position: relative;
+      width: 100%;
+      overflow: visible;
+      //background-color: #FFF;
+      height: 20px;
+      font-size: 0;
+      white-space: nowrap;
+
+      .label {
+        display: inline-block;
+        font-size: 10px;
+        text-align: left;
+        padding: 5px 0;
+        position: relative;
+        overflow: visible;
+
+        &:first-of-type {
+          .text {
+            @include transform(translateX(0));
+          }
+        }
+
+        &:last-of-type {
+          .text {
+            @include transform(translateX(-100%));
+          }
+        }
+
+        .text {
+          position: absolute;
+          @include transform(translateX(-50%));
+        }
+
+      }
+    }
 
     .graph {
+      position: relative;
+      //background-color: #FFF;
 
-      background-color: #FFF;
+      background-image: url('#{$img-path}graph-bg.png');
+      background-size: auto 100%;
+      background-position: left center;
+      background-repeat: repeat-x;
 
-      height: 100%;
+      height: 140px;
       box-sizing: border-box;
-      padding: 20px;
+      //padding: 10px;
+
       border: 2px solid #333;
+      svg {
+        position: relative;
+        z-index: 5;
+
+        //.ct-grids {
+        //  background-image: url('#{$img-path}graph-bg.png');
+        //  background-size: auto 100%;
+        //  background-position: left center;
+        //  background-repeat: repeat-x;
+        //}
+
+        .ct-line {
+          stroke: $bgPink;
+        }
+
+        .ct-point {
+
+          stroke: blue;
+          stroke-width: 20px;
+          stroke-linecap: square;
+
+        }
+      }
+
+      .bg {
+        position: absolute;
+        background-color: blue;
+        height: 140px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
 
     }
 

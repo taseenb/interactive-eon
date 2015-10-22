@@ -6,6 +6,8 @@ define( function ( require ) {
   var Backbone = require( 'backbone' );
 
   var Swiper = require( 'swiper' );
+  var Chartist = require( 'chartist' );
+  require( 'chartist.plugins.tooltips' );
 
   var tpl = require( 'text!tpl/summary.html' );
 
@@ -32,10 +34,64 @@ define( function ( require ) {
 
       this.$el.append( this.html );
 
+      this.renderGraph();
+
       this.renderSwiper();
 
       this.setupElements();
       this.setupEvents();
+
+    },
+
+    renderGraph: function () {
+
+      var labels = _.map( App.data.questions, function ( question ) {
+        return question.title;
+      } );
+
+      var values = _.map( App.user.answers, function ( answer ) {
+        return answer.value;
+      } );
+
+      console.log( labels, values );
+
+      var chartistData = {
+        labels: labels,
+        series: [values]
+      };
+
+      var chartistOptions = {
+        fullWidth: true,
+
+        width: '100%',
+        height: '100%',
+
+        high: 6,
+        low: 0,
+
+        axisX: {
+          showLabel: false,
+          showGrid: false,
+          offset: 0,
+          position: 'start'
+        },
+
+        axisY: {
+          offset: 0,
+          showLabel: false,
+          showGrid: false,
+          position: 'start'
+        },
+
+        chartPadding: {
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0
+        }
+      };
+
+      new Chartist.Line( this.$( '#graph' )[0], chartistData, chartistOptions );
 
     },
 

@@ -14,8 +14,25 @@
 
             <div class="graph-wrapper">
 
-                <div class="graph">
-                    GRAPH HERE
+                <div id="graph" class="graph"></div>
+
+                <div class="labels">
+
+                    <%
+
+                    //var labelWidth = Math.floor(100 / (questions.length-1));
+                    var labelWidth = 100 / (questions.length-1);
+
+                    _.each(questions, function(question, i) {
+
+                    %>
+
+                        <span class="label" style="width: <%= labelWidth %>%">
+                            <span class="text"><%= question.title %></span>
+                        </span>
+
+                    <% }); %>
+
                 </div>
 
             </div>
@@ -60,7 +77,6 @@
                         <span class="prev">PREV</span>
                         <span class="next">NEXT</span>
                     </div>
-
 
 
                 </div>
