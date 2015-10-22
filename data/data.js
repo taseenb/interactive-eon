@@ -1,5 +1,11 @@
 callback( {
-  "copy": {},
+  "copy": {
+    "summaryTitle": {
+      "bad": "You're not efficient! You need help!",
+      "medium": "You're quite efficient but...there's room for improvement!",
+      "good": "You're too efficient: you need to have some fun!"
+    }
+  },
   "questions": [
     {
       "idx": 0,
@@ -9,21 +15,25 @@ callback( {
       "ui": "blue",
       "bg": "green",
       "bgImg": "pattern-dots.svg",
+      "timeImg": "7am.svg",
       "answers": [
         {
           "text": "Growl, press snooze and drift back to sleep until the alarm finally shakes you out of bed 15 minutes later.",
           "value": 1,
-          "introTip": "You answered that you press the snooze button. You’d be better off getting up and leaving time for breakfast."
+          "introTip": "You answered that you press the snooze button. You’d be better off getting up and leaving time for breakfast.",
+          "eval": "bad"
         },
         {
           "text": "Crawl out of bed, put the kettle on and take 20 minutes to enjoy a healthy breakfast.",
           "value": 3,
-          "introTip": "You answered that you enjoy a healthy breakfast. Well done, breakfast really is the most important meal of the day. Try working in a quick run or bike ride before."
+          "introTip": "You answered that you enjoy a healthy breakfast. Well done, breakfast really is the most important meal of the day. Try working in a quick run or bike ride before.",
+          "eval": "medium"
         },
         {
           "text": "Fist pump the air and immediately greet the morning with a 5k run, leaving time for a hearty breakfast.",
           "value": 5,
-          "introTip": "You said that you greet the day with a 5k run – wow, you must feel on top of the world every morning."
+          "introTip": "You said that you greet the day with a 5k run – wow, you must feel on top of the world every morning.",
+          "eval": "good"
         }
       ],
       "tip": "How you start your day can have an impact on levels of concentration. Eating a nutritious breakfast is one way to ensure you have enough energy to keep your body and brain fully charged until lunchtime. Nutritionist Dr Emma Derbyshire suggests either a bowl of high fibre multigrain cereals or eggs which have been found to <a href='http://www.livestrong.com/article/547888-brain-food-and-egg-yolks/'>boost brain function</a>. Research also shows that <a href='http://www.health.harvard.edu/press_releases/regular-exercise-releases-brain-chemicals-key-for-memory-concentration-and-mental-sharpness/'>regular exercise boosts energy levels and sharpens focus</a>."
@@ -37,21 +47,25 @@ callback( {
       "ui": "green",
       "bg": "blue",
       "bgImg": "",
+      "timeImg": "9am.svg",
       "answers": [
         {
           "text": "Immediately whip out your phone and start replying to emails, while waiting for your computer to log in.",
           "value": 2,
-          "introTip": "You answered that you immediately check your emails. Looking busy doesn’t necessarily make you productive. Re-focus with a spot of mindfulness meditation"
+          "introTip": "You answered that you immediately check your emails. Looking busy doesn’t necessarily make you productive. Re-focus with a spot of mindfulness meditation",
+          "eval": "medium"
         },
         {
           "text": "Relax, close your eyes, focus on your breath and feel totally Zen.",
           "value": 1,
-          "introTip": "You answered that you relax and focus on your breath. Mindfulness has been shown to improve concentration. Put that focus to good use by prioritising work"
+          "introTip": "You answered that you relax and focus on your breath. Mindfulness has been shown to improve concentration. Put that focus to good use by prioritising work",
+          "eval": "bad"
         },
         {
           "text": "You focus and become mindful of the present moment, then spend some time prioritising tasks for the day.",
           "value": 5,
-          "introTip": "You said you become mindful of the moment, before prioritising tasks –  you are the master of calm and efficiency, and nothing can phase you now"
+          "introTip": "You said you become mindful of the moment, before prioritising tasks –  you are the master of calm and efficiency, and nothing can phase you now",
+          "eval": "good"
         }
       ],
       "tip": "Constantly checking your emails might make you look hard working, but it doesn’t necessarily mean you are being productive. <a href='http://news.ubc.ca/2014/12/03/check-less-to-reduce-email-stress/'>Research [PDF]</a> from the University of British Columbia suggests that reducing the number of times you check your inbox can lessen stress. Working in some mindfulness meditation throughout the day will also help you stay calm and focused. While multi-tasking is also a no-no, according to psychologists. It is more <a href='http://www.apa.org/research/action/multitask.aspx'>productive to do one task at a time</a>."
@@ -65,21 +79,26 @@ callback( {
       "ui": "blue",
       "bg": "pink",
       "bgImg": "pattern-dots.svg",
+      "timeImg": "11am.svg",
       "answers": [
         {
           "text": "Punch the wall and shout obscenities as you sweep dramatically out of the room, slamming the door behind you.",
           "value": 1,
           "introTip": "You answered that you would storm out of the office in an irrational rage. Getting angry never solved anything. Try taking more breaks to avoid a blowout."
+          ,
+          "eval": "bad"
         },
         {
           "text": "Decide it’s time to take a few moments to calm down and make a cup of tea or coffee.",
           "value": 3,
-          "introTip": "You answered that you would take a break. Great idea! Research shows this is the best way to re-focus during a busy work day."
+          "introTip": "You answered that you would take a break. Great idea! Research shows this is the best way to re-focus during a busy work day.",
+          "eval": "medium"
         },
         {
           "text": "Stretch and smile, remembering all the great reasons why you wanted to start a business in the first place.",
           "value": 4,
-          "introTip": "You answered that you would stretch and smile. Grinning will tell your brain to be happy but try doing it while on a quick coffee break."
+          "introTip": "You answered that you would stretch and smile. Grinning will tell your brain to be happy but try doing it while on a quick coffee break.",
+          "eval": "good"
         }
       ],
       "tip": "Time is precious for most entrepreneurs, so the idea of pushing through the day without any breaks is tempting. Working full-throttle isn’t going to improve productivity, however. Psychologists at the University of Illinois found that <a href='https://news.illinois.edu/websandthumbs/lleras,alejandro/lleras_sdarticle-17.pdf'>taking short, regular breaks [PDF]</a> has been found to increase focus. While simply telling your face to smile can improve your happiness and <a href='http://pss.sagepub.com/content/early/2012/09/23/0956797612445312'>reduce stress at work</a> thanks the release of <a href='https://www.psychologytoday.com/blog/cutting-edge-leadership/201206/there-s-magic-in-your-smile/'>neuropeptides</a>."
@@ -93,24 +112,28 @@ callback( {
       "ui": "green",
       "bg": "pink",
       "bgImg": "pattern-dots.svg",
+      "timeImg": "1pm.svg",
       "answers": [
         {
           "text": "Head for a fast food restaurant and order an extra large burger and fries.",
           "value": 2,
-          "introTip": "You answered that you would spend lunch at fast food restaurant. While it’s good you are eating something, it’s called junk food for a reason. Try some fresh fruit and salad instead."
+          "introTip": "You answered that you would spend lunch at fast food restaurant. While it’s good you are eating something, it’s called junk food for a reason. Try some fresh fruit and salad instead.",
+          "eval": "medium"
         },
         {
           "text": "Skip lunch altogether, replacing food with the nourishment of hard work.",
           "value": 1,
-          "introTip": "You answered that you would skip lunch. It’s tempting to keep working when you have deadlines, but a healthy meal will definitely boost your brain power."
+          "introTip": "You answered that you would skip lunch. It’s tempting to keep working when you have deadlines, but a healthy meal will definitely boost your brain power.",
+          "eval": "bad"
         },
         {
           "text": "Take an hour to recharge and enjoy a healthy meal including fresh fish, vegetables and fruit.",
           "value": 5,
-          "introTip": "You answered that you would eat a healthy meal. Good decision! A diet of fruit and vegetables <a href='http://psychsource.bps.org.uk/details/journalArticle/7690441/On-carrots-and-curiosity-Eating-fruit-and-vegetables-is-associated-with-greater-.html'>has been shown to aid creativity in adults</a>."
+          "introTip": "You answered that you would eat a healthy meal. Good decision! A diet of fruit and vegetables <a href='http://psychsource.bps.org.uk/details/journalArticle/7690441/On-carrots-and-curiosity-Eating-fruit-and-vegetables-is-associated-with-greater-.html'>has been shown to aid creativity in adults</a>.",
+          "eval": "good"
         }
       ],
-      "tip": ""
+      "tip": "Instead of hitting the vending machine for lunch, <a href='http://www.today.com/health/happiness-may-be-bite-away-11-mood-boosting-foods-1C9381848'>have meals that involve yogurt, asparagus, honey, and cherry tomatoes</a>. Eating foods that keep your blood sugar within a normal range will stop headaches and fatigue, as well as help you concentrate better. Nutritionist Emma Derbyshire advises also including oily fish in your diet because they are rich in the fatty acids EPA and DHA that are <a href='http://www.ncbi.nlm.nih.gov/pubmed/18072818'>linked to mental function and cognition</a>."
     },
 
     {
@@ -121,21 +144,25 @@ callback( {
       "ui": "green",
       "bg": "blue",
       "bgImg": "",
+      "timeImg": "230pm.svg",
       "answers": [
         {
           "text": "Grab an extra strong coffee and wait for the caffeine to kick in.",
           "value": 2,
-          "introTip": "You answered that you would have a strong coffee to wake up. While the caffeine might give you a quick kick, a short nap will give you more energy for longer."
+          "introTip": "You answered that you would have a strong coffee to wake up. While the caffeine might give you a quick kick, a short nap will give you more energy for longer.",
+          "eval": "medium"
         },
         {
           "text": "Put your head down and take a power nap. You’ll feel better after closing your eyes for a while.",
           "value": 5,
-          "introTip": "You answered that you would take a power nap. Nodding off for a short time improves alertness."
+          "introTip": "You answered that you would take a power nap. Nodding off for a short time improves alertness.",
+          "eval": "good"
         },
         {
           "text": "Power through hoping the drowsiness will pass in time for the last train home.",
           "value": 1,
-          "introTip": "You answered that you would keep going until home time. You need to take a break – a power nap can make the world of difference."
+          "introTip": "You answered that you would keep going until home time. You need to take a break – a power nap can make the world of difference.",
+          "eval": "bad"
         }
       ],
       "tip": "If you’re feeling tired during the afternoon, don’t fight it. Power naps are an 80s cliche but high-powered investment bankers take them for a reason. A small study in the journal Personality and Individual Differences showed that napping not only reduces tiredness, but the <a href='http://www.sciencedirect.com/science/article/pii/S0191886915003943'>impulsive decision-making and short-temperedness</a> that goes along with it. Keep it short though, advises Stuart Martin – a consultant at the Work Psychology Group – as anything more than two hours can lead to grogginess. He says even <a href='http://www.ncbi.nlm.nih.gov/pubmed/21075238'>a brief nap of seven to 10 minutes can have immediate benefits</a>  lasting up to three hours and is more effective than caffeine in increasing alertness."
@@ -149,21 +176,27 @@ callback( {
       "ui": "green",
       "bg": "blue",
       "bgImg": "",
+      "timeImg": "4pm.svg",
       "answers": [
         {
           "text": "Remove all the chairs in the meeting room, hold the meeting standing up or confidently announce “Let’s walk and talk, people.”",
           "value": 2,
-          "introTip": "You answered that you would hold the meeting standing up.You have been doing your research."
+          "introTip": "You answered that you would hold the meeting standing up.You have been doing your research.",
+          "eval": "bad"
         },
         {
           "text": "Hide under your desk until it’s all over and you can go home. Meetings are a drag.",
           "value": 4,
           "introTip": "You answered that you would hide under your desk. If you hate meetings, try something different like going for a group walk."
+        ,
+        "eval": "good"
         },
         {
           "text": "Breath a heavy sigh then take your seat for an hour’s meeting that in the end feels like an eternity.",
           "value": 3,
           "introTip": "You answered that you would reluctantly attend the meeting. How about trying a new format?"
+          ,
+          "eval": "medium"
         }
       ],
       "tip": "It may sound silly, but holding a meeting where everyone stands could be just the ticket to getting your creative juices flowing and energising your team. Research from Washington University suggests <a href='http://spp.sagepub.com/content/early/2014/06/12/1948550614538463.abstract'>standing improves group performance</a>, while a different report from Stanford University showed that walking also boosts creativity."
@@ -177,21 +210,25 @@ callback( {
       "ui": "green",
       "bg": "blue",
       "bgImg": "",
+      "timeImg": "6pm.svg",
       "answers": [
         {
           "text": "Play Candy Crush. You’re on level 250 and your friend is only one level above you. Winning is everything.",
           "value": 5,
-          "introTip": "You answered that you would play Candy Crush. While it’s a fun time waster, you might want to spend the time completing some short tasks."
+          "introTip": "You answered that you would play Candy Crush. While it’s a fun time waster, you might want to spend the time completing some short tasks.",
+          "eval": "good"
         },
         {
           "text": "Decide to use the journey to tie up a few loose ends at work. Each task will only take two minutes of your time anyway.",
           "value": 2,
-          "introTip": "You answered that you would work on short, two minute tasks. Great plan! This is a good opportunity to tie up any loose ends."
+          "introTip": "You answered that you would work on short, two minute tasks. Great plan! This is a good opportunity to tie up any loose ends.",
+          "eval": "bad"
         },
         {
           "text": "Have another nap. It’s been a long day after all and work can wait.",
           "value": 3,
-          "introTip": "You answered that would take another nap. A short doze is great for recharging the body and mind, but working on short two-minute tasks would be more productive."
+          "introTip": "You answered that would take another nap. A short doze is great for recharging the body and mind, but working on short two-minute tasks would be more productive.",
+          "eval": "medium"
         }
       ],
       "tip": "Ever heard of <a href='http://www.success.com/article/1-on-1-david-allens-two-minute-rule'>the two minute rule</a>? Time management consultant David Allen claims that if a task only takes a couple of minutes then you should just do it rather than wasting time reviewing and organising to complete it later. However, Rebecca Mossman, HR director at HireRight, warns to be careful when choosing which emails to respond to when out of the office. While some only require a simple answer, others may mean having to create more work for yourself by engaging in lengthy conversations and follow-up phone calls."
@@ -205,21 +242,25 @@ callback( {
       "ui": "blue",
       "bg": "pink",
       "bgImg": "pattern-dots.svg",
+      "timeImg": "1030pm.svg",
       "answers": [
         {
           "text": "Get out your laptop or smartphone and get ahead with some work.",
           "value": 1,
-          "introTip": "You answered that you would work until it’s time to go to bed. Research suggests that this has a negative effect on work productivity."
+          "introTip": "You answered that you would work until it’s time to go to bed. Research suggests that this has a negative effect on work productivity.",
+          "eval": "bad"
         },
         {
           "text": "Put your feet up, relax with a cup of camomile tea binge watching House of Cards then get some shut eye.",
           "value": 4,
-          "introTip": "You answered that you would relax and go to sleep. This is the best way to recharge and be as productive as possible the next day."
+          "introTip": "You answered that you would relax and go to sleep. This is the best way to recharge and be as productive as possible the next day.",
+          "eval": "good"
         },
         {
           "text": "Go to bed but you can’t resist the temptation to read some final emails before sleeping and start planning the next day.",
           "value": 2,
-          "introTip": "You answered that you would go to bed but read a few emails. While it might not seem like a huge task, it’s important to spend time away from work before sleeping."
+          "introTip": "You answered that you would go to bed but read a few emails. While it might not seem like a huge task, it’s important to spend time away from work before sleeping.",
+          "eval": "bad"
         }
       ],
       "tip": "Getting a good night’s sleep is important for recharging the body and mind. That’s why Stuart Martin, a consultant at the Work Psychology Group, advises busy entrepreneurs to moderate the amount of hours worked in one day. “It is tempting to keep crashing on until you fall asleep but your performance will decline,” he warns. Indeed, <a href='http://blogs.wsj.com/atwork/2014/02/06/smartphones-make-you-tired-and-unproductive-study-says/'>research suggests that reading and sending work emails</a> on a smartphone late into the evening has a detrimental effect on productivity. You will actually feel more exhausted by morning and disengaged by the next afternoon."

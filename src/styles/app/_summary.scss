@@ -1,13 +1,19 @@
 #summary {
 
-  //position: relative;
-  min-height: 100%;
   background-color: #f6f06b;
 
+  //position: relative;
+  min-height: 100%;
+
+  @media(min-width: 980px) {
+    height: 100%;
+  }
+
   .inner {
+
     position: relative;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 15px;
 
     @media(min-width: 480px) {
       width: 85%;
@@ -23,6 +29,10 @@
 
     @media(min-width: 980px) {
       max-width: 1024px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translateX(-50%) translateY(-50%));
     }
 
   }

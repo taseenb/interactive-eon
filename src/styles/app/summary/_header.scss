@@ -1,0 +1,13 @@
+.result-header {
+
+  @import 'header/overview';
+  @import 'header/title';
+
+  @media(min-width: 980px) {
+    background-image: url('#{$img-path}summary/bundle-1.png');
+    background-position: 100% 15%;
+    background-repeat: no-repeat;
+    background-size: 62% auto;
+  }
+
+}

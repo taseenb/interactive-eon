@@ -1,37 +1,67 @@
 <div class="inner">
 
-<div class="result-header">
+    <div class="result-header">
 
-    <h1 class="result-title">
-        You're quite efficient... but
-        <br>there is room for improvement
-    </h1>
+        <h1 class="result-title">
+            <%= copy.summaryTitle[userValues.title] %>
+        </h1>
 
-    <div class="result-look">
-        <div class="intro">
-            <strong>Here's how your day looks</strong>
-            <span>Click on the nodes to reveal more</span>
-        </div>
+        <div class="result-overview">
+            <div class="intro">
+                <strong>Here's how your day looks</strong>
+                <span>Click on the nodes to reveal more</span>
+            </div>
 
-        <div id="graph-wrapper">
-            GRAPH HERE
+            <div class="graph-wrapper">
+
+                <div class="graph">
+                    GRAPH HERE
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+    <div class="result-list swiper-container">
 
-<div class="result-list">
+        <div class="swiper-wrapper">
 
-    <% _.each(results.items, function(item, i) { %>
-    <div id="result-list-item-<%= i %>" class="list-item">
-            item <%= i %>
+            <% _.each(userAnswers, function(answer, i) { %>
+            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">
+                <!--Chosen answer: <%= answer.chosenAnswer %>-->
+                <!--Value: <%= answer.value %>-->
+
+                <div class="text-box">
+
+                    <div class="img-wrapper">
+                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">
+                        <img class="mark"
+                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">
+
+                        <img class="deco" src="img/summary/bundle-2.png">
+                    </div>
+
+                    <strong>
+                        <%= questions[i].answers[answer.chosenAnswer].introTip %>
+                    </strong>
+                    <span><%= questions[i].tip %></span>
+
+                </div>
+
+            </div>
+            <% }); %>
+
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
     </div>
-    <% }); %>
-
-</div>
 
 
-<a href="#" class="restart">RESTART</a>
+    <a href="#" class="restart">RESTART</a>
 
 </div>

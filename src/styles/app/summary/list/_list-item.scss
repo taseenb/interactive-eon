@@ -1,0 +1,84 @@
+.list-item {
+
+  padding: 40px 0 20px 0;
+
+  @media(min-width: 980px) {
+
+  }
+
+  .text-box {
+    position: relative;
+    border: 2px solid #333;
+    background-color: $bgBlue;
+
+    @media(min-width: 980px) {
+      width: 62%;
+    }
+
+    .img-wrapper {
+      font-size: 0;
+      position: relative;
+      //max-width: 62%;
+      white-space: nowrap;
+      height: 34px;
+      margin-top: -17px;
+      overflow: visible;
+      width: 100%;
+
+      @media(min-width: 980px) {
+        height: 44px;
+        margin-top: -22px;
+      }
+
+      .mark,
+      .time {
+        position: relative;
+        z-index: 5;
+        left: -2px;
+        display: inline-block;
+        vertical-align: middle;
+        height: 34px;
+
+        @media(min-width: 980px) {
+          height: 44px;
+        }
+      }
+
+      .mark {
+        left: -4px;
+      }
+
+      .deco {
+        display: none;
+
+        @media(min-width: 980px) {
+          z-index: 1;
+          display: block;
+          position: absolute;
+          height: 80px;
+          right: -40px;
+          top: -20px;
+        }
+      }
+    }
+
+    strong {
+      display: block;
+      font-weight: bold;
+      //margin-bottom: 15px;
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 15px;
+    }
+
+    span {
+      display: block;
+      font-size: 13px;
+      line-height: 16px;
+      padding: 0 15px 15px 15px;
+    }
+
+  }
+
+}

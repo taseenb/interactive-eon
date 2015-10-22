@@ -48,8 +48,8 @@ define( function ( require ) {
       App.data = data;
 
       // Create new user to track answers
-      var UserView = require( 'views/userView' );
-      App.user = new UserView();
+      var UserModel = require( 'models/userModel' );
+      App.user = new UserModel();
 
       // Start router
       App.router = new Router();

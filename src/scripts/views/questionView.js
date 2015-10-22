@@ -20,6 +20,7 @@ define( function ( require ) {
 
     initialize: function ( options ) {
 
+      this.idx = options.idx;
       this.$parent = $( options.parent );
       this.animationCode = options.animationCode;
 
@@ -27,11 +28,9 @@ define( function ( require ) {
 
     },
 
-    render: function ( idx ) {
+    render: function () {
 
-      this.idx = idx;
-
-      var svg = App.data.questions[idx].animationName + '.svg';
+      var svg = App.data.questions[this.idx].animationName + '.svg';
 
       this.html = this.template( {
         idx: this.idx,
@@ -51,7 +50,7 @@ define( function ( require ) {
 
       this.$parent.append( this.html );
 
-      this.setElement( this.$parent.find( '#question-' + idx ) );
+      this.setElement( this.$parent.find( '#question-' + this.idx ) );
 
       this.setupElements();
       this.setupEvents();
@@ -68,8 +67,8 @@ define( function ( require ) {
 
     setupEvents: function () {
 
-      var click = App.isTouch ? 'touchstart' : 'click';
-      this.$answers.on( click, this.selectAnswer.bind( this ) );
+      //var click = App.isTouch ? 'touchstart' : 'click';
+      this.$answers.on( 'click', this.selectAnswer.bind( this ) );
 
     },
 
@@ -87,9 +86,11 @@ define( function ( require ) {
         var value = $answer.data( 'value' );
         var idx = $answer.data( 'idx' );
 
+        console.log( 'user value: ', value );
+
         // Record user state
-        App.user.questions[this.idx].chosenAnswer = idx;
-        App.user.questions[this.idx].value = value;
+        App.user.answers[this.idx].chosenAnswer = idx;
+        App.user.answers[this.idx].value = value;
 
         App.router.next();
 
@@ -101,8 +102,8 @@ define( function ( require ) {
 
       this.done = false;
       this.$answers.removeClass( 'selected' );
-      App.user.questions[this.idx].chosenAnswer = null;
-      App.user.questions[this.idx].value = null;
+      App.user.answers[this.idx].chosenAnswer = null;
+      App.user.answers[this.idx].value = null;
 
     },
 

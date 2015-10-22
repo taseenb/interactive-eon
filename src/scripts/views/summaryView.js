@@ -5,6 +5,8 @@ define( function ( require ) {
   //var _ = require( 'underscore' );
   var Backbone = require( 'backbone' );
 
+  var Swiper = require( 'swiper' );
+
   var tpl = require( 'text!tpl/summary.html' );
 
 
@@ -12,31 +14,48 @@ define( function ( require ) {
 
     template: _.template( tpl ),
 
-    initialize: function ( options ) {
+    initialize: function () {
 
       App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
     },
 
-    render: function ( ) {
+    render: function () {
 
       this.html = this.template( {
         data: App.data,
-        results: {
-          items: [1, 2, 3, 4, 5, 6, 7, 8]
-        }
+        questions: App.data.questions,
+        copy: App.data.copy,
+        userAnswers: App.user.answers,
+        userValues: App.user.values
       } );
 
       this.$el.append( this.html );
+
+      this.renderSwiper();
 
       this.setupElements();
       this.setupEvents();
 
     },
 
+    renderSwiper: function () {
+
+      this.swiper = new Swiper( '.swiper-container', {
+
+        spaceBetween: 50,
+
+        // Navigation arrows
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+
+      } );
+
+    },
+
     setupElements: function () {
 
-      this.$restart = this.$('.restart');
+      this.$restart = this.$( '.restart' );
 
     },
 
@@ -47,7 +66,7 @@ define( function ( require ) {
 
     },
 
-    restart: function(e) {
+    restart: function ( e ) {
 
       e.preventDefault();
       App.router.restart();

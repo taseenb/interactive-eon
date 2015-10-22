@@ -44,6 +44,7 @@ define( function ( require ) {
 
     setupElements: function () {
 
+      this.$content = this.$el.find( '#content' );
       this.$questions = this.$el.find( '#questions' );
 
       this.$summary = this.$el.find( '#summary' );
@@ -66,8 +67,8 @@ define( function ( require ) {
 
     renderQuestion: function ( idx ) {
 
-      this.questionsViews[idx] = new QuestionView( {parent: '#questions'} );
-      this.questionsViews[idx].render( idx );
+      this.questionsViews[idx] = new QuestionView( {parent: '#questions', idx: idx} );
+      this.questionsViews[idx].render();
 
       setTimeout( this.showQuestion.bind( this, idx ), 250 );
 
@@ -84,7 +85,7 @@ define( function ( require ) {
       // Hide all question views
       _.each( this.questionsViews, function ( view, i ) {
 
-        if ( parseInt(i) !== parseInt(idx) ) {
+        if ( parseInt( i ) !== parseInt( idx ) ) {
           this.hide( view );
         } else {
           this.show( view );
@@ -96,23 +97,33 @@ define( function ( require ) {
 
     renderSummary: function () {
 
+      if ( !$( '#summary' ).length ) {
+        this.$content.append( '<div id="summary" class="content-element hidden" />' );
+      }
+
       this.summaryView = new SummaryView( {el: '#summary'} );
       this.summaryView.render();
 
     },
 
-    updateSummary: function () {
-
-    },
-
     showSummary: function () {
 
-      if ( !this.summaryView ) {
-        this.renderSummary();
+      // Calculate all values, based on user answers
+      App.user.calculateResults();
+
+      // Destroy the old summary
+      if ( this.summaryView ) {
+        this.summaryView.remove();
       }
 
+      // Render a new summary
+      this.renderSummary();
+
+      // Show it
       this.hide( this.$questions );
       this.show( this.summaryView );
+
+      console.log( App.user.answers );
 
     },
 

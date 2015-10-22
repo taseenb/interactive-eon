@@ -32,7 +32,7 @@ define( function ( require ) {
 
     question: function () {
 
-      console.log( 'question idx: ' + this.currentQuestion );
+      //console.log( 'question idx: ' + this.currentQuestion );
 
       if ( this.currentQuestion >= this.questionsCount ) {
 
