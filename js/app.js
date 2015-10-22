@@ -7901,22 +7901,14 @@ define( 'views/summaryView.js',['require','backbone','swiper','text!tpl/summary.
       this.swiper = new Swiper( '.swiper-container', {
 
         spaceBetween: 50,
-
         roundLengths: true,
-
         effect: App.isTouch ? 'slide' : 'fade',
-
         simulateTouch: false,
-
         shortSwipes: App.isTouch,
-
         longSwipes: App.isTouch,
-
         fade: {
           crossFade: true
         },
-
-        // Navigation arrows
         nextButton: '.text-box .next', //.swiper-button-next',
         prevButton: '.text-box .prev'//'.swiper-button-prev'
 
