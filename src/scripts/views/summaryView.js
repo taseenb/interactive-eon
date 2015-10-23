@@ -103,7 +103,7 @@ define( function ( require ) {
 
         spaceBetween: 50,
         roundLengths: true,
-        effect: App.isTouch ? 'slide' : 'fade',
+        effect: App.supportTransitions ? (App.isTouch ? 'slide' : 'fade') : undefined,
         simulateTouch: false,
         shortSwipes: App.isTouch,
         longSwipes: App.isTouch,

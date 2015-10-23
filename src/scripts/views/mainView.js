@@ -144,6 +144,8 @@ define( function ( require ) {
 
     show: function ( view ) {
 
+      this.onResize();
+
       if ( view instanceof Backbone.View ) {
         view.$el.removeClass( 'hidden' );
       } else if ( view instanceof jQuery ) {
@@ -195,6 +197,20 @@ define( function ( require ) {
     onResize: function () {
 
       iframeMessenger.resize( this.$el.outerHeight( true ) );
+
+      var $questions = this.$questions.find( '.question' );
+
+      if ( $questions.length ) {
+
+        var highestQuestion = _.max( $questions, function ( question ) {
+          return $( question ).height();
+        } );
+
+        $questions.height( $( highestQuestion ).height() + 'px' );
+
+        //console.log( $( highestQuestion ).height() );
+
+      }
 
     }
 

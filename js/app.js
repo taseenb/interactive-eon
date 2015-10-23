@@ -12203,7 +12203,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
         spaceBetween: 50,
         roundLengths: true,
-        effect: App.isTouch ? 'slide' : 'fade',
+        effect: App.supportTransitions ? (App.isTouch ? 'slide' : 'fade') : undefined,
         simulateTouch: false,
         shortSwipes: App.isTouch,
         longSwipes: App.isTouch,
@@ -12394,6 +12394,8 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     show: function ( view ) {
 
+      this.onResize();
+
       if ( view instanceof Backbone.View ) {
         view.$el.removeClass( 'hidden' );
       } else if ( view instanceof jQuery ) {
@@ -12445,6 +12447,20 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
     onResize: function () {
 
       iframeMessenger.resize( this.$el.outerHeight( true ) );
+
+      var $questions = this.$questions.find( '.question' );
+
+      if ( $questions.length ) {
+
+        var highestQuestion = _.max( $questions, function ( question ) {
+          return $( question ).height();
+        } );
+
+        $questions.height( $( highestQuestion ).height() + 'px' );
+
+        //console.log( $( highestQuestion ).height() );
+
+      }
 
     }
 
