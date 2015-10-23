@@ -3,17 +3,22 @@
 
     <div id="question-inner-<%= idx %>" class="inner">
 
+        <div class="options-wrapper only-tablet-and-below">
+            <h1 class="options-header">
+                <div class="counter"><%= counterSvg %></div>
+
+                <div class="title-wrapper">
+                    <span class="title"><%= question.text %></span>
+                </div>
+            </h1>
+        </div>
+
         <img src="<%= imgSrc %>" class="animation">
 
         <div class="options-wrapper pink">
 
-            <h1>
-                    <!--<span class="counter" style="background-color: <%= question.uiBgColor %>">-->
-                        <!--<span class="current"><%= question.idx %></span>-->
-                        <!--<span class="total">/<%= questionsCount %></span>-->
-                    <!--</span>-->
-
-                <div class="counter" ><%= counterSvg %></div>
+            <h1 class="options-header only-above-tablet">
+                <div class="counter"><%= counterSvg %></div>
 
                 <div class="title-wrapper">
                     <span class="title"><%= question.text %></span>

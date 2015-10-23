@@ -28,7 +28,7 @@ $above-tablet: 'only screen and (min-width : 980px)';
   .only-tablet,
   .only-tablet-and-below,
   .only-mobile-and-tablet {
-    display: none;
+    display: none !important;
   }
 
   .only-above-tablet,

@@ -1,10 +1,9 @@
 .question {
-
   min-height: 100%;
-
   background-size: 140px 140px;
 
   @import "ui";
+  @import 'options/title';
 
   @media(min-width: 980px) {
     font-size: 0;
@@ -17,7 +16,9 @@
 
   .animation {
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
 
     @media(min-width: 980px) {
       padding: 0;
@@ -28,7 +29,6 @@
 
   .options-wrapper {
 
-    @import 'options/title';
     @import 'options/answer';
 
     padding: 20px 20px 40px 20px;
@@ -46,6 +46,10 @@
     position: relative;
     display: block;
     margin: 0 auto;
+
+    &.only-mobile-and-tablet {
+      padding-bottom: 0 !important;
+    }
 
     @media(min-width: 480px) {
       width: 85%;

@@ -1,5 +1,32 @@
+.options-wrapper.only-tablet-and-below {
+  padding: 20px !important;
+  margin-top: 0;
 
-h1 {
+  .options-header {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .counter {
+      width: 80px;
+      height: 80px;
+    }
+    .title-wrapper {
+      padding-left: 100px;
+
+      .title {
+        font-size: 14px !important;
+
+        @media(min-width: 480px) {
+          font-size: 16px !important;
+        }
+
+      }
+    }
+  }
+
+}
+
+.options-header {
   font-size: 0;
   margin: 0;
   padding: 0;

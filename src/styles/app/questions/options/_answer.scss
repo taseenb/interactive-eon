@@ -1,18 +1,27 @@
 .answer {
 
   position: relative;
-  margin-bottom: 25px;
+  margin-top: 35px;
+  margin-bottom: 0; //25px;
   cursor: pointer;
 
-  &:last-of-type {
-    margin-bottom: 0;
+  &:first-of-type {
+    margin-top: 15px;
   }
+
+  //&:last-of-type {
+  //  margin-bottom: 0;
+  //}
 
   //.no-touch & {
     &:hover {
       .letter {
         @include transform(scale(1.15, 1.15));
       }
+
+      //.bottom {
+      //  height: 5px;
+      //}
     }
   //}
 
@@ -22,9 +31,9 @@
       @include transform(scale(1.15, 1.15));
     }
 
-    .text {
-      font-weight: bold;
-    }
+    //.text {
+    //  font-weight: bold;
+    //}
 
   }
 
@@ -48,8 +57,16 @@
     display: block;
     padding: 20px;
     margin-left: 20px;
-    font-size: 15px;
+    font-size: 13px;
     border: 2px solid #333;
+
+    @media(min-width: 660px) {
+      font-size: 14px;
+    }
+
+    @media(min-width: 980px) {
+      font-size: 15px;
+    }
   }
 
   .bottom {
@@ -61,6 +78,10 @@
     margin-left: 20px;
 
     background-image: url('#{$img-path}dots.png');
+
+    //@include css3-prefix(transition-duration, 0.4s);
+    //@include css3-prefix(transition-property, height);
+
   }
 
 }

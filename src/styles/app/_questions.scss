@@ -1,6 +1,7 @@
 #questions {
 
-  height: auto;
+  position: relative !important;
+  min-height: 100%;
 
   @media(min-width: 980px) {
     min-height: 100%;
