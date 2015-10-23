@@ -2,19 +2,25 @@
 
   min-height: 100%;
 
+  background-size: 140px 140px;
+
   @import "ui";
 
   @media(min-width: 980px) {
     font-size: 0;
     white-space: nowrap;
     height: 100%;
+
+    @import 'transitions';
+
   }
 
   .animation {
-
     margin: 0 auto;
+    padding: 20px 0;
 
     @media(min-width: 980px) {
+      padding: 0;
       width: 62%;
       height: 100%;
     }

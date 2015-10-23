@@ -93,6 +93,10 @@ define( function ( require ) {
 
       }.bind( this ) );
 
+      // Scroll
+      this.scrollToTop();
+      this.scrollToIframeTop();
+
     },
 
     renderSummary: function () {
@@ -123,7 +127,11 @@ define( function ( require ) {
       this.hide( this.$questions );
       this.show( this.summaryView );
 
-      console.log( App.user.answers );
+      // Scroll
+      this.scrollToTop();
+      this.scrollToIframeTop();
+
+      //console.log( App.user.answers );
 
     },
 
@@ -151,6 +159,25 @@ define( function ( require ) {
       } else if ( view instanceof jQuery ) {
         view.addClass( 'hidden' );
       }
+
+    },
+
+    scrollToTop: function () {
+
+      window.scrollTo( 0, 0 );
+
+    },
+
+    scrollToIframeTop: function () {
+
+      iframeMessenger.scrollTo( 0, 0 );
+
+      iframeMessenger.getPositionInformation( function ( obj ) {
+
+        var y = Math.abs( obj.iframeTop );
+        iframeMessenger.scrollTo( 0, y );
+
+      } );
 
     },
 

@@ -26,7 +26,8 @@
     position: absolute;
     width: 100%;
     min-height: 100%;
-    @include css3-prefix(transition-duration, 0.5s);
+    @include css3-prefix(transition-duration, 1s);
+    //@include css3-prefix(transition-delay, 1s);
     @include css3-prefix(transition-property, (opacity));
 
     @media(min-width: 980px) {

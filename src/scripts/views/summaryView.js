@@ -55,7 +55,7 @@ define( function ( require ) {
         return answer.value;
       } );
 
-      console.log( labels, values );
+      //console.log( labels, values );
 
       var chartistData = {
         labels: labels,

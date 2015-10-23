@@ -15,13 +15,27 @@
     display: block;
     margin-bottom: 5px;
   }
-  
-  span {
-    display: none;
 
-    @media(min-width: 980px) {
+  span {
+    &.click-message {
+      display: none;
+    }
+
+    &.swipe-message {
       display: block;
       font-size: 13px;
+    }
+
+    @media(min-width: 980px) {
+
+      &.click-message {
+        display: block;
+        font-size: 13px;
+      }
+
+      &.swipe-message {
+        display: none;
+      }
     }
   }
 

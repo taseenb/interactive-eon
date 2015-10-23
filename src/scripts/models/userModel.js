@@ -139,11 +139,11 @@ define( function ( require ) {
 
       this.values.title = this.getValue(); // string (bad, medium or good)
 
-      console.log( 'user value: ', this.values.title);
-      console.log( 'user total value: ', this.values.total );
-      console.log( 'user % value: ', this.values.percent  );
-      console.log( 'user minPossibleTotal: ', this.values.minPossibleTotal );
-      console.log( 'user maxPossibleTotal: ', this.values.maxPossibleTotal );
+      //console.log( 'user value: ', this.values.title);
+      //console.log( 'user total value: ', this.values.total );
+      //console.log( 'user % value: ', this.values.percent  );
+      //console.log( 'user minPossibleTotal: ', this.values.minPossibleTotal );
+      //console.log( 'user maxPossibleTotal: ', this.values.maxPossibleTotal );
 
     }
 

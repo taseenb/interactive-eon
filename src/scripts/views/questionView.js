@@ -61,7 +61,7 @@ define( function ( require ) {
 
       this.$answers = this.$( '.answer' );
 
-      this.$inner = this.$( '#question-inner-' + this.idx );
+      //this.$inner = this.$( '#question-inner-' + this.idx );
 
     },
 
@@ -86,7 +86,7 @@ define( function ( require ) {
         var value = $answer.data( 'value' );
         var idx = $answer.data( 'idx' );
 
-        console.log( 'user value: ', value );
+        //console.log( 'user value: ', value );
 
         // Record user state
         App.user.answers[this.idx].chosenAnswer = idx;

@@ -1,4 +1,4 @@
-/*! app / v0.0.1October 22, 2015 */
+/*! app / v0.0.1October 23, 2015 */
 /**
  * @license almond 0.3.1 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -4351,7 +4351,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
       this.$answers = this.$( '.answer' );
 
-      this.$inner = this.$( '#question-inner-' + this.idx );
+      //this.$inner = this.$( '#question-inner-' + this.idx );
 
     },
 
@@ -4376,7 +4376,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
         var value = $answer.data( 'value' );
         var idx = $answer.data( 'idx' );
 
-        console.log( 'user value: ', value );
+        //console.log( 'user value: ', value );
 
         // Record user state
         App.user.answers[this.idx].chosenAnswer = idx;
@@ -12096,7 +12096,7 @@ return Chartist;
 }));
 
 
-define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n                <span>Click on the nodes to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div id="graph" class="graph"></div>\n\n                <div class="labels">\n\n                    <%\n\n                    //var labelWidth = Math.floor(100 / (questions.length-1));\n                    var labelWidth = 100 / (questions.length-1);\n\n                    _.each(questions, function(question, i) {\n\n                    %>\n\n                        <span class="label" style="width: <%= labelWidth %>%">\n                            <span class="text"><%= question.title %></span>\n                        </span>\n\n                    <% }); %>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong class="introTip">\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n\n                    <span class="tip">\n                        <%= questions[i].tip %>\n                    </span>\n\n                    <div class="arrows-wrapper">\n\n                        <% if (i >= userAnswers.length-1) { %>\n                        <span class="restart">RESTART</span>\n                        <% } %>\n\n                        <span class="prev">PREV</span>\n                        <span class="next">NEXT</span>\n                    </div>\n\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n        <!-- If we need navigation buttons -->\n        <!--<div class="swiper-button-prev"></div>-->\n        <!--<div class="swiper-button-next"></div>-->\n\n    </div>\n\n\n</div>';});
+define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n\n                <span class="click-message">Click on the nodes to reveal more</span>\n\n                <span class="swipe-message">Swipe left to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div id="graph" class="graph"></div>\n\n                <div class="labels">\n\n                    <%\n\n                    //var labelWidth = Math.floor(100 / (questions.length-1));\n                    var labelWidth = 100 / (questions.length-1);\n\n                    _.each(questions, function(question, i) {\n\n                    %>\n\n                        <span class="label" style="width: <%= labelWidth %>%">\n                            <span class="text"><%= question.title %></span>\n                        </span>\n\n                    <% }); %>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong class="introTip">\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n\n                    <span class="tip">\n                        <%= questions[i].tip %>\n                    </span>\n\n                    <div class="arrows-wrapper">\n\n                        <% if (i >= userAnswers.length-1) { %>\n                        <span class="restart">RESTART</span>\n                        <% } %>\n\n                        <span class="prev">PREV</span>\n                        <span class="next">NEXT</span>\n                    </div>\n\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n        <!-- If we need navigation buttons -->\n        <!--<div class="swiper-button-prev"></div>-->\n        <!--<div class="swiper-button-next"></div>-->\n\n    </div>\n\n\n</div>';});
 
 define( 'views/summaryView.js',['require','backbone','swiper','chartist','chartist.plugins.tooltips','text!tpl/summary.html'],function ( require ) {
 
@@ -12155,7 +12155,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
         return answer.value;
       } );
 
-      console.log( labels, values );
+      //console.log( labels, values );
 
       var chartistData = {
         labels: labels,
@@ -12343,6 +12343,10 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       }.bind( this ) );
 
+      // Scroll
+      this.scrollToTop();
+      this.scrollToIframeTop();
+
     },
 
     renderSummary: function () {
@@ -12373,7 +12377,11 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       this.hide( this.$questions );
       this.show( this.summaryView );
 
-      console.log( App.user.answers );
+      // Scroll
+      this.scrollToTop();
+      this.scrollToIframeTop();
+
+      //console.log( App.user.answers );
 
     },
 
@@ -12401,6 +12409,25 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       } else if ( view instanceof jQuery ) {
         view.addClass( 'hidden' );
       }
+
+    },
+
+    scrollToTop: function () {
+
+      window.scrollTo( 0, 0 );
+
+    },
+
+    scrollToIframeTop: function () {
+
+      iframeMessenger.scrollTo( 0, 0 );
+
+      iframeMessenger.getPositionInformation( function ( obj ) {
+
+        var y = Math.abs( obj.iframeTop );
+        iframeMessenger.scrollTo( 0, y );
+
+      } );
 
     },
 
@@ -13079,11 +13106,11 @@ define( 'models/userModel',['require','backbone'],function ( require ) {
 
       this.values.title = this.getValue(); // string (bad, medium or good)
 
-      console.log( 'user value: ', this.values.title);
-      console.log( 'user total value: ', this.values.total );
-      console.log( 'user % value: ', this.values.percent  );
-      console.log( 'user minPossibleTotal: ', this.values.minPossibleTotal );
-      console.log( 'user maxPossibleTotal: ', this.values.maxPossibleTotal );
+      //console.log( 'user value: ', this.values.title);
+      //console.log( 'user total value: ', this.values.total );
+      //console.log( 'user % value: ', this.values.percent  );
+      //console.log( 'user minPossibleTotal: ', this.values.minPossibleTotal );
+      //console.log( 'user maxPossibleTotal: ', this.values.maxPossibleTotal );
 
     }
 
