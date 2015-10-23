@@ -196,7 +196,7 @@ define( function ( require ) {
 
     onResize: function () {
 
-      var questionHeight = 768;
+      var height = 768;
 
       // Fix questions height (use the highest question div for all questions)
       var $questions = this.$questions.find( '.question' );
@@ -213,18 +213,17 @@ define( function ( require ) {
         } );
 
         // Set highest height to all questions
-        questionHeight = $( highestQuestion ).height() + 'px';
-        $questions.height( questionHeight );
-        $( '#summary' ).height( questionHeight );
+        height = $( highestQuestion ).height();
+        $questions.height( height + 'px' );
+        $( '#summary' ).height( height + 'px' );
       }
 
 
-
       // Update iframe height
-      var iframeHeight = Math.max( questionHeight, this.$el.outerHeight( true ) );
-      iframeMessenger.resize( iframeHeight );
+      var iframeHeight = Math.max( height, this.$el.outerHeight( true ) );
+      iframeMessenger.resize( height );
 
-      console.log( iframeHeight );
+      console.log( height );
 
     }
 
