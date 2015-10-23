@@ -197,8 +197,7 @@ define( function ( require ) {
     onResize: function () {
 
       var height = 768;
-
-      // Fix questions height (use the highest question div for all questions)
+      var $summary = $( '#summary' );
       var $questions = this.$questions.find( '.question' );
 
       if ( $questions.length ) {
@@ -206,6 +205,8 @@ define( function ( require ) {
         $questions.each( function ( i, el ) {
           el.style.height = '';
         } );
+
+        $summary[0].style.height = ''; //
 
         // Get fresh height
         var highestQuestion = _.max( $questions, function ( question ) {
@@ -215,7 +216,7 @@ define( function ( require ) {
         // Set highest height to all questions
         height = $( highestQuestion ).height();
         $questions.height( height + 'px' );
-        $( '#summary' ).height( height + 'px' );
+        $summary.height( height + 'px' );
       }
 
 
