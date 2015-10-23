@@ -12446,7 +12446,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     onResize: function () {
 
-      iframeMessenger.resize( this.$el.outerHeight( true ) );
+      iframeMessenger.resize( Math.max( 768, this.$el.outerHeight( true ) ) );
 
       console.log( this.$el.outerHeight( true ) );
 
@@ -12457,7 +12457,10 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
         var highestQuestion = _.max( $questions, function ( question ) {
           return $( question ).height();
         } );
-        $questions.height( $( highestQuestion ).height() + 'px' );
+
+        var height = $( highestQuestion ).height() + 'px';
+        $questions.height( height );
+        $( '#summary' ).height( height );
       }
 
     }
