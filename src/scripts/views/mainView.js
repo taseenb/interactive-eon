@@ -221,7 +221,7 @@ define( function ( require ) {
 
       // Update iframe height
       var height = Math.max( height, this.$el.outerHeight( true ) );
-      iframeMessenger.resize( height );
+      iframeMessenger.resize( height - 20 );
 
       console.log( height );
 

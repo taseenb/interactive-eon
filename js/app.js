@@ -12471,7 +12471,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       // Update iframe height
       var height = Math.max( height, this.$el.outerHeight( true ) );
-      iframeMessenger.resize( height );
+      iframeMessenger.resize( height - 20 );
 
       console.log( height );
 
