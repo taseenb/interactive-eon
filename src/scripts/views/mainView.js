@@ -196,24 +196,35 @@ define( function ( require ) {
 
     onResize: function () {
 
-      // Update iframe height
-      var iframeHeight = Math.max( 768, this.$el.outerHeight( true ) );
-      iframeMessenger.resize( iframeHeight );
-
-      console.log( iframeHeight );
-
+      var questionHeight = 768;
 
       // Fix questions height (use the highest question div for all questions)
       var $questions = this.$questions.find( '.question' );
+
       if ( $questions.length ) {
+        // Reset questions height
+        $questions.each( function ( i, el ) {
+          el.style.height = '';
+        } );
+
+        // Get fresh height
         var highestQuestion = _.max( $questions, function ( question ) {
           return $( question ).height();
         } );
 
-        var height = $( highestQuestion ).height() + 'px';
-        $questions.height( height );
-        $( '#summary' ).height( height );
+        // Set highest height to all questions
+        questionHeight = $( highestQuestion ).height() + 'px';
+        $questions.height( questionHeight );
+        $( '#summary' ).height( questionHeight );
       }
+
+
+
+      // Update iframe height
+      var iframeHeight = Math.max( questionHeight, this.$el.outerHeight( true ) );
+      iframeMessenger.resize( iframeHeight );
+
+      console.log( iframeHeight );
 
     }
 
