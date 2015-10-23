@@ -12446,9 +12446,11 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     onResize: function () {
 
-      iframeMessenger.resize( Math.max( 768, this.$el.outerHeight( true ) ) );
+      // Update iframe height
+      var iframeHeight = Math.max( 768, this.$el.outerHeight( true ) );
+      iframeMessenger.resize( iframeHeight );
 
-      console.log( this.$el.outerHeight( true ) );
+      console.log( iframeHeight );
 
 
       // Fix questions height (use the highest question div for all questions)
