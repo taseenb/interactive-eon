@@ -12448,18 +12448,16 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       iframeMessenger.resize( this.$el.outerHeight( true ) );
 
+      console.log( this.$el.outerHeight( true ) );
+
+
+      // Fix questions height (use the highest question div for all questions)
       var $questions = this.$questions.find( '.question' );
-
       if ( $questions.length ) {
-
         var highestQuestion = _.max( $questions, function ( question ) {
           return $( question ).height();
         } );
-
         $questions.height( $( highestQuestion ).height() + 'px' );
-
-        //console.log( $( highestQuestion ).height() );
-
       }
 
     }
