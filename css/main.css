@@ -1022,6 +1022,9 @@ body {
   height: 100%;
   position: relative; }
 
+body {
+  background-color: #f6f06b; }
+
 #debug {
   display: none;
   position: absolute;
