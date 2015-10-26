@@ -7,8 +7,6 @@ body {
 
 body {
 
-  background-color: #f6f06b;
-
 }
 
 @import 'app/debug';
@@ -16,7 +14,10 @@ body {
 #main {
 
   position: relative;
-  height: 100%;
-  min-height: 100%;
+
+  @media(min-width: 980px) {
+    height: 100%;
+    min-height: 100%;
+  }
 
 }

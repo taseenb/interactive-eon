@@ -2,10 +2,19 @@
 
   margin: 15px 0;
   padding: 0;
-  font-size: 28px;
+  font-size: 22px;
+
+  @media(min-width: 660px) {
+    font-size: 24px;
+  }
+
+  @media(min-width: 740px) {
+    font-size: 26px;
+  }
 
   @media(min-width: 980px) {
     width: 62%;
+    font-size: 28px;
   }
 
 }

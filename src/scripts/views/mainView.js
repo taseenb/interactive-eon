@@ -76,6 +76,8 @@ define( function ( require ) {
 
     showQuestion: function ( idx ) {
 
+      this.$questions.show();
+
       // Hide summary if necessary
       if ( this.summaryView ) {
         this.hide( this.summaryView );
@@ -88,6 +90,8 @@ define( function ( require ) {
         if ( parseInt( i ) !== parseInt( idx ) ) {
           this.hide( view );
         } else {
+
+          //this.updateQuestionsBg( idx );
           this.show( view );
         }
 
@@ -98,6 +102,24 @@ define( function ( require ) {
       this.scrollToIframeTop();
 
     },
+
+    //updateQuestionsBg: function ( idx ) {
+    //
+    //  //console.log( idx );
+    //
+    //  var bgImg, bgColor;
+    //
+    //  if ( !_.isNaN( idx ) && _.isNumber( idx ) ) {
+    //    bgImg = App.data.questions[idx].bgImg;
+    //    bgColor = App.data.questions[idx].bg;
+    //  }
+    //
+    //  this.$questions.css( {
+    //    'background-image': bgImg ? 'url(img/' + bgImg + ')' : '',
+    //    'background-color': bgColor ? App.data.color[bgColor] : ''
+    //  } );
+    //
+    //},
 
     renderSummary: function () {
 
@@ -130,6 +152,9 @@ define( function ( require ) {
       // Scroll
       this.scrollToTop();
       this.scrollToIframeTop();
+
+      // Display:none for the questions
+      setTimeout(function(){this.$questions.hide();}.bind(this), 500);
 
       //console.log( App.user.answers );
 
@@ -194,37 +219,55 @@ define( function ( require ) {
 
     },
 
-    onResize: function () {
+    getHighestQuestionHeight: function () {
 
-      var height = 768;
-      var $summary = $( '#summary' );
+      var minHeight = 768;
+
       var $questions = this.$questions.find( '.question' );
 
       if ( $questions.length ) {
-        // Reset questions height
-        $questions.each( function ( i, el ) {
-          el.style.height = '';
-        } );
-
-        $summary[0].style.height = ''; //
-
-        // Get fresh height
         var highestQuestion = _.max( $questions, function ( question ) {
           return $( question ).height();
         } );
 
-        // Set highest height to all questions
-        height = $( highestQuestion ).height();
-        $questions.height( height + 'px' );
-        $summary.height( height + 'px' );
+        return $( highestQuestion ).outerHeight( true );
+      } else {
+        return minHeight;
       }
 
+    },
+
+    onResize: function () {
+
+      this.highest = this.getHighestQuestionHeight();
+
+      //var $summary = $( '#summary' );
+      //var $questions = this.$questions.find( '.question' );
+      //
+      //if ( $questions.length ) {
+      //  // Reset questions height
+      //  $questions.each( function ( i, el ) {
+      //    el.style.height = '';
+      //  } );
+      //
+      //  $summary[0].style.height = ''; //
+      //
+      //  // Get fresh height
+      //  var highestQuestion = _.max( $questions, function ( question ) {
+      //    return $( question ).height();
+      //  } );
+      //
+      //  // Set highest height to all questions
+      //  height = $( highestQuestion ).height();
+      //  $questions.height( height + 'px' );
+      //  $summary.height( height + 'px' );
+      //}
 
       // Update iframe height
-      var height = Math.max( height, this.$el.outerHeight( true ) );
+      var height = Math.max( this.highest, this.$el.outerHeight( true ) );
       iframeMessenger.resize( height - 20 );
 
-      console.log( height );
+      console.log( "iframeMessenger update: ", height );
 
     }
 

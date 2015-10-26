@@ -1022,9 +1022,6 @@ body {
   height: 100%;
   position: relative; }
 
-body {
-  background-color: #f6f06b; }
-
 #debug {
   display: none;
   position: absolute;
@@ -1039,9 +1036,11 @@ body {
   text-align: right; }
 
 #main {
-  position: relative;
-  height: 100%;
-  min-height: 100%; }
+  position: relative; }
+  @media (min-width: 980px) {
+    #main {
+      height: 100%;
+      min-height: 100%; } }
 
 .only-tablet,
 .only-above-tablet,
@@ -2131,9 +2130,11 @@ header {
 
 #content {
   position: relative;
-  height: 100%;
-  min-height: 100%;
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif; }
+  @media (min-width: 980px) {
+    #content {
+      height: 100%;
+      min-height: 100%; } }
   #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
     font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif; }
   #content a,
@@ -2147,20 +2148,23 @@ header {
     z-index: 10;
     opacity: 1;
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 100%;
-    -webkit-transition-duration: 1s;
-    -khtml-transition-duration: 1s;
-    -moz-transition-duration: 1s;
-    -ms-transition-duration: 1s;
-    -o-transition-duration: 1s;
-    transition-duration: 1s;
-    -webkit-transition-property: opacity;
-    -khtml-transition-property: opacity;
-    -moz-transition-property: opacity;
-    -ms-transition-property: opacity;
-    -o-transition-property: opacity;
-    transition-property: opacity; }
+    min-height: 100%; }
+    #content .content-element .no-touch {
+      -webkit-transition-duration: 1s;
+      -khtml-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      -ms-transition-duration: 1s;
+      -o-transition-duration: 1s;
+      transition-duration: 1s;
+      -webkit-transition-property: opacity;
+      -khtml-transition-property: opacity;
+      -moz-transition-property: opacity;
+      -ms-transition-property: opacity;
+      -o-transition-property: opacity;
+      transition-property: opacity; }
     @media (min-width: 980px) {
       #content .content-element {
         height: 100%;
@@ -2190,6 +2194,7 @@ footer {
         max-width: 1024px; } }
 
 #summary {
+  background-color: #f6f06b;
   top: 0;
   min-height: 100%; }
   @media (min-width: 980px) {
@@ -2218,6 +2223,13 @@ footer {
 .question {
   min-height: 100%;
   background-size: 140px 140px; }
+  .question:first-of-type {
+    position: relative !important;
+    padding-bottom: 50px; }
+    @media (min-width: 980px) {
+      .question:first-of-type {
+        position: inherit;
+        padding-bottom: inherit; } }
   .question.bg-blue {
     background-color: #92C1E9; }
   .question.bg-pink {
@@ -2639,10 +2651,17 @@ footer {
 .result-header .result-title {
   margin: 15px 0;
   padding: 0;
-  font-size: 28px; }
+  font-size: 22px; }
+  @media (min-width: 660px) {
+    .result-header .result-title {
+      font-size: 24px; } }
+  @media (min-width: 740px) {
+    .result-header .result-title {
+      font-size: 26px; } }
   @media (min-width: 980px) {
     .result-header .result-title {
-      width: 62%; } }
+      width: 62%;
+      font-size: 28px; } }
 
 @media (min-width: 980px) {
   .result-header {
@@ -2699,10 +2718,13 @@ footer {
     .result-list .list-item .text-box strong {
       display: block;
       font-weight: bold;
-      margin-top: 15px;
+      margin-top: 0;
       font-size: 14px;
       line-height: 18px;
       padding: 15px; }
+      @media (min-width: 980px) {
+        .result-list .list-item .text-box strong {
+          margin-top: 15px; } }
     .result-list .list-item .text-box .tip {
       display: block;
       font-size: 13px;

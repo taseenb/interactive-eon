@@ -1,4 +1,9 @@
 callback( {
+  "color": {
+    "blue": "#92C1E9",
+    "pink": "#db71aa",
+    "green": "#21C28C"
+  },
   "copy": {
     "summaryTitle": {
       "bad": "You're not efficient! You need help!",
@@ -188,8 +193,8 @@ callback( {
           "text": "Hide under your desk until it’s all over and you can go home. Meetings are a drag.",
           "value": 4,
           "introTip": "You answered that you would hide under your desk. If you hate meetings, try something different like going for a group walk."
-        ,
-        "eval": "good"
+          ,
+          "eval": "good"
         },
         {
           "text": "Breath a heavy sigh then take your seat for an hour’s meeting that in the end feels like an eternity.",
