@@ -2437,15 +2437,28 @@ footer {
             transform: translateY(-15%);
             opacity: 0; } }
   .question .animation {
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    width: 100%; }
+    position: relative; }
     @media (min-width: 980px) {
       .question .animation {
         padding: 0;
         width: 62%;
         height: 100%; } }
+    .question .animation > img {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box; }
+      @media (min-width: 980px) {
+        .question .animation > img {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -khtml-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%); } }
   .question .options-wrapper {
     padding: 20px 20px 40px 20px;
     position: relative; }
