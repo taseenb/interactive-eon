@@ -246,7 +246,7 @@ define( function ( require ) {
       var height = this.$el.outerHeight( true );
       iframeMessenger.resize( height );
 
-      //console.log( "iframeMessenger update: ", height );
+      console.log( "iframeMessenger update: ", height );
 
     }
 
