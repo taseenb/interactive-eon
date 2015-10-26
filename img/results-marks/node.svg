@@ -1,0 +1,22 @@
+<svg class="node" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="31.333px" height="31.833px" viewBox="-8.833 41.417 31.333 31.833" enable-background="new -8.833 41.417 31.333 31.833" >
+<g>
+	<g>
+		<g>
+			<polygon class="fill" points="21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 20.894,52.916 			"/>
+			<polygon class="fill" points="21.316,42.722 21.317,52.916 20.894,52.916 12.396,42.724 			"/>
+		</g>
+		<g>
+				<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+				21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 21.316,42.722 			"/>
+
+				<line fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="12.396" y1="42.724" x2="20.894" y2="52.916"/>
+		</g>
+	</g>
+	<g class="tick">
+		<g>
+			<polygon fill="#43193C" points="-0.277,58.221 -2.57,60.155 2.283,65.9 15.858,54.438 13.907,52.126 2.622,61.654 			"/>
+		</g>
+	</g>
+</g>
+</svg>

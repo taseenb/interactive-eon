@@ -12098,7 +12098,10 @@ return Chartist;
 
 define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n\n                <span class="click-message">Click on the nodes to reveal more</span>\n\n                <span class="swipe-message">Swipe left to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div id="graph" class="graph"></div>\n\n                <div class="labels">\n\n                    <%\n\n                    //var labelWidth = Math.floor(100 / (questions.length-1));\n                    var labelWidth = 100 / (questions.length-1);\n\n                    _.each(questions, function(question, j) {\n\n                    %>\n\n                        <span class="label" style="width: <%= labelWidth %>%">\n                            <span class="text"><%= question.title %></span>\n                        </span>\n\n                    <% }); %>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong class="introTip">\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n\n                    <span class="tip">\n                        <%= questions[i].tip %>\n                    </span>\n\n                    <div class="arrows-wrapper">\n\n                        <% if (i > 0) { %>\n                        <span class="prev">\n                            <img src="img/arrow-left.svg">\n                            <img src="img/times/<%= questions[i-1].timeImg %>">\n                        </span>\n                        <% } %>\n\n                        <% if (i < questions.length-1) { %>\n                        <span class="next">\n                            <img src="img/times/<%= questions[i+1].timeImg %>">\n                            <img src="img/arrow-right.svg">\n                        </span>\n                        <% } %>\n\n                        <% if (i >= userAnswers.length-1) { %>\n                        <span class="restart">\n                            <img src="img/restart.svg">\n                        </span>\n                        <% } %>\n\n                    </div>\n\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n    </div>\n\n    <!--<div class="result-share">-->\n\n    <!--<div class="separator"></div>-->\n\n    <!--<strong>Know someone who could use their time more efficiently?</strong>-->\n\n    <!--<div class="share-icons-wrapper">-->\n\n    <!--<img class="share-twitter share-icon" src="img/share-twitter.png">-->\n    <!--<img class="share-facebook share-icon" src="img/share-facebook.png">-->\n    <!--<img class="share-email share-icon" src="img/share-email.png">-->\n\n    <!--</div>-->\n\n    <!--</div>-->\n\n\n</div>';});
 
-define( 'views/summaryView.js',['require','backbone','swiper','chartist','chartist.plugins.tooltips','text!tpl/summary.html'],function ( require ) {
+
+define('text!nodeSvg',[],function () { return '<svg class="node" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t width="31.333px" height="31.833px" viewBox="-8.833 41.417 31.333 31.833" enable-background="new -8.833 41.417 31.333 31.833" >\n<g>\n\t<g>\n\t\t<g>\n\t\t\t<polygon class="fill" points="21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 20.894,52.916 \t\t\t"/>\n\t\t\t<polygon class="fill" points="21.316,42.722 21.317,52.916 20.894,52.916 12.396,42.724 \t\t\t"/>\n\t\t</g>\n\t\t<g>\n\t\t\t\t<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="\n\t\t\t\t21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 21.316,42.722 \t\t\t"/>\n\n\t\t\t\t<line fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="12.396" y1="42.724" x2="20.894" y2="52.916"/>\n\t\t</g>\n\t</g>\n\t<g class="tick">\n\t\t<g>\n\t\t\t<polygon fill="#43193C" points="-0.277,58.221 -2.57,60.155 2.283,65.9 15.858,54.438 13.907,52.126 2.622,61.654 \t\t\t"/>\n\t\t</g>\n\t</g>\n</g>\n</svg>\n';});
+
+define( 'views/summaryView.js',['require','backbone','swiper','chartist','chartist.plugins.tooltips','text!tpl/summary.html','text!nodeSvg'],function ( require ) {
 
   'use strict';
 
@@ -12110,6 +12113,8 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
   require( 'chartist.plugins.tooltips' );
 
   var tpl = require( 'text!tpl/summary.html' );
+
+  var nodeSvg = require( 'text!nodeSvg' );
 
 
   var View = Backbone.View.extend( {
@@ -12209,12 +12214,13 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $points = $svg.find( '.ct-point' );
+      var nodeData = [];
       var imgHtml = '';
 
       // Remove existing images
-      $svg.find( '.graph-img' ).remove();
+      $svg.find( '.graph-img' ).off().remove();
 
-      // Get points coordinates
+      // Get node data + add basic svg
       $points.each( function ( i, el ) {
 
         var $el = $( el );
@@ -12223,13 +12229,25 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
         var x = parseFloat( $el.attr( 'x1' ) ) - side / 2;
         var y = parseFloat( $el.attr( 'y1' ) ) - side / 2;
 
-        var value = App.user.answers[i].value;
-        var percent = Math.round( (value * 100) / 6 );
-        var quality = App.user.getValue( percent ); //'good';
+        //var value = App.user.answers[i].value;
+        //var percent = Math.round( (value * 100) / 6 );
+        //var quality = App.user.getValue( percent ); //'good';
+
+        var quality = App.data.questions[i].answers[App.user.answers[i].chosenAnswer].eval;
+
+        nodeData.push( {
+          x: x,
+          y: y,
+          side: side,
+          quality: quality,
+          style: Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)'
+        } );
 
         //console.log( value, percent, quality );
 
-        imgHtml += '<image x="' + x + '" y="' + y + '" height="' + side + 'px" width="' + side + 'px" xlink:href="img/results-marks/' + quality + '-node.png" style="' + Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)" class="graph-img" />';
+        //imgHtml += '<image x="' + x + '" y="' + y + '" height="' + side + 'px" width="' + side + 'px" xlink:href="img/results-marks/' + quality + '-node.png" style="' + Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)" class="graph-img" />';
+
+        imgHtml += nodeSvg;
 
         $el.remove();
 
@@ -12241,6 +12259,34 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       var imagesWrapper = document.getElementById( 'img-points' );
       var path = $( imagesWrapper ).html();
       $( imagesWrapper ).html( path + imgHtml );
+
+      // Update svg with node data
+      var $nodes = $svg.find( '.node' );
+      nodeData.forEach( function ( node, i ) {
+
+        var $node = $nodes.eq( i );
+
+        var done = i === 0 ? ' done ' : '';
+
+        $node.attr( {
+          'id': 'node-' + i,
+          'x': node.x,
+          'y': node.y,
+          'width': node.side,
+          'height': node.side,
+          'style': node.style,
+          'class': 'node ' + node.quality + done
+        } );
+
+      }.bind( this ) );
+
+
+      // Add event
+      $nodes.on( 'click', function ( e ) {
+
+        this.swiper.slideTo( $( e.currentTarget ).index() - 1 );
+
+      }.bind( this ) );
 
     },
 

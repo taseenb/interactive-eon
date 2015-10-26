@@ -2654,13 +2654,24 @@ footer {
             stroke-width: 7px; }
           .result-header .result-overview .graph-wrapper .graph svg .ct-point {
             display: none; }
-          .result-header .result-overview .graph-wrapper .graph svg .graph-img {
+          .result-header .result-overview .graph-wrapper .graph svg svg.node {
             -webkit-transform-origin: 50% 50%;
             -khtml-transform-origin: 50% 50%;
             -moz-transform-origin: 50% 50%;
             -ms-transform-origin: 50% 50%;
             -o-transform-origin: 50% 50%;
-            transform-origin: 50% 50%; }
+            transform-origin: 50% 50%;
+            cursor: pointer; }
+            .result-header .result-overview .graph-wrapper .graph svg svg.node .tick {
+              display: none; }
+            .result-header .result-overview .graph-wrapper .graph svg svg.node.done .tick {
+              display: block; }
+            .result-header .result-overview .graph-wrapper .graph svg svg.node.bad .fill {
+              fill: #EAA3C6; }
+            .result-header .result-overview .graph-wrapper .graph svg svg.node.medium .fill {
+              fill: #FDEE63; }
+            .result-header .result-overview .graph-wrapper .graph svg svg.node.good .fill {
+              fill: #CAE0F5; }
         .result-header .result-overview .graph-wrapper .graph .bg {
           position: absolute;
           background-color: blue;

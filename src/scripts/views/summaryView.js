@@ -11,6 +11,8 @@ define( function ( require ) {
 
   var tpl = require( 'text!tpl/summary.html' );
 
+  var nodeSvg = require( 'text!nodeSvg' );
+
 
   var View = Backbone.View.extend( {
 
@@ -109,12 +111,13 @@ define( function ( require ) {
 
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $points = $svg.find( '.ct-point' );
+      var nodeData = [];
       var imgHtml = '';
 
       // Remove existing images
-      $svg.find( '.graph-img' ).remove();
+      $svg.find( '.graph-img' ).off().remove();
 
-      // Get points coordinates
+      // Get node data + add basic svg
       $points.each( function ( i, el ) {
 
         var $el = $( el );
@@ -123,13 +126,25 @@ define( function ( require ) {
         var x = parseFloat( $el.attr( 'x1' ) ) - side / 2;
         var y = parseFloat( $el.attr( 'y1' ) ) - side / 2;
 
-        var value = App.user.answers[i].value;
-        var percent = Math.round( (value * 100) / 6 );
-        var quality = App.user.getValue( percent ); //'good';
+        //var value = App.user.answers[i].value;
+        //var percent = Math.round( (value * 100) / 6 );
+        //var quality = App.user.getValue( percent ); //'good';
+
+        var quality = App.data.questions[i].answers[App.user.answers[i].chosenAnswer].eval;
+
+        nodeData.push( {
+          x: x,
+          y: y,
+          side: side,
+          quality: quality,
+          style: Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)'
+        } );
 
         //console.log( value, percent, quality );
 
-        imgHtml += '<image x="' + x + '" y="' + y + '" height="' + side + 'px" width="' + side + 'px" xlink:href="img/results-marks/' + quality + '-node.png" style="' + Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)" class="graph-img" />';
+        //imgHtml += '<image x="' + x + '" y="' + y + '" height="' + side + 'px" width="' + side + 'px" xlink:href="img/results-marks/' + quality + '-node.png" style="' + Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)" class="graph-img" />';
+
+        imgHtml += nodeSvg;
 
         $el.remove();
 
@@ -141,6 +156,34 @@ define( function ( require ) {
       var imagesWrapper = document.getElementById( 'img-points' );
       var path = $( imagesWrapper ).html();
       $( imagesWrapper ).html( path + imgHtml );
+
+      // Update svg with node data
+      var $nodes = $svg.find( '.node' );
+      nodeData.forEach( function ( node, i ) {
+
+        var $node = $nodes.eq( i );
+
+        var done = i === 0 ? ' done ' : '';
+
+        $node.attr( {
+          'id': 'node-' + i,
+          'x': node.x,
+          'y': node.y,
+          'width': node.side,
+          'height': node.side,
+          'style': node.style,
+          'class': 'node ' + node.quality + done
+        } );
+
+      }.bind( this ) );
+
+
+      // Add event
+      $nodes.on( 'click', function ( e ) {
+
+        this.swiper.slideTo( $( e.currentTarget ).index() - 1 );
+
+      }.bind( this ) );
 
     },
 

@@ -23,6 +23,7 @@ var require = {
     "letter-b": "../../img/letter-b.svg",
     "letter-c": "../../img/letter-c.svg",
     "counterSvg": "../../img/question-numbers.svg",
+    "nodeSvg": "../../img/results-marks/node.svg"
 
 
   }

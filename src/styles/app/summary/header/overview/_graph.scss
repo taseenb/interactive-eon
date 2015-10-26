@@ -72,13 +72,39 @@
 
         .ct-point {
           display: none;
-          //stroke: blue;
-          //stroke-width: 20px;
-          //stroke-linecap: square;
         }
 
-        .graph-img {
+        svg.node {
           @include css3-prefix(transform-origin, 50% 50%);
+          cursor: pointer;
+
+          .tick {
+            display: none;
+          }
+
+          &.done {
+            .tick {
+              display: block;
+            }
+          }
+
+          &.bad {
+            .fill {
+              fill: #EAA3C6;
+            }
+          }
+
+          &.medium {
+            .fill {
+              fill: #FDEE63;
+            }
+          }
+
+          &.good {
+            .fill {
+              fill: #CAE0F5;
+            }
+          }
         }
       }
 
