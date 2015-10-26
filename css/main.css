@@ -2645,33 +2645,68 @@ footer {
         height: 140px;
         box-sizing: border-box;
         border: 2px solid #333; }
-        .result-header .result-overview .graph-wrapper .graph svg {
+        .result-header .result-overview .graph-wrapper .graph > svg {
           position: relative;
           z-index: 5;
           overflow: visible; }
-          .result-header .result-overview .graph-wrapper .graph svg .ct-line {
+          .result-header .result-overview .graph-wrapper .graph > svg .ct-line {
             stroke: #db71aa;
             stroke-width: 7px; }
-          .result-header .result-overview .graph-wrapper .graph svg .ct-point {
+          .result-header .result-overview .graph-wrapper .graph > svg .ct-point {
             display: none; }
-          .result-header .result-overview .graph-wrapper .graph svg svg.node {
+          .result-header .result-overview .graph-wrapper .graph > svg .node {
             -webkit-transform-origin: 50% 50%;
             -khtml-transform-origin: 50% 50%;
             -moz-transform-origin: 50% 50%;
             -ms-transform-origin: 50% 50%;
             -o-transform-origin: 50% 50%;
             transform-origin: 50% 50%;
-            cursor: pointer; }
-            .result-header .result-overview .graph-wrapper .graph svg svg.node .tick {
+            cursor: pointer;
+            overflow: visible; }
+            .result-header .result-overview .graph-wrapper .graph > svg .node .group-rotate,
+            .result-header .result-overview .graph-wrapper .graph > svg .node .group-scale {
+              -webkit-transform-origin: 50% 50%;
+              -khtml-transform-origin: 50% 50%;
+              -moz-transform-origin: 50% 50%;
+              -ms-transform-origin: 50% 50%;
+              -o-transform-origin: 50% 50%;
+              transform-origin: 50% 50%; }
+            .result-header .result-overview .graph-wrapper .graph > svg .node .tick {
               display: none; }
-            .result-header .result-overview .graph-wrapper .graph svg svg.node.done .tick {
+            .result-header .result-overview .graph-wrapper .graph > svg .node.done .tick {
               display: block; }
-            .result-header .result-overview .graph-wrapper .graph svg svg.node.bad .fill {
+            .result-header .result-overview .graph-wrapper .graph > svg .node.bad .fill {
               fill: #EAA3C6; }
-            .result-header .result-overview .graph-wrapper .graph svg svg.node.medium .fill {
+            .result-header .result-overview .graph-wrapper .graph > svg .node.medium .fill {
               fill: #FDEE63; }
-            .result-header .result-overview .graph-wrapper .graph svg svg.node.good .fill {
+            .result-header .result-overview .graph-wrapper .graph > svg .node.good .fill {
               fill: #CAE0F5; }
+          .result-header .result-overview .graph-wrapper .graph > svg .node .group-scale {
+            -webkit-transition-duration: 0.3s;
+            -khtml-transition-duration: 0.3s;
+            -moz-transition-duration: 0.3s;
+            -ms-transition-duration: 0.3s;
+            -o-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform;
+            -khtml-transition-property: transform;
+            -moz-transition-property: transform;
+            -ms-transition-property: transform;
+            -o-transition-property: transform;
+            transition-property: transform;
+            -webkit-transform: scale(1, 1);
+            -khtml-transform: scale(1, 1);
+            -moz-transform: scale(1, 1);
+            -ms-transform: scale(1, 1);
+            -o-transform: scale(1, 1);
+            transform: scale(1, 1); }
+          .result-header .result-overview .graph-wrapper .graph > svg .node:hover .group-scale {
+            -webkit-transform: scale(1.15, 1.15);
+            -khtml-transform: scale(1.15, 1.15);
+            -moz-transform: scale(1.15, 1.15);
+            -ms-transform: scale(1.15, 1.15);
+            -o-transform: scale(1.15, 1.15);
+            transform: scale(1.15, 1.15); }
         .result-header .result-overview .graph-wrapper .graph .bg {
           position: absolute;
           background-color: blue;

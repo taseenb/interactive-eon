@@ -162,27 +162,27 @@ define( function ( require ) {
       nodeData.forEach( function ( node, i ) {
 
         var $node = $nodes.eq( i );
-
         var done = i === 0 ? ' done ' : '';
 
+        // Add SVG attributes
         $node.attr( {
           'id': 'node-' + i,
           'x': node.x,
           'y': node.y,
           'width': node.side,
           'height': node.side,
-          'style': node.style,
+          //'style': node.style,
           'class': 'node ' + node.quality + done
         } );
 
-      }.bind( this ) );
+        // Add css style
+        $node.find( '.group-rotate' ).attr( 'style', node.style ); //
 
+      }.bind( this ) );
 
       // Add event
       $nodes.on( 'click', function ( e ) {
-
         this.swiper.slideTo( $( e.currentTarget ).index() - 1 );
-
       }.bind( this ) );
 
     },

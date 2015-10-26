@@ -60,7 +60,7 @@
       //padding: 10px;
 
       border: 2px solid #333;
-      svg {
+      > svg {
         position: relative;
         z-index: 5;
         overflow: visible;
@@ -74,9 +74,15 @@
           display: none;
         }
 
-        svg.node {
+        .node {
           @include css3-prefix(transform-origin, 50% 50%);
           cursor: pointer;
+          overflow: visible;
+
+          .group-rotate,
+          .group-scale {
+            @include css3-prefix(transform-origin, 50% 50%);
+          }
 
           .tick {
             display: none;
@@ -106,6 +112,25 @@
             }
           }
         }
+
+        //.no-touch & {
+
+        .node {
+          .group-scale {
+            @include css3-prefix(transition-duration, 0.3s);
+            @include css3-prefix(transition-property, transform);
+            @include transform(scale(1, 1));
+          }
+
+          &:hover {
+            .group-scale {
+              @include transform(scale(1.15, 1.15));
+            }
+          }
+        }
+
+        //}
+
       }
 
       .bg {

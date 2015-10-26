@@ -12099,7 +12099,7 @@ return Chartist;
 define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n\n                <span class="click-message">Click on the nodes to reveal more</span>\n\n                <span class="swipe-message">Swipe left to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div id="graph" class="graph"></div>\n\n                <div class="labels">\n\n                    <%\n\n                    //var labelWidth = Math.floor(100 / (questions.length-1));\n                    var labelWidth = 100 / (questions.length-1);\n\n                    _.each(questions, function(question, j) {\n\n                    %>\n\n                        <span class="label" style="width: <%= labelWidth %>%">\n                            <span class="text"><%= question.title %></span>\n                        </span>\n\n                    <% }); %>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong class="introTip">\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n\n                    <span class="tip">\n                        <%= questions[i].tip %>\n                    </span>\n\n                    <div class="arrows-wrapper">\n\n                        <% if (i > 0) { %>\n                        <span class="prev">\n                            <img src="img/arrow-left.svg">\n                            <img src="img/times/<%= questions[i-1].timeImg %>">\n                        </span>\n                        <% } %>\n\n                        <% if (i < questions.length-1) { %>\n                        <span class="next">\n                            <img src="img/times/<%= questions[i+1].timeImg %>">\n                            <img src="img/arrow-right.svg">\n                        </span>\n                        <% } %>\n\n                        <% if (i >= userAnswers.length-1) { %>\n                        <span class="restart">\n                            <img src="img/restart.svg">\n                        </span>\n                        <% } %>\n\n                    </div>\n\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n    </div>\n\n    <!--<div class="result-share">-->\n\n    <!--<div class="separator"></div>-->\n\n    <!--<strong>Know someone who could use their time more efficiently?</strong>-->\n\n    <!--<div class="share-icons-wrapper">-->\n\n    <!--<img class="share-twitter share-icon" src="img/share-twitter.png">-->\n    <!--<img class="share-facebook share-icon" src="img/share-facebook.png">-->\n    <!--<img class="share-email share-icon" src="img/share-email.png">-->\n\n    <!--</div>-->\n\n    <!--</div>-->\n\n\n</div>';});
 
 
-define('text!nodeSvg',[],function () { return '<svg class="node" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t width="31.333px" height="31.833px" viewBox="-8.833 41.417 31.333 31.833" enable-background="new -8.833 41.417 31.333 31.833" >\n<g>\n\t<g>\n\t\t<g>\n\t\t\t<polygon class="fill" points="21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 20.894,52.916 \t\t\t"/>\n\t\t\t<polygon class="fill" points="21.316,42.722 21.317,52.916 20.894,52.916 12.396,42.724 \t\t\t"/>\n\t\t</g>\n\t\t<g>\n\t\t\t\t<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="\n\t\t\t\t21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 21.316,42.722 \t\t\t"/>\n\n\t\t\t\t<line fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="12.396" y1="42.724" x2="20.894" y2="52.916"/>\n\t\t</g>\n\t</g>\n\t<g class="tick">\n\t\t<g>\n\t\t\t<polygon fill="#43193C" points="-0.277,58.221 -2.57,60.155 2.283,65.9 15.858,54.438 13.907,52.126 2.622,61.654 \t\t\t"/>\n\t\t</g>\n\t</g>\n</g>\n</svg>\n';});
+define('text!nodeSvg',[],function () { return '<svg class="node" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"\n     y="0px"\n     width="31.333px" height="31.833px" viewBox="-8.833 41.417 31.333 31.833"\n     enable-background="new -8.833 41.417 31.333 31.833">\n    <g class="group-rotate">\n        <g class="group-scale">\n            <g>\n                <g>\n                    <polygon class="fill"\n                             points="21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 20.894,52.916 \t\t\t"/>\n                    <polygon class="fill"\n                             points="21.316,42.722 21.317,52.916 20.894,52.916 12.396,42.724 \t\t\t"/>\n                </g>\n                <g>\n                    <polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round"\n                             stroke-linejoin="round" stroke-miterlimit="10" points="\n\t\t\t\t21.317,52.916 21.321,72.027 -7.561,72.032 -7.564,42.727 12.396,42.724 21.316,42.722 \t\t\t"/>\n\n                    <line fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round"\n                          stroke-linejoin="round" stroke-miterlimit="10" x1="12.396" y1="42.724" x2="20.894"\n                          y2="52.916"/>\n                </g>\n            </g>\n            <g class="tick">\n                <g>\n                    <polygon fill="#43193C"\n                             points="-0.277,58.221 -2.57,60.155 2.283,65.9 15.858,54.438 13.907,52.126 2.622,61.654 \t\t\t"/>\n                </g>\n            </g>\n        </g>\n    </g>\n</svg>\n';});
 
 define( 'views/summaryView.js',['require','backbone','swiper','chartist','chartist.plugins.tooltips','text!tpl/summary.html','text!nodeSvg'],function ( require ) {
 
@@ -12265,27 +12265,27 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       nodeData.forEach( function ( node, i ) {
 
         var $node = $nodes.eq( i );
-
         var done = i === 0 ? ' done ' : '';
 
+        // Add SVG attributes
         $node.attr( {
           'id': 'node-' + i,
           'x': node.x,
           'y': node.y,
           'width': node.side,
           'height': node.side,
-          'style': node.style,
+          //'style': node.style,
           'class': 'node ' + node.quality + done
         } );
 
-      }.bind( this ) );
+        // Add css style
+        $node.find( '.group-rotate' ).attr( 'style', node.style ); //
 
+      }.bind( this ) );
 
       // Add event
       $nodes.on( 'click', function ( e ) {
-
         this.swiper.slideTo( $( e.currentTarget ).index() - 1 );
-
       }.bind( this ) );
 
     },
