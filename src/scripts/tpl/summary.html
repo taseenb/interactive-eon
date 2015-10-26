@@ -26,7 +26,7 @@
                     //var labelWidth = Math.floor(100 / (questions.length-1));
                     var labelWidth = 100 / (questions.length-1);
 
-                    _.each(questions, function(question, i) {
+                    _.each(questions, function(question, j) {
 
                     %>
 
@@ -77,8 +77,19 @@
                         <span class="restart">RESTART</span>
                         <% } %>
 
-                        <span class="prev">PREV</span>
-                        <span class="next">NEXT</span>
+                        <% if (i > 0) { %>
+                        <span class="prev">
+                            <img src="img/arrow-left.svg">
+                            <img src="img/times/<%= questions[i-1].timeImg %>">
+                        </span>
+                        <% } %>
+
+                        <% if (i < questions.length-1) { %>
+                        <span class="next">
+                            <img src="img/times/<%= questions[i+1].timeImg %>">
+                            <img src="img/arrow-right.svg">
+                        </span>
+                        <% } %>
                     </div>
 
 
@@ -93,17 +104,17 @@
 
     <!--<div class="result-share">-->
 
-        <!--<div class="separator"></div>-->
+    <!--<div class="separator"></div>-->
 
-        <!--<strong>Know someone who could use their time more efficiently?</strong>-->
+    <!--<strong>Know someone who could use their time more efficiently?</strong>-->
 
-        <!--<div class="share-icons-wrapper">-->
+    <!--<div class="share-icons-wrapper">-->
 
-            <!--<img class="share-twitter share-icon" src="img/share-twitter.png">-->
-            <!--<img class="share-facebook share-icon" src="img/share-facebook.png">-->
-            <!--<img class="share-email share-icon" src="img/share-email.png">-->
+    <!--<img class="share-twitter share-icon" src="img/share-twitter.png">-->
+    <!--<img class="share-facebook share-icon" src="img/share-facebook.png">-->
+    <!--<img class="share-email share-icon" src="img/share-email.png">-->
 
-        <!--</div>-->
+    <!--</div>-->
 
     <!--</div>-->
 

@@ -86,17 +86,28 @@
     .arrows-wrapper {
       text-align: right;
       margin: 0 15px 15px 15px;
+      font-size: 0;
 
       .restart,
       .prev,
       .next {
         cursor: pointer;
         display: inline-block;
-        padding: 10px;
-        border: 2px solid #333;
-        background-color: $bgGreen;
-        font-size: 10px;
+        padding: 0;
+        //border: 2px solid #333;
+        //background-color: $bgGreen;
+        font-size: 0;
         margin-left: 15px;
+
+        img {
+          display: inline-block;
+          height: 34px;
+
+          @media(min-width: 980px) {
+            height: 44px;
+          }
+
+        }
 
         &.swiper-button-disabled {
           display: none;

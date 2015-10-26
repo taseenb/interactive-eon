@@ -2732,17 +2732,26 @@ footer {
       padding: 0 15px 15px 15px; }
     .result-list .list-item .text-box .arrows-wrapper {
       text-align: right;
-      margin: 0 15px 15px 15px; }
+      margin: 0 15px 15px 15px;
+      font-size: 0; }
       .result-list .list-item .text-box .arrows-wrapper .restart,
       .result-list .list-item .text-box .arrows-wrapper .prev,
       .result-list .list-item .text-box .arrows-wrapper .next {
         cursor: pointer;
         display: inline-block;
-        padding: 10px;
-        border: 2px solid #333;
-        background-color: #21C28C;
-        font-size: 10px;
+        padding: 0;
+        font-size: 0;
         margin-left: 15px; }
+        .result-list .list-item .text-box .arrows-wrapper .restart img,
+        .result-list .list-item .text-box .arrows-wrapper .prev img,
+        .result-list .list-item .text-box .arrows-wrapper .next img {
+          display: inline-block;
+          height: 34px; }
+          @media (min-width: 980px) {
+            .result-list .list-item .text-box .arrows-wrapper .restart img,
+            .result-list .list-item .text-box .arrows-wrapper .prev img,
+            .result-list .list-item .text-box .arrows-wrapper .next img {
+              height: 44px; } }
         .result-list .list-item .text-box .arrows-wrapper .restart.swiper-button-disabled,
         .result-list .list-item .text-box .arrows-wrapper .prev.swiper-button-disabled,
         .result-list .list-item .text-box .arrows-wrapper .next.swiper-button-disabled {
