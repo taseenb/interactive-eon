@@ -154,7 +154,9 @@ define( function ( require ) {
       this.scrollToIframeTop();
 
       // Display:none for the questions
-      setTimeout(function(){this.$questions.hide();}.bind(this), 500);
+      setTimeout( function () {
+        this.$questions.hide();
+      }.bind( this ), 500 );
 
       //console.log( App.user.answers );
 
@@ -243,10 +245,18 @@ define( function ( require ) {
 
       // Update iframe height
       //var height = Math.max( this.highest, this.$el.outerHeight( true ) );
-      var height = this.$el.outerHeight( true );
-      iframeMessenger.resize( height );
 
-      console.log( "iframeMessenger update: ", height );
+      iframeMessenger.resize( 0 );
+
+      setTimeout( function () {
+
+        var height = this.$el.outerHeight( true );
+        iframeMessenger.resize( height );
+
+        console.log( "iframeMessenger update: ", height );
+
+
+      }.bind( this ), 0 );
 
     }
 
