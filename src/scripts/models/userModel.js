@@ -112,15 +112,16 @@ define( function ( require ) {
 
     },
 
-    getValue: function () {
+    getValue: function ( v ) {
 
+      var value = v || this.values.percent;
       var values = ["bad", "medium", "good"];
       var valueIdx = 0;
       var unit = 100 / 3;
 
-      if ( this.values.percent > unit * 2 ) {
+      if ( value > unit * 2 ) {
         valueIdx = 2;
-      } else if ( this.values.percent > unit ) {
+      } else if ( value > unit ) {
         valueIdx = 1;
       }
 

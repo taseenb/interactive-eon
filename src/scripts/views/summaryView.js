@@ -35,8 +35,10 @@ define( function ( require ) {
       this.$el.append( this.html );
 
       //if ( !App.isPhone ) {
-        this.renderGraph();
+      this.renderGraph();
       //}
+
+      console.log( 'rendering graph' );
 
       this.renderSwiper();
 
@@ -93,7 +95,52 @@ define( function ( require ) {
         }
       };
 
+
       new Chartist.Line( this.$( '#graph' )[0], chartistData, chartistOptions );
+
+      // Add points images
+      setTimeout( function () {
+        this.addGraphIcons();
+      }.bind( this ), 0 );
+
+    },
+
+    addGraphIcons: function () {
+
+      var $svg = this.$( '#graph' ).find( 'svg' );
+      var $points = $svg.find( '.ct-point' );
+      var imgHtml = '';
+
+      // Remove existing images
+      $svg.find( '.graph-img' ).remove();
+
+      // Get points coordinates
+      $points.each( function ( i, el ) {
+
+        var $el = $( el );
+
+        var side = 24;
+        var x = parseFloat( $el.attr( 'x1' ) ) - side / 2;
+        var y = parseFloat( $el.attr( 'y1' ) ) - side / 2;
+
+        var value = App.user.answers[i].value;
+        var percent = Math.round( (value * 100) / 6 );
+        var quality = App.user.getValue( percent ); //'good';
+
+        //console.log( value, percent, quality );
+
+        imgHtml += '<image x="' + x + '" y="' + y + '" height="' + side + 'px" width="' + side + 'px" xlink:href="img/results-marks/' + quality + '-node.png" style="' + Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)" class="graph-img" />';
+
+        $el.remove();
+
+      }.bind( this ) );
+
+
+      // Remove dots and add images
+      $svg.find( '.ct-series' ).first().attr( 'id', 'img-points' ); //attr( '<g id="img-points"></g>' );
+      var imagesWrapper = document.getElementById( 'img-points' );
+      var path = $( imagesWrapper ).html();
+      $( imagesWrapper ).html( path + imgHtml );
 
     },
 
@@ -138,6 +185,8 @@ define( function ( require ) {
     },
 
     onResize: function ( e ) {
+
+      this.addGraphIcons();
 
       // console.log(e.width, e.height);
 

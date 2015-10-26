@@ -219,55 +219,34 @@ define( function ( require ) {
 
     },
 
-    getHighestQuestionHeight: function () {
-
-      var minHeight = 768;
-
-      var $questions = this.$questions.find( '.question' );
-
-      if ( $questions.length ) {
-        var highestQuestion = _.max( $questions, function ( question ) {
-          return $( question ).height();
-        } );
-
-        return $( highestQuestion ).outerHeight( true );
-      } else {
-        return minHeight;
-      }
-
-    },
+    //getHighestQuestionHeight: function () {
+    //
+    //  var minHeight = 768;
+    //
+    //  var $questions = this.$questions.find( '.question' );
+    //
+    //  if ( $questions.length ) {
+    //    var highestQuestion = _.max( $questions, function ( question ) {
+    //      return $( question ).height();
+    //    } );
+    //
+    //    return $( highestQuestion ).outerHeight( true );
+    //  } else {
+    //    return minHeight;
+    //  }
+    //
+    //},
 
     onResize: function () {
 
-      this.highest = this.getHighestQuestionHeight();
-
-      //var $summary = $( '#summary' );
-      //var $questions = this.$questions.find( '.question' );
-      //
-      //if ( $questions.length ) {
-      //  // Reset questions height
-      //  $questions.each( function ( i, el ) {
-      //    el.style.height = '';
-      //  } );
-      //
-      //  $summary[0].style.height = ''; //
-      //
-      //  // Get fresh height
-      //  var highestQuestion = _.max( $questions, function ( question ) {
-      //    return $( question ).height();
-      //  } );
-      //
-      //  // Set highest height to all questions
-      //  height = $( highestQuestion ).height();
-      //  $questions.height( height + 'px' );
-      //  $summary.height( height + 'px' );
-      //}
+      //this.highest = this.getHighestQuestionHeight();
 
       // Update iframe height
-      var height = Math.max( this.highest, this.$el.outerHeight( true ) );
+      //var height = Math.max( this.highest, this.$el.outerHeight( true ) );
+      var height = this.$el.outerHeight( true );
       iframeMessenger.resize( height - 20 );
 
-      console.log( "iframeMessenger update: ", height );
+      //console.log( "iframeMessenger update: ", height );
 
     }
 

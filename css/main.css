@@ -2631,14 +2631,20 @@ footer {
         border: 2px solid #333; }
         .result-header .result-overview .graph-wrapper .graph svg {
           position: relative;
-          z-index: 5; }
+          z-index: 5;
+          overflow: visible; }
           .result-header .result-overview .graph-wrapper .graph svg .ct-line {
             stroke: #db71aa;
             stroke-width: 7px; }
           .result-header .result-overview .graph-wrapper .graph svg .ct-point {
-            stroke: blue;
-            stroke-width: 20px;
-            stroke-linecap: square; }
+            display: none; }
+          .result-header .result-overview .graph-wrapper .graph svg .graph-img {
+            -webkit-transform-origin: 50% 50%;
+            -khtml-transform-origin: 50% 50%;
+            -moz-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            -o-transform-origin: 50% 50%;
+            transform-origin: 50% 50%; }
         .result-header .result-overview .graph-wrapper .graph .bg {
           position: absolute;
           background-color: blue;
@@ -2756,10 +2762,6 @@ footer {
         .result-list .list-item .text-box .arrows-wrapper .prev.swiper-button-disabled,
         .result-list .list-item .text-box .arrows-wrapper .next.swiper-button-disabled {
           display: none; }
-      .result-list .list-item .text-box .arrows-wrapper .restart {
-        float: left;
-        background-color: #db71aa;
-        margin: 0 !important; }
 
 @media (min-width: 980px) {
   .result-list {

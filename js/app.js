@@ -12096,7 +12096,7 @@ return Chartist;
 }));
 
 
-define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n\n                <span class="click-message">Click on the nodes to reveal more</span>\n\n                <span class="swipe-message">Swipe left to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div id="graph" class="graph"></div>\n\n                <div class="labels">\n\n                    <%\n\n                    //var labelWidth = Math.floor(100 / (questions.length-1));\n                    var labelWidth = 100 / (questions.length-1);\n\n                    _.each(questions, function(question, j) {\n\n                    %>\n\n                        <span class="label" style="width: <%= labelWidth %>%">\n                            <span class="text"><%= question.title %></span>\n                        </span>\n\n                    <% }); %>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong class="introTip">\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n\n                    <span class="tip">\n                        <%= questions[i].tip %>\n                    </span>\n\n                    <div class="arrows-wrapper">\n\n                        <% if (i >= userAnswers.length-1) { %>\n                        <span class="restart">RESTART</span>\n                        <% } %>\n\n                        <% if (i > 0) { %>\n                        <span class="prev">\n                            <img src="img/arrow-left.svg">\n                            <img src="img/times/<%= questions[i-1].timeImg %>">\n                        </span>\n                        <% } %>\n\n                        <% if (i < questions.length-1) { %>\n                        <span class="next">\n                            <img src="img/times/<%= questions[i+1].timeImg %>">\n                            <img src="img/arrow-right.svg">\n                        </span>\n                        <% } %>\n                    </div>\n\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n    </div>\n\n    <!--<div class="result-share">-->\n\n    <!--<div class="separator"></div>-->\n\n    <!--<strong>Know someone who could use their time more efficiently?</strong>-->\n\n    <!--<div class="share-icons-wrapper">-->\n\n    <!--<img class="share-twitter share-icon" src="img/share-twitter.png">-->\n    <!--<img class="share-facebook share-icon" src="img/share-facebook.png">-->\n    <!--<img class="share-email share-icon" src="img/share-email.png">-->\n\n    <!--</div>-->\n\n    <!--</div>-->\n\n\n</div>';});
+define('text!tpl/summary.html',[],function () { return '<div class="inner">\n\n    <div class="result-header">\n\n        <h1 class="result-title">\n            <%= copy.summaryTitle[userValues.title] %>\n        </h1>\n\n        <div class="result-overview">\n            <div class="intro">\n                <strong>Here\'s how your day looks</strong>\n\n                <span class="click-message">Click on the nodes to reveal more</span>\n\n                <span class="swipe-message">Swipe left to reveal more</span>\n            </div>\n\n            <div class="graph-wrapper">\n\n                <div id="graph" class="graph"></div>\n\n                <div class="labels">\n\n                    <%\n\n                    //var labelWidth = Math.floor(100 / (questions.length-1));\n                    var labelWidth = 100 / (questions.length-1);\n\n                    _.each(questions, function(question, j) {\n\n                    %>\n\n                        <span class="label" style="width: <%= labelWidth %>%">\n                            <span class="text"><%= question.title %></span>\n                        </span>\n\n                    <% }); %>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class="result-list swiper-container">\n\n        <div class="swiper-wrapper">\n\n            <% _.each(userAnswers, function(answer, i) { %>\n            <div id="result-list-item-<%= i %>" class="list-item swiper-slide">\n                <!--Chosen answer: <%= answer.chosenAnswer %>-->\n                <!--Value: <%= answer.value %>-->\n\n                <div class="text-box">\n\n                    <div class="img-wrapper">\n                        <img class="time" src="img/times/<%= data.questions[i].timeImg %>">\n                        <img class="mark"\n                             src="img/results-marks/<%= questions[i].answers[answer.chosenAnswer].eval %>-mark.svg">\n\n                        <img class="deco" src="img/summary/bundle-2.png">\n                    </div>\n\n                    <strong class="introTip">\n                        <%= questions[i].answers[answer.chosenAnswer].introTip %>\n                    </strong>\n\n                    <span class="tip">\n                        <%= questions[i].tip %>\n                    </span>\n\n                    <div class="arrows-wrapper">\n\n                        <% if (i > 0) { %>\n                        <span class="prev">\n                            <img src="img/arrow-left.svg">\n                            <img src="img/times/<%= questions[i-1].timeImg %>">\n                        </span>\n                        <% } %>\n\n                        <% if (i < questions.length-1) { %>\n                        <span class="next">\n                            <img src="img/times/<%= questions[i+1].timeImg %>">\n                            <img src="img/arrow-right.svg">\n                        </span>\n                        <% } %>\n\n                        <% if (i >= userAnswers.length-1) { %>\n                        <span class="restart">\n                            <img src="img/restart.svg">\n                        </span>\n                        <% } %>\n\n                    </div>\n\n\n                </div>\n\n            </div>\n            <% }); %>\n\n        </div>\n\n    </div>\n\n    <!--<div class="result-share">-->\n\n    <!--<div class="separator"></div>-->\n\n    <!--<strong>Know someone who could use their time more efficiently?</strong>-->\n\n    <!--<div class="share-icons-wrapper">-->\n\n    <!--<img class="share-twitter share-icon" src="img/share-twitter.png">-->\n    <!--<img class="share-facebook share-icon" src="img/share-facebook.png">-->\n    <!--<img class="share-email share-icon" src="img/share-email.png">-->\n\n    <!--</div>-->\n\n    <!--</div>-->\n\n\n</div>';});
 
 define( 'views/summaryView.js',['require','backbone','swiper','chartist','chartist.plugins.tooltips','text!tpl/summary.html'],function ( require ) {
 
@@ -12135,8 +12135,10 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       this.$el.append( this.html );
 
       //if ( !App.isPhone ) {
-        this.renderGraph();
+      this.renderGraph();
       //}
+
+      console.log( 'rendering graph' );
 
       this.renderSwiper();
 
@@ -12193,7 +12195,52 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
         }
       };
 
+
       new Chartist.Line( this.$( '#graph' )[0], chartistData, chartistOptions );
+
+      // Add points images
+      setTimeout( function () {
+        this.addGraphIcons();
+      }.bind( this ), 0 );
+
+    },
+
+    addGraphIcons: function () {
+
+      var $svg = this.$( '#graph' ).find( 'svg' );
+      var $points = $svg.find( '.ct-point' );
+      var imgHtml = '';
+
+      // Remove existing images
+      $svg.find( '.graph-img' ).remove();
+
+      // Get points coordinates
+      $points.each( function ( i, el ) {
+
+        var $el = $( el );
+
+        var side = 24;
+        var x = parseFloat( $el.attr( 'x1' ) ) - side / 2;
+        var y = parseFloat( $el.attr( 'y1' ) ) - side / 2;
+
+        var value = App.user.answers[i].value;
+        var percent = Math.round( (value * 100) / 6 );
+        var quality = App.user.getValue( percent ); //'good';
+
+        //console.log( value, percent, quality );
+
+        imgHtml += '<image x="' + x + '" y="' + y + '" height="' + side + 'px" width="' + side + 'px" xlink:href="img/results-marks/' + quality + '-node.png" style="' + Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)" class="graph-img" />';
+
+        $el.remove();
+
+      }.bind( this ) );
+
+
+      // Remove dots and add images
+      $svg.find( '.ct-series' ).first().attr( 'id', 'img-points' ); //attr( '<g id="img-points"></g>' );
+      var imagesWrapper = document.getElementById( 'img-points' );
+      var path = $( imagesWrapper ).html();
+      $( imagesWrapper ).html( path + imgHtml );
 
     },
 
@@ -12238,6 +12285,8 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
     },
 
     onResize: function ( e ) {
+
+      this.addGraphIcons();
 
       // console.log(e.width, e.height);
 
@@ -12469,55 +12518,34 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     },
 
-    getHighestQuestionHeight: function () {
-
-      var minHeight = 768;
-
-      var $questions = this.$questions.find( '.question' );
-
-      if ( $questions.length ) {
-        var highestQuestion = _.max( $questions, function ( question ) {
-          return $( question ).height();
-        } );
-
-        return $( highestQuestion ).outerHeight( true );
-      } else {
-        return minHeight;
-      }
-
-    },
+    //getHighestQuestionHeight: function () {
+    //
+    //  var minHeight = 768;
+    //
+    //  var $questions = this.$questions.find( '.question' );
+    //
+    //  if ( $questions.length ) {
+    //    var highestQuestion = _.max( $questions, function ( question ) {
+    //      return $( question ).height();
+    //    } );
+    //
+    //    return $( highestQuestion ).outerHeight( true );
+    //  } else {
+    //    return minHeight;
+    //  }
+    //
+    //},
 
     onResize: function () {
 
-      this.highest = this.getHighestQuestionHeight();
-
-      //var $summary = $( '#summary' );
-      //var $questions = this.$questions.find( '.question' );
-      //
-      //if ( $questions.length ) {
-      //  // Reset questions height
-      //  $questions.each( function ( i, el ) {
-      //    el.style.height = '';
-      //  } );
-      //
-      //  $summary[0].style.height = ''; //
-      //
-      //  // Get fresh height
-      //  var highestQuestion = _.max( $questions, function ( question ) {
-      //    return $( question ).height();
-      //  } );
-      //
-      //  // Set highest height to all questions
-      //  height = $( highestQuestion ).height();
-      //  $questions.height( height + 'px' );
-      //  $summary.height( height + 'px' );
-      //}
+      //this.highest = this.getHighestQuestionHeight();
 
       // Update iframe height
-      var height = Math.max( this.highest, this.$el.outerHeight( true ) );
+      //var height = Math.max( this.highest, this.$el.outerHeight( true ) );
+      var height = this.$el.outerHeight( true );
       iframeMessenger.resize( height - 20 );
 
-      console.log( "iframeMessenger update: ", height );
+      //console.log( "iframeMessenger update: ", height );
 
     }
 
@@ -13152,15 +13180,16 @@ define( 'models/userModel',['require','backbone'],function ( require ) {
 
     },
 
-    getValue: function () {
+    getValue: function ( v ) {
 
+      var value = v || this.values.percent;
       var values = ["bad", "medium", "good"];
       var valueIdx = 0;
       var unit = 100 / 3;
 
-      if ( this.values.percent > unit * 2 ) {
+      if ( value > unit * 2 ) {
         valueIdx = 2;
-      } else if ( this.values.percent > unit ) {
+      } else if ( value > unit ) {
         valueIdx = 1;
       }
 

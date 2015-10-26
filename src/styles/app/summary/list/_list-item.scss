@@ -94,8 +94,6 @@
         cursor: pointer;
         display: inline-block;
         padding: 0;
-        //border: 2px solid #333;
-        //background-color: $bgGreen;
         font-size: 0;
         margin-left: 15px;
 
@@ -112,12 +110,6 @@
         &.swiper-button-disabled {
           display: none;
         }
-      }
-
-      .restart {
-        float: left;
-        background-color: $bgPink;
-        margin: 0 !important;
       }
     }
 
