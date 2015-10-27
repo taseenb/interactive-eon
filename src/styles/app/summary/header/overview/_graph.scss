@@ -13,7 +13,6 @@
       position: relative;
       width: 100%;
       overflow: visible;
-      //background-color: #FFF;
       height: 20px;
       font-size: 0;
       white-space: nowrap;
@@ -113,8 +112,6 @@
           }
         }
 
-        //.no-touch & {
-
         .node {
           .group-scale {
             @include css3-prefix(transition-duration, 0.3s);
@@ -128,8 +125,6 @@
             }
           }
         }
-
-        //}
 
       }
 

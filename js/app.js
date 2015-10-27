@@ -1,4 +1,4 @@
-/*! app / v0.0.1October 26, 2015 */
+/*! app / v0.0.1October 27, 2015 */
 /**
  * @license almond 0.3.1 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -12213,12 +12213,12 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
     addGraphIcons: function () {
 
       var $svg = this.$( '#graph' ).find( 'svg' );
-      var $points = $svg.find( '.ct-point' );
+      var $points = $svg.find( '[class~=ct-point]' );
       var nodeData = [];
       var imgHtml = '';
 
       // Remove existing images
-      $svg.find( '.graph-img' ).off().remove();
+      $svg.find( '[class~=graph-img]' ).off().remove();
 
       // Get node data + add basic svg
       $points.each( function ( i, el ) {
@@ -12228,10 +12228,6 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
         var side = 24;
         var x = parseFloat( $el.attr( 'x1' ) ) - side / 2;
         var y = parseFloat( $el.attr( 'y1' ) ) - side / 2;
-
-        //var value = App.user.answers[i].value;
-        //var percent = Math.round( (value * 100) / 6 );
-        //var quality = App.user.getValue( percent ); //'good';
 
         var quality = App.data.questions[i].answers[App.user.answers[i].chosenAnswer].eval;
 
@@ -12243,10 +12239,6 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
           style: Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)'
         } );
 
-        //console.log( value, percent, quality );
-
-        //imgHtml += '<image x="' + x + '" y="' + y + '" height="' + side + 'px" width="' + side + 'px" xlink:href="img/results-marks/' + quality + '-node.png" style="' + Modernizr.prefixed( 'transform' ) + ': rotate(' + (~~(Math.random() * 20) - 10) + 'deg)" class="graph-img" />';
-
         imgHtml += nodeSvg;
 
         $el.remove();
@@ -12255,31 +12247,38 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
 
       // Remove dots and add images
-      $svg.find( '.ct-series' ).first().attr( 'id', 'img-points' ); //attr( '<g id="img-points"></g>' );
+      $svg.find( '[class~=ct-series]' )[0].id = 'img-points';
       var imagesWrapper = document.getElementById( 'img-points' );
-      var path = $( imagesWrapper ).html();
-      $( imagesWrapper ).html( path + imgHtml );
-
+      $( imagesWrapper ).append( imgHtml );
       // Update svg with node data
-      var $nodes = $svg.find( '.node' );
+      var $nodes = $svg.find( '[class~=node]' );
+
+
+      // Add node attributes
       nodeData.forEach( function ( node, i ) {
 
         var $node = $nodes.eq( i );
-        var done = i === 0 ? ' done ' : '';
+        var done = '';
 
-        // Add SVG attributes
+        // Set all done in IE9, otherwise only first node should be shown as 'done'
+        if ( App.supportTransitions ) {
+          done = i === 0 ? ' done ' : '';
+        } else {
+          done = ' done ';
+        }
+
+
         $node.attr( {
           'id': 'node-' + i,
           'x': node.x,
           'y': node.y,
-          'width': node.side,
-          'height': node.side,
-          //'style': node.style,
+          'width': node.side + 'px',
+          'height': node.side + 'px',
           'class': 'node ' + node.quality + done
         } );
 
         // Add css style
-        $node.find( '.group-rotate' ).attr( 'style', node.style ); //
+        $node.find( '[class~=group-rotate]' ).attr( 'style', node.style );
 
       }.bind( this ) );
 
@@ -12303,10 +12302,34 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
         fade: {
           crossFade: true
         },
-        nextButton: '.text-box .next', //.swiper-button-next',
-        prevButton: '.text-box .prev'//'.swiper-button-prev'
+        nextButton: '.text-box .next',
+        prevButton: '.text-box .prev',
+
+        onSlideChangeEnd: App.supportTransitions ? this.updateNodes.bind( this ) : undefined
 
       } );
+
+    },
+
+    /**
+     * Set as 'done' all the nodes before the active one (it will show a tick on the icon)
+     * @param e
+     */
+    updateNodes: function ( e ) {
+
+      var $svg = this.$( '#graph' ).find( 'svg' );
+      var $nodes = $svg.find( '[class~=node]' );
+      var index = e.activeIndex;
+
+      $nodes.each( function ( i, node ) {
+
+        var classNames = node.getAttribute( "class" );
+
+        if ( i <= index && classNames.indexOf( 'done' ) < 0 ) {
+          node.setAttribute( 'class', classNames + ' done ' );
+        }
+
+      }.bind( this ) );
 
     },
 
