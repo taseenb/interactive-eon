@@ -196,7 +196,7 @@ define( function ( require ) {
 
         this.updateNodes();
 
-        this.graphRendered = true;
+        //this.graphRendered = true;
 
       }.bind( this ), 250 );
 
@@ -289,20 +289,20 @@ define( function ( require ) {
 
     },
 
-    onResize: function ( e ) {
-
-      if ( this.graphRendered ) {
-        this.addGraphIcons();
-      }
-
-      var height = this.$el.outerHeight( true );
-      iframeMessenger.resize( height );
-
-      console.log( 'summary height', height );
-
-      // console.log(e.width, e.height);
-
-    }
+    //onResize: function ( e ) {
+    //
+    //  if ( this.graphRendered ) {
+    //    this.addGraphIcons();
+    //  }
+    //
+    //  var height = this.$el.outerHeight( true );
+    //  iframeMessenger.resize( height );
+    //
+    //  console.log( 'summary height', height );
+    //
+    //  // console.log(e.width, e.height);
+    //
+    //}
 
   } );
 

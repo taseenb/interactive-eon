@@ -239,9 +239,9 @@ define( function ( require ) {
 
         if ( this.currentViewType === 'summary' && this.summaryView ) {
 
-          if ( this.summaryView.graphRendered ) {
+          //if ( this.summaryView.graphRendered ) {
             this.summaryView.addGraphIcons();
-          }
+          //}
 
           if ( App.width < 980 ) {
             height = this.summaryView.$el.outerHeight( true );

@@ -121,45 +121,23 @@ define( function ( require ) {
       this.$el.show();
     },
 
-    onResize: function ( e ) {
-
-      setTimeout( function () {
-
-        var height = 0;
-        if ( App.width < 980 ) {
-          height = this.$el.outerHeight( true );
-        } else {
-          height = this.$( '.options-wrapper' ).outerHeight( true ) + 80; //this.$el.outerHeight( true );
-        }
-        iframeMessenger.resize( height );
-
-        console.log( 'question height', height );
-
-      }.bind( this ), 0 );
-
-
-      // console.log(e.width, e.height);
-
-      //console.log( 'question resize' );
-
-      //if ( App.width < 980 ) {
-      //
-      //  if ( this.$el.outerHeight( true ) <= App.height ) {
-      //    this.el.style.height = App.height + 'px';
-      //    this.$inner.addClass( 'abs-vertical-center' );
-      //  } else {
-      //    this.el.style.height = '';
-      //    this.$inner.removeClass( 'abs-vertical-center' );
-      //  }
-      //
-      //} else {
-      //
-      //  this.el.style.height = '';
-      //  this.$inner.removeClass( 'abs-vertical-center' );
-      //
-      //}
-
-    }
+    //onResize: function ( e ) {
+    //
+    //  setTimeout( function () {
+    //
+    //    var height = 0;
+    //    if ( App.width < 980 ) {
+    //      height = this.$el.outerHeight( true );
+    //    } else {
+    //      height = this.$( '.options-wrapper' ).outerHeight( true ) + 80; //this.$el.outerHeight( true );
+    //    }
+    //    iframeMessenger.resize( height );
+    //
+    //    console.log( 'question height', height );
+    //
+    //  }.bind( this ), 0 );
+    //
+    //}
 
   } );
 
