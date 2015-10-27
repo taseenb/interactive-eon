@@ -26,6 +26,8 @@ define( function ( require ) {
 
     render: function () {
 
+      App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
+
       this.html = this.template( {
         data: App.data,
         questions: App.data.questions,
@@ -36,9 +38,11 @@ define( function ( require ) {
 
       this.$el.append( this.html );
 
-      //if ( !App.isPhone ) {
-      this.renderGraph();
-      //}
+      this.addTargetBlank();
+
+      if ( !App.isPhone ) {
+        this.renderGraph();
+      }
 
       //console.log( 'rendering graph' );
 
@@ -49,7 +53,15 @@ define( function ( require ) {
 
     },
 
+    addTargetBlank: function () {
+
+      this.$( '.list-item a' ).attr( 'target', '_blank' );
+
+    },
+
     renderGraph: function () {
+
+      this.graphRendered = true;
 
       var labels = _.map( App.data.questions, function ( question ) {
         return question.title;
@@ -249,7 +261,7 @@ define( function ( require ) {
 
     setupElements: function () {
 
-      this.$restart = this.$( '.restart' );
+      //this.$restart = this.$( '.restart' );
 
     },
 
@@ -269,7 +281,9 @@ define( function ( require ) {
 
     onResize: function ( e ) {
 
-      this.addGraphIcons();
+      if ( this.graphRendered ) {
+        this.addGraphIcons();
+      }
 
       // console.log(e.width, e.height);
 

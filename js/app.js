@@ -12133,6 +12133,8 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
     render: function () {
 
+      App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
+
       this.html = this.template( {
         data: App.data,
         questions: App.data.questions,
@@ -12143,9 +12145,11 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       this.$el.append( this.html );
 
-      //if ( !App.isPhone ) {
-      this.renderGraph();
-      //}
+      this.addTargetBlank();
+
+      if ( !App.isPhone ) {
+        this.renderGraph();
+      }
 
       //console.log( 'rendering graph' );
 
@@ -12156,7 +12160,15 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
     },
 
+    addTargetBlank: function () {
+
+      this.$( '.list-item a' ).attr( 'target', '_blank' );
+
+    },
+
     renderGraph: function () {
+
+      this.graphRendered = true;
 
       var labels = _.map( App.data.questions, function ( question ) {
         return question.title;
@@ -12356,7 +12368,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
     setupElements: function () {
 
-      this.$restart = this.$( '.restart' );
+      //this.$restart = this.$( '.restart' );
 
     },
 
@@ -12376,7 +12388,9 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
     onResize: function ( e ) {
 
-      this.addGraphIcons();
+      if ( this.graphRendered ) {
+        this.addGraphIcons();
+      }
 
       // console.log(e.width, e.height);
 
