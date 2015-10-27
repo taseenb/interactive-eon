@@ -115,7 +115,7 @@ define( function ( require ) {
       var imgHtml = '';
 
       // Remove existing images
-      $svg.find( '[class~=graph-img]' ).off().remove();
+      $svg.find( '[class~=graph-img]' ).remove();
 
       // Get node data + add basic svg
       $points.each( function ( i, el ) {
@@ -185,7 +185,7 @@ define( function ( require ) {
       }.bind( this ), 250 );
 
       // Add event
-      $nodes.on( 'click', function ( e ) {
+      $nodes.off().on( 'click', function ( e ) {
         this.swiper.slideTo( $( e.currentTarget ).index() - 1 );
       }.bind( this ) );
 

@@ -33,7 +33,7 @@ define( function ( require ) {
       var ie9 = !App.supportTransitions;
       var imageFile = App.data.questions[this.idx].animationName + '.svg';
 
-      if (ie9) {
+      if ( ie9 ) {
         imageFile = 'png/' + App.data.questions[this.idx].animationName + '.png';
       }
 
@@ -66,8 +66,6 @@ define( function ( require ) {
     setupElements: function () {
 
       this.$answers = this.$( '.answer' );
-
-      //this.$inner = this.$( '#question-inner-' + this.idx );
 
     },
 

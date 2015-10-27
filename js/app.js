@@ -4323,7 +4323,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
       var ie9 = !App.supportTransitions;
       var imageFile = App.data.questions[this.idx].animationName + '.svg';
 
-      if (ie9) {
+      if ( ie9 ) {
         imageFile = 'png/' + App.data.questions[this.idx].animationName + '.png';
       }
 
@@ -4356,8 +4356,6 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
     setupElements: function () {
 
       this.$answers = this.$( '.answer' );
-
-      //this.$inner = this.$( '#question-inner-' + this.idx );
 
     },
 
@@ -12224,7 +12222,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       var imgHtml = '';
 
       // Remove existing images
-      $svg.find( '[class~=graph-img]' ).off().remove();
+      $svg.find( '[class~=graph-img]' ).remove();
 
       // Get node data + add basic svg
       $points.each( function ( i, el ) {
@@ -12294,7 +12292,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       }.bind( this ), 250 );
 
       // Add event
-      $nodes.on( 'click', function ( e ) {
+      $nodes.off().on( 'click', function ( e ) {
         this.swiper.slideTo( $( e.currentTarget ).index() - 1 );
       }.bind( this ) );
 
@@ -12358,7 +12356,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
     setupElements: function () {
 
-      this.$restart = this.$( '.restart' );//
+      this.$restart = this.$( '.restart' );
 
     },
 
