@@ -12556,10 +12556,12 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       }.bind( this ) );
 
       // Scroll
-      if ( idx > 0 ) {
+      if ( this.notFirstTime ) {
         this.scrollToTop();
         this.scrollToIframeTop();
       }
+
+      this.notFirstTime = true;
 
     },
 
