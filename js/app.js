@@ -12663,7 +12663,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       iframeMessenger.getPositionInformation( function ( obj ) {
 
-        var y = Math.abs( obj.iframeTop );
+        var y = Math.abs( obj.iframeTop ) - 20;
         iframeMessenger.scrollTo( 0, y );
 
       } );
