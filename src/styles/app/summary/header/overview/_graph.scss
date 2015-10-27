@@ -81,15 +81,33 @@
           .group-rotate,
           .group-scale {
             @include css3-prefix(transform-origin, 50% 50%);
+            @include css3-prefix(transition-duration, 0.3s);
+            @include css3-prefix(transition-property, transform);
+            @include transform(scale(1, 1));
+          }
+
+          &:hover {
+            .group-scale {
+              @include css3-prefix(transform-origin, 50% 50%);
+              @include transform(scale(1.15, 1.15));
+            }
+          }
+
+          &.current {
+            .group-scale {
+              @include css3-prefix(transform-origin, 50% 50%);
+              @include transform(scale(1.3, 1.3));
+            }
           }
 
           .tick {
-            display: none;
+            opacity: 0;
+            @include css3-prefix(transition-duration, 0.4s);
           }
 
           &.done {
             .tick {
-              display: block;
+              opacity: 1;
             }
           }
 
@@ -108,20 +126,6 @@
           &.good {
             .fill {
               fill: #CAE0F5;
-            }
-          }
-        }
-
-        .node {
-          .group-scale {
-            @include css3-prefix(transition-duration, 0.3s);
-            @include css3-prefix(transition-property, transform);
-            @include transform(scale(1, 1));
-          }
-
-          &:hover {
-            .group-scale {
-              @include transform(scale(1.15, 1.15));
             }
           }
         }

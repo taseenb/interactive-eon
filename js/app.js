@@ -4320,9 +4320,15 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
     render: function () {
 
-      var svg = App.data.questions[this.idx].animationName + '.svg';
+      var ie9 = !App.supportTransitions;
+      var imageFile = App.data.questions[this.idx].animationName + '.svg';
+
+      if (ie9) {
+        imageFile = 'png/' + App.data.questions[this.idx].animationName + '.png';
+      }
 
       this.html = this.template( {
+        ie9: ie9,
         idx: this.idx,
         question: App.data.questions[parseInt( this.idx )],
         animationCode: this.animationCode,
@@ -4334,7 +4340,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
           '#f6f06b'
         ],
         counterSvg: counterSvg,
-        imgSrc: 'img/animations/' + svg
+        imgSrc: 'img/animations/' + imageFile
 
       } );
 
@@ -12143,7 +12149,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       this.renderGraph();
       //}
 
-      console.log( 'rendering graph' );
+      //console.log( 'rendering graph' );
 
       this.renderSwiper();
 
@@ -12262,7 +12268,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
         // Set all done in IE9, otherwise only first node should be shown as 'done'
         if ( App.supportTransitions ) {
-          done = i === 0 ? ' done ' : '';
+          done = i === 0 ? ' done  ' : '';
         } else {
           done = ' done ';
         }
@@ -12281,6 +12287,11 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
         $node.find( '[class~=group-rotate]' ).attr( 'style', node.style );
 
       }.bind( this ) );
+
+      // Set first node as 'current'
+      setTimeout( function () {
+        this.updateNodes();
+      }.bind( this ), 250 );
 
       // Add event
       $nodes.on( 'click', function ( e ) {
@@ -12319,7 +12330,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $nodes = $svg.find( '[class~=node]' );
-      var index = e.activeIndex;
+      var index = e ? e.activeIndex : 0;
 
       $nodes.each( function ( i, node ) {
 
@@ -12327,6 +12338,18 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
         if ( i <= index && classNames.indexOf( 'done' ) < 0 ) {
           node.setAttribute( 'class', classNames + ' done ' );
+        }
+
+        // Remove 'current' class
+        if ( classNames.indexOf( 'current' ) > -1 ) {
+          var notCurrenClass = classNames.replace( 'current', '' );
+          node.setAttribute( 'class', notCurrenClass );
+        }
+
+        // Add 'current' class to currently active node
+        if ( i === index ) {
+          classNames = node.getAttribute( "class" );
+          node.setAttribute( 'class', classNames + ' current ' );
         }
 
       }.bind( this ) );
@@ -12621,7 +12644,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
         var height = this.$el.outerHeight( true );
         iframeMessenger.resize( height );
 
-        console.log( "iframeMessenger update: ", height );
+        //console.log( "iframeMessenger update: ", height );
 
 
       }.bind( this ), 0 );

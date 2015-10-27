@@ -30,9 +30,15 @@ define( function ( require ) {
 
     render: function () {
 
-      var svg = App.data.questions[this.idx].animationName + '.svg';
+      var ie9 = !App.supportTransitions;
+      var imageFile = App.data.questions[this.idx].animationName + '.svg';
+
+      if (ie9) {
+        imageFile = 'png/' + App.data.questions[this.idx].animationName + '.png';
+      }
 
       this.html = this.template( {
+        ie9: ie9,
         idx: this.idx,
         question: App.data.questions[parseInt( this.idx )],
         animationCode: this.animationCode,
@@ -44,7 +50,7 @@ define( function ( require ) {
           '#f6f06b'
         ],
         counterSvg: counterSvg,
-        imgSrc: 'img/animations/' + svg
+        imgSrc: 'img/animations/' + imageFile
 
       } );
 

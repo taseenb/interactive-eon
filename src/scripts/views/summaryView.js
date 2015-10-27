@@ -40,7 +40,7 @@ define( function ( require ) {
       this.renderGraph();
       //}
 
-      console.log( 'rendering graph' );
+      //console.log( 'rendering graph' );
 
       this.renderSwiper();
 
@@ -159,7 +159,7 @@ define( function ( require ) {
 
         // Set all done in IE9, otherwise only first node should be shown as 'done'
         if ( App.supportTransitions ) {
-          done = i === 0 ? ' done ' : '';
+          done = i === 0 ? ' done  ' : '';
         } else {
           done = ' done ';
         }
@@ -178,6 +178,11 @@ define( function ( require ) {
         $node.find( '[class~=group-rotate]' ).attr( 'style', node.style );
 
       }.bind( this ) );
+
+      // Set first node as 'current'
+      setTimeout( function () {
+        this.updateNodes();
+      }.bind( this ), 250 );
 
       // Add event
       $nodes.on( 'click', function ( e ) {
@@ -216,7 +221,7 @@ define( function ( require ) {
 
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $nodes = $svg.find( '[class~=node]' );
-      var index = e.activeIndex;
+      var index = e ? e.activeIndex : 0;
 
       $nodes.each( function ( i, node ) {
 
@@ -224,6 +229,18 @@ define( function ( require ) {
 
         if ( i <= index && classNames.indexOf( 'done' ) < 0 ) {
           node.setAttribute( 'class', classNames + ' done ' );
+        }
+
+        // Remove 'current' class
+        if ( classNames.indexOf( 'current' ) > -1 ) {
+          var notCurrenClass = classNames.replace( 'current', '' );
+          node.setAttribute( 'class', notCurrenClass );
+        }
+
+        // Add 'current' class to currently active node
+        if ( i === index ) {
+          classNames = node.getAttribute( "class" );
+          node.setAttribute( 'class', classNames + ' current ' );
         }
 
       }.bind( this ) );
