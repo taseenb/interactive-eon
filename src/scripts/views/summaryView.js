@@ -18,9 +18,11 @@ define( function ( require ) {
 
     template: _.template( tpl ),
 
+    type: 'summary',
+
     initialize: function () {
 
-      App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
+      //App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
     },
 
@@ -41,7 +43,7 @@ define( function ( require ) {
       this.addTargetBlank();
 
       //if ( !App.isPhone ) {
-        this.renderGraph();
+      this.renderGraph();
       //}
 
       //console.log( 'rendering graph' );
@@ -112,7 +114,6 @@ define( function ( require ) {
 
       // Add points images
       setTimeout( function () {
-        this.graphRendered = true;
         this.addGraphIcons();
       }.bind( this ), 0 );
 
@@ -192,7 +193,11 @@ define( function ( require ) {
 
       // Set first node as 'current'
       setTimeout( function () {
+
         this.updateNodes();
+
+        this.graphRendered = true;
+
       }.bind( this ), 250 );
 
       // Add event
@@ -276,6 +281,10 @@ define( function ( require ) {
       console.log( 'restart' );
 
       e.preventDefault();
+
+      App.mediator.remove( 'resize', this.onResize );
+      this.$restart.off();
+
       App.router.restart();
 
     },
@@ -289,7 +298,7 @@ define( function ( require ) {
       var height = this.$el.outerHeight( true );
       iframeMessenger.resize( height );
 
-      console.log('summary height', height);
+      console.log( 'summary height', height );
 
       // console.log(e.width, e.height);
 

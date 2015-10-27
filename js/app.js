@@ -4308,13 +4308,15 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
     template: _.template( tpl ),
 
+    type: 'question',
+
     initialize: function ( options ) {
 
       this.idx = options.idx;
       this.$parent = $( options.parent );
       this.animationCode = options.animationCode;
 
-      App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
+      //App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
     },
 
@@ -4351,13 +4353,14 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
       this.setupElements();
       this.setupEvents();
 
-      this.onResize();
+      //this.onResize();
 
     },
 
     setupElements: function () {
 
       this.$inner = this.$( '.inner' );
+      this.$options = this.$( '.options-wrapper' );
       this.$answers = this.$( '.answer' );
 
     },
@@ -4410,10 +4413,19 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
     onResize: function ( e ) {
 
-      var height = this.$el.outerHeight( true );
-      iframeMessenger.resize( height );
+      setTimeout( function () {
 
-      console.log('question height', height);
+        var height = 0;
+        if ( App.width < 980 ) {
+          height = this.$el.outerHeight( true );
+        } else {
+          height = this.$( '.options-wrapper' ).outerHeight( true ) + 80; //this.$el.outerHeight( true );
+        }
+        iframeMessenger.resize( height );
+
+        console.log( 'question height', height );
+
+      }.bind( this ), 0 );
 
 
       // console.log(e.width, e.height);
@@ -12153,9 +12165,11 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
     template: _.template( tpl ),
 
+    type: 'summary',
+
     initialize: function () {
 
-      App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
+      //App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
     },
 
@@ -12176,7 +12190,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       this.addTargetBlank();
 
       //if ( !App.isPhone ) {
-        this.renderGraph();
+      this.renderGraph();
       //}
 
       //console.log( 'rendering graph' );
@@ -12247,7 +12261,6 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       // Add points images
       setTimeout( function () {
-        this.graphRendered = true;
         this.addGraphIcons();
       }.bind( this ), 0 );
 
@@ -12327,7 +12340,11 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       // Set first node as 'current'
       setTimeout( function () {
+
         this.updateNodes();
+
+        this.graphRendered = true;
+
       }.bind( this ), 250 );
 
       // Add event
@@ -12411,6 +12428,10 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       console.log( 'restart' );
 
       e.preventDefault();
+
+      App.mediator.remove( 'resize', this.onResize );
+      this.$restart.off();
+
       App.router.restart();
 
     },
@@ -12424,7 +12445,7 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       var height = this.$el.outerHeight( true );
       iframeMessenger.resize( height );
 
-      console.log('summary height', height);
+      console.log( 'summary height', height );
 
       // console.log(e.width, e.height);
 
@@ -12461,7 +12482,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
-      this.questionsViews = {};
+      this.questionsViews = [];
 
     },
 
@@ -12610,7 +12631,10 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       if ( view instanceof Backbone.View ) {
         view.$el.removeClass( 'hidden' );
-        view.onResize();
+        this.currentViewType = view.type;
+        //view.onResize();
+
+        this.onResize();
       } else if ( view instanceof jQuery ) {
         view.removeClass( 'hidden' );
       }
@@ -12648,6 +12672,10 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     resetAll: function () {
 
+      if ( this.summaryView ) {
+        this.summaryView.remove();
+      }
+
       // Reset user state, question state, DOM state
       _.each( this.questionsViews, function ( view, i ) {
 
@@ -12657,44 +12685,39 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     },
 
-    //getHighestQuestionHeight: function () {
-    //
-    //  var minHeight = 768;
-    //
-    //  var $questions = this.$questions.find( '.question' );
-    //
-    //  if ( $questions.length ) {
-    //    var highestQuestion = _.max( $questions, function ( question ) {
-    //      return $( question ).height();
-    //    } );
-    //
-    //    return $( highestQuestion ).outerHeight( true );
-    //  } else {
-    //    return minHeight;
-    //  }
-    //
-    //},
-
     onResize: function () {
-
-      //this.highest = this.getHighestQuestionHeight();
-
-      // Update iframe height
-      //var height = Math.max( this.highest, this.$el.outerHeight( true ) );
-
-      //iframeMessenger.resize( 0 );
 
       setTimeout( function () {
 
-        var height = this.$el.outerHeight( true );
+        var height = 0;
+
+        if ( this.currentViewType === 'summary' && this.summaryView ) {
+
+          if ( this.summaryView.graphRendered ) {
+            this.summaryView.addGraphIcons();
+          }
+
+          height = this.summaryView.$el.outerHeight( true );
+
+        } else if ( this.currentViewType === 'question' && this.questionsViews.length ) {
+
+          var firstQuestion = this.questionsViews[0];
+
+          console.log( firstQuestion );
+
+          if ( App.width < 980 ) {
+            height = firstQuestion.$el.outerHeight( true );
+          } else {
+            height = firstQuestion.$( '.options-wrapper' ).eq(1).outerHeight( true ) + 80; //this.$el.outerHeight( true );
+          }
+
+        }
+
+        console.log( 'height ' + this.currentViewType, height );
+
         iframeMessenger.resize( height );
 
-        //console.log( "iframeMessenger update: ", height );
-
-
       }.bind( this ), 0 );
-
-
 
     }
 

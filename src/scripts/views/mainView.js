@@ -24,7 +24,7 @@ define( function ( require ) {
 
       App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
-      this.questionsViews = {};
+      this.questionsViews = [];
 
     },
 
@@ -173,7 +173,10 @@ define( function ( require ) {
 
       if ( view instanceof Backbone.View ) {
         view.$el.removeClass( 'hidden' );
-        view.onResize();
+        this.currentViewType = view.type;
+        //view.onResize();
+
+        this.onResize();
       } else if ( view instanceof jQuery ) {
         view.removeClass( 'hidden' );
       }
@@ -211,6 +214,10 @@ define( function ( require ) {
 
     resetAll: function () {
 
+      if ( this.summaryView ) {
+        this.summaryView.remove();
+      }
+
       // Reset user state, question state, DOM state
       _.each( this.questionsViews, function ( view, i ) {
 
@@ -220,44 +227,39 @@ define( function ( require ) {
 
     },
 
-    //getHighestQuestionHeight: function () {
-    //
-    //  var minHeight = 768;
-    //
-    //  var $questions = this.$questions.find( '.question' );
-    //
-    //  if ( $questions.length ) {
-    //    var highestQuestion = _.max( $questions, function ( question ) {
-    //      return $( question ).height();
-    //    } );
-    //
-    //    return $( highestQuestion ).outerHeight( true );
-    //  } else {
-    //    return minHeight;
-    //  }
-    //
-    //},
-
     onResize: function () {
-
-      //this.highest = this.getHighestQuestionHeight();
-
-      // Update iframe height
-      //var height = Math.max( this.highest, this.$el.outerHeight( true ) );
-
-      //iframeMessenger.resize( 0 );
 
       setTimeout( function () {
 
-        var height = this.$el.outerHeight( true );
+        var height = 0;
+
+        if ( this.currentViewType === 'summary' && this.summaryView ) {
+
+          if ( this.summaryView.graphRendered ) {
+            this.summaryView.addGraphIcons();
+          }
+
+          height = this.summaryView.$el.outerHeight( true );
+
+        } else if ( this.currentViewType === 'question' && this.questionsViews.length ) {
+
+          var firstQuestion = this.questionsViews[0];
+
+          console.log( firstQuestion );
+
+          if ( App.width < 980 ) {
+            height = firstQuestion.$el.outerHeight( true );
+          } else {
+            height = firstQuestion.$( '.options-wrapper' ).eq(1).outerHeight( true ) + 80; //this.$el.outerHeight( true );
+          }
+
+        }
+
+        console.log( 'height ' + this.currentViewType, height );
+
         iframeMessenger.resize( height );
 
-        //console.log( "iframeMessenger update: ", height );
-
-
       }.bind( this ), 0 );
-
-
 
     }
 

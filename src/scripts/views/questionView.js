@@ -18,13 +18,15 @@ define( function ( require ) {
 
     template: _.template( tpl ),
 
+    type: 'question',
+
     initialize: function ( options ) {
 
       this.idx = options.idx;
       this.$parent = $( options.parent );
       this.animationCode = options.animationCode;
 
-      App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
+      //App.mediator.subscribe( 'resize', this.onResize.bind( this ) );
 
     },
 
@@ -61,13 +63,14 @@ define( function ( require ) {
       this.setupElements();
       this.setupEvents();
 
-      this.onResize();
+      //this.onResize();
 
     },
 
     setupElements: function () {
 
       this.$inner = this.$( '.inner' );
+      this.$options = this.$( '.options-wrapper' );
       this.$answers = this.$( '.answer' );
 
     },
@@ -120,10 +123,19 @@ define( function ( require ) {
 
     onResize: function ( e ) {
 
-      var height = this.$el.outerHeight( true );
-      iframeMessenger.resize( height );
+      setTimeout( function () {
 
-      console.log('question height', height);
+        var height = 0;
+        if ( App.width < 980 ) {
+          height = this.$el.outerHeight( true );
+        } else {
+          height = this.$( '.options-wrapper' ).outerHeight( true ) + 80; //this.$el.outerHeight( true );
+        }
+        iframeMessenger.resize( height );
+
+        console.log( 'question height', height );
+
+      }.bind( this ), 0 );
 
 
       // console.log(e.width, e.height);
