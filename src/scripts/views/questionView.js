@@ -61,10 +61,13 @@ define( function ( require ) {
       this.setupElements();
       this.setupEvents();
 
+      this.onResize();
+
     },
 
     setupElements: function () {
 
+      this.$inner = this.$( '.inner' );
       this.$answers = this.$( '.answer' );
 
     },
@@ -117,7 +120,32 @@ define( function ( require ) {
 
     onResize: function ( e ) {
 
+      var height = this.$el.outerHeight( true );
+      iframeMessenger.resize( height );
+
+      console.log('question height', height);
+
+
       // console.log(e.width, e.height);
+
+      //console.log( 'question resize' );
+
+      //if ( App.width < 980 ) {
+      //
+      //  if ( this.$el.outerHeight( true ) <= App.height ) {
+      //    this.el.style.height = App.height + 'px';
+      //    this.$inner.addClass( 'abs-vertical-center' );
+      //  } else {
+      //    this.el.style.height = '';
+      //    this.$inner.removeClass( 'abs-vertical-center' );
+      //  }
+      //
+      //} else {
+      //
+      //  this.el.style.height = '';
+      //  this.$inner.removeClass( 'abs-vertical-center' );
+      //
+      //}
 
     }
 

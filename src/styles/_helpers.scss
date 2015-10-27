@@ -1,0 +1,11 @@
+.full-height {
+  position: relative;
+  height: 100%;
+}
+
+.abs-vertical-center {
+  position: absolute !important;
+  width: 100%;
+  top: 50%;
+  @include transform(translateY(-50%));
+}

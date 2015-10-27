@@ -26,7 +26,7 @@ define( function ( require ) {
 
     render: function () {
 
-      App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
+      //App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
 
       this.html = this.template( {
         data: App.data,
@@ -40,9 +40,9 @@ define( function ( require ) {
 
       this.addTargetBlank();
 
-      if ( !App.isPhone ) {
+      //if ( !App.isPhone ) {
         this.renderGraph();
-      }
+      //}
 
       //console.log( 'rendering graph' );
 
@@ -60,8 +60,6 @@ define( function ( require ) {
     },
 
     renderGraph: function () {
-
-      this.graphRendered = true;
 
       var labels = _.map( App.data.questions, function ( question ) {
         return question.title;
@@ -114,6 +112,7 @@ define( function ( require ) {
 
       // Add points images
       setTimeout( function () {
+        this.graphRendered = true;
         this.addGraphIcons();
       }.bind( this ), 0 );
 
@@ -261,18 +260,20 @@ define( function ( require ) {
 
     setupElements: function () {
 
-      //this.$restart = this.$( '.restart' );
+      this.$restart = this.$( '.restart' );
 
     },
 
     setupEvents: function () {
 
       var click = App.isTouch ? 'touchstart' : 'click';
-      this.$el.on( click, '.restart', this.restart.bind( this ) );
+      this.$restart.on( click, this.restart.bind( this ) );
 
     },
 
     restart: function ( e ) {
+
+      console.log( 'restart' );
 
       e.preventDefault();
       App.router.restart();
@@ -284,6 +285,11 @@ define( function ( require ) {
       if ( this.graphRendered ) {
         this.addGraphIcons();
       }
+
+      var height = this.$el.outerHeight( true );
+      iframeMessenger.resize( height );
+
+      console.log('summary height', height);
 
       // console.log(e.width, e.height);
 

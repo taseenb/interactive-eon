@@ -1016,6 +1016,21 @@ table {
   font-style: normal;
   font-stretch: normal; }
 
+.full-height {
+  position: relative;
+  height: 100%; }
+
+.abs-vertical-center {
+  position: absolute !important;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
 html,
 body {
   min-height: 100%;
@@ -1038,12 +1053,11 @@ body {
   color: white;
   text-align: right; }
 
-#main {
-  position: relative; }
-  @media (min-width: 980px) {
-    #main {
-      height: 100%;
-      min-height: 100%; } }
+@media (min-width: 980px) {
+  #main {
+    position: relative;
+    height: 100%;
+    min-height: 100%; } }
 
 .only-tablet,
 .only-above-tablet,
@@ -2132,10 +2146,10 @@ header {
   background-color: #2F6FAD; }
 
 #content {
-  position: relative;
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif; }
   @media (min-width: 980px) {
     #content {
+      position: relative;
       height: 100%;
       min-height: 100%; } }
   #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
@@ -2182,7 +2196,7 @@ footer {
 
 #questions {
   position: relative !important;
-  min-height: 100%; }
+  min-height: 100% !important; }
   @media (min-width: 980px) {
     #questions {
       min-height: 100%;
@@ -2199,7 +2213,7 @@ footer {
 #summary {
   background-color: #f6f06b;
   top: 0;
-  min-height: 100%; }
+  min-height: 0 !important; }
   @media (min-width: 980px) {
     #summary {
       height: 100%; } }
@@ -2225,7 +2239,9 @@ footer {
 
 .question {
   min-height: 100%;
-  background-size: 140px 140px; }
+  background-size: 140px 140px;
+  overflow: auto;
+  display: block; }
   .question:first-of-type {
     position: relative !important;
     padding-bottom: 50px; }

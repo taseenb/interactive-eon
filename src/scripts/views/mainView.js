@@ -171,10 +171,9 @@ define( function ( require ) {
 
     show: function ( view ) {
 
-      this.onResize();
-
       if ( view instanceof Backbone.View ) {
         view.$el.removeClass( 'hidden' );
+        view.onResize();
       } else if ( view instanceof jQuery ) {
         view.removeClass( 'hidden' );
       }
@@ -257,6 +256,8 @@ define( function ( require ) {
 
 
       }.bind( this ), 0 );
+
+
 
     }
 
