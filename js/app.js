@@ -12701,7 +12701,11 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
             this.summaryView.addGraphIcons();
           }
 
-          height = this.summaryView.$el.outerHeight( true );
+          if ( App.width < 980 ) {
+            height = this.summaryView.$el.outerHeight( true );
+          } else {
+            height = 768;
+          }
 
         } else if ( this.currentViewType === 'question' && this.questionsViews.length ) {
 
