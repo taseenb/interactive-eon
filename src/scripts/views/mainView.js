@@ -98,8 +98,10 @@ define( function ( require ) {
       }.bind( this ) );
 
       // Scroll
-      this.scrollToTop();
-      this.scrollToIframeTop();
+      if ( idx > 0 ) {
+        this.scrollToTop();
+        this.scrollToIframeTop();
+      }
 
     },
 
@@ -250,7 +252,7 @@ define( function ( require ) {
           if ( App.width < 980 ) {
             height = firstQuestion.$el.outerHeight( true );
           } else {
-            height = firstQuestion.$( '.options-wrapper' ).eq(1).outerHeight( true ) + 80; //this.$el.outerHeight( true );
+            height = firstQuestion.$( '.options-wrapper' ).eq( 1 ).outerHeight( true ) + 80; //this.$el.outerHeight( true );
           }
 
         }

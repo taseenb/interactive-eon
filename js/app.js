@@ -12556,8 +12556,10 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       }.bind( this ) );
 
       // Scroll
-      this.scrollToTop();
-      this.scrollToIframeTop();
+      if ( idx > 0 ) {
+        this.scrollToTop();
+        this.scrollToIframeTop();
+      }
 
     },
 
@@ -12708,7 +12710,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
           if ( App.width < 980 ) {
             height = firstQuestion.$el.outerHeight( true );
           } else {
-            height = firstQuestion.$( '.options-wrapper' ).eq(1).outerHeight( true ) + 80; //this.$el.outerHeight( true );
+            height = firstQuestion.$( '.options-wrapper' ).eq( 1 ).outerHeight( true ) + 80; //this.$el.outerHeight( true );
           }
 
         }
