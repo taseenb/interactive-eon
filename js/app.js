@@ -12358,14 +12358,14 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
     setupElements: function () {
 
-      this.$restart = this.$( '.restart' );
+      this.$restart = this.$( '.restart' );//
 
     },
 
     setupEvents: function () {
 
       var click = App.isTouch ? 'touchstart' : 'click';
-      this.$restart.on( click, this.restart.bind( this ) );
+      this.$el.on( click, '.restart', this.restart.bind( this ) );
 
     },
 

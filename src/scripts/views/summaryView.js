@@ -256,7 +256,7 @@ define( function ( require ) {
     setupEvents: function () {
 
       var click = App.isTouch ? 'touchstart' : 'click';
-      this.$restart.on( click, this.restart.bind( this ) );
+      this.$el.on( click, '.restart', this.restart.bind( this ) );
 
     },
 
