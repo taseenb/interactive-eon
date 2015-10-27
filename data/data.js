@@ -7,8 +7,8 @@ callback( {
   "copy": {
     "summaryTitle": {
       "bad": "Your efficiency levels are running a bit low. But there are a few simple ways to give them a boost.",
-      "medium": "You’re quite efficient... but there’s room for improvement.",
-      "good": "You’re super efficient, well done! But there are always new ways to improve your productivity."
+      "medium": "You're quite efficient... but there’s room for improvement.",
+      "good": "You're super efficient, well done! But there are always new ways to improve your productivity."
     }
   },
   "questions": [
