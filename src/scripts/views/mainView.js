@@ -253,7 +253,7 @@ define( function ( require ) {
 
           var firstQuestion = this.questionsViews[0];
 
-          console.log( firstQuestion );
+          //console.log( firstQuestion );
 
           if ( App.width < 980 ) {
             height = firstQuestion.$el.outerHeight( true );
@@ -263,7 +263,7 @@ define( function ( require ) {
 
         }
 
-        console.log( 'height ' + this.currentViewType, height );
+        //console.log( 'height ' + this.currentViewType, height );
 
         iframeMessenger.resize( height );
 

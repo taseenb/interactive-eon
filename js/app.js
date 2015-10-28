@@ -1,4 +1,4 @@
-/*! app / v0.0.1October 27, 2015 */
+/*! app / v0.0.1October 28, 2015 */
 /**
  * @license almond 0.3.1 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -12364,13 +12364,29 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       var $nodes = $svg.find( '[class~=node]' );
       var index = e ? e.activeIndex : 0;
 
+      this.setCurrentNode( $nodes, index );
+
+      this.setDoneNode( $nodes, index );
+
+    },
+
+    setDoneNode: function ( $nodes, index ) {
+
+      var node = $nodes[index];
+
+      var classNames = node.getAttribute( "class" );
+
+      if ( classNames.indexOf( 'done' ) < 0 ) {
+        node.setAttribute( 'class', classNames + ' done ' );
+      }
+
+    },
+
+    setCurrentNode: function ( $nodes, index ) {
+
       $nodes.each( function ( i, node ) {
 
         var classNames = node.getAttribute( "class" );
-
-        if ( i <= index && classNames.indexOf( 'done' ) < 0 ) {
-          node.setAttribute( 'class', classNames + ' done ' );
-        }
 
         // Remove 'current' class
         if ( classNames.indexOf( 'current' ) > -1 ) {
@@ -12402,8 +12418,6 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
     },
 
     restart: function ( e ) {
-
-      console.log( 'restart' );
 
       e.preventDefault();
 
@@ -12689,7 +12703,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
           var firstQuestion = this.questionsViews[0];
 
-          console.log( firstQuestion );
+          //console.log( firstQuestion );
 
           if ( App.width < 980 ) {
             height = firstQuestion.$el.outerHeight( true );
@@ -12699,7 +12713,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
         }
 
-        console.log( 'height ' + this.currentViewType, height );
+        //console.log( 'height ' + this.currentViewType, height );
 
         iframeMessenger.resize( height );
 

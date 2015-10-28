@@ -2625,7 +2625,7 @@ footer {
         white-space: nowrap; }
         .result-header .result-overview .graph-wrapper .labels .label {
           display: inline-block;
-          font-size: 10px;
+          font-size: 14px;
           text-align: left;
           padding: 5px 0;
           position: relative;
@@ -2841,7 +2841,8 @@ footer {
     .result-list .list-item .text-box .arrows-wrapper {
       text-align: right;
       margin: 0 15px 15px 15px;
-      font-size: 0; }
+      font-size: 0;
+      overflow: auto; }
       .result-list .list-item .text-box .arrows-wrapper .restart,
       .result-list .list-item .text-box .arrows-wrapper .prev,
       .result-list .list-item .text-box .arrows-wrapper .next {
@@ -2849,21 +2850,27 @@ footer {
         display: inline-block;
         padding: 0;
         font-size: 0;
-        margin-left: 15px; }
+        height: 34px; }
+        @media (min-width: 980px) {
+          .result-list .list-item .text-box .arrows-wrapper .restart,
+          .result-list .list-item .text-box .arrows-wrapper .prev,
+          .result-list .list-item .text-box .arrows-wrapper .next {
+            height: 44px; } }
         .result-list .list-item .text-box .arrows-wrapper .restart img,
         .result-list .list-item .text-box .arrows-wrapper .prev img,
         .result-list .list-item .text-box .arrows-wrapper .next img {
           display: inline-block;
-          height: 34px; }
-          @media (min-width: 980px) {
-            .result-list .list-item .text-box .arrows-wrapper .restart img,
-            .result-list .list-item .text-box .arrows-wrapper .prev img,
-            .result-list .list-item .text-box .arrows-wrapper .next img {
-              height: 44px; } }
+          position: relative;
+          max-height: 100%; }
         .result-list .list-item .text-box .arrows-wrapper .restart.swiper-button-disabled,
         .result-list .list-item .text-box .arrows-wrapper .prev.swiper-button-disabled,
         .result-list .list-item .text-box .arrows-wrapper .next.swiper-button-disabled {
           display: none; }
+      .result-list .list-item .text-box .arrows-wrapper .prev {
+        float: left; }
+      .result-list .list-item .text-box .arrows-wrapper .restart,
+      .result-list .list-item .text-box .arrows-wrapper .next {
+        float: right; }
 
 @media (min-width: 980px) {
   .result-list {

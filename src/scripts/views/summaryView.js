@@ -239,13 +239,29 @@ define( function ( require ) {
       var $nodes = $svg.find( '[class~=node]' );
       var index = e ? e.activeIndex : 0;
 
+      this.setCurrentNode( $nodes, index );
+
+      this.setDoneNode( $nodes, index );
+
+    },
+
+    setDoneNode: function ( $nodes, index ) {
+
+      var node = $nodes[index];
+
+      var classNames = node.getAttribute( "class" );
+
+      if ( classNames.indexOf( 'done' ) < 0 ) {
+        node.setAttribute( 'class', classNames + ' done ' );
+      }
+
+    },
+
+    setCurrentNode: function ( $nodes, index ) {
+
       $nodes.each( function ( i, node ) {
 
         var classNames = node.getAttribute( "class" );
-
-        if ( i <= index && classNames.indexOf( 'done' ) < 0 ) {
-          node.setAttribute( 'class', classNames + ' done ' );
-        }
 
         // Remove 'current' class
         if ( classNames.indexOf( 'current' ) > -1 ) {
@@ -277,8 +293,6 @@ define( function ( require ) {
     },
 
     restart: function ( e ) {
-
-      console.log( 'restart' );
 
       e.preventDefault();
 
