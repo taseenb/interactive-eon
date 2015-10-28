@@ -35,6 +35,13 @@ define( function ( require ) {
   App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
 
 
+  // Hack for mobile safari
+  // See: https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+  if ( App.isTouch ) {
+    document.addEventListener( "touchstart", function () {
+    }, true );
+  }
+
   // Disable console.log on IE 9
   if ( !App.supportTransitions && !ieDebug ) {
     window.console = {

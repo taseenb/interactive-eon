@@ -1037,6 +1037,9 @@ body {
   height: 100%;
   position: relative; }
 
+.touch *:active {
+  -webkit-tap-highlight-color: transparent; }
+
 body {
   background-color: #f6f06b; }
 
