@@ -21,6 +21,7 @@ callback( {
       "bg": "green",
       "bgImg": "pattern-dots.svg",
       "timeImg": "7am.svg",
+      "timeImgIE": "7am.png",
       "answers": [
         {
           "text": "Growl, press snooze and drift back to sleep until the alarm finally shakes you out of bed 15 minutes later.",
@@ -53,6 +54,7 @@ callback( {
       "bg": "blue",
       "bgImg": "",
       "timeImg": "9am.svg",
+      "timeImgIE": "9am.png",
       "answers": [
         {
           "text": "Immediately whip out your phone and start replying to emails, while waiting for your computer to log in.",
@@ -85,6 +87,7 @@ callback( {
       "bg": "pink",
       "bgImg": "pattern-dots.svg",
       "timeImg": "11am.svg",
+      "timeImgIE": "11am.png",
       "answers": [
         {
           "text": "Punch the wall and shout obscenities as you sweep dramatically out of the room, slamming the door behind you.",
@@ -118,6 +121,7 @@ callback( {
       "bg": "pink",
       "bgImg": "pattern-dots.svg",
       "timeImg": "1pm.svg",
+      "timeImgIE": "1pm.png",
       "answers": [
         {
           "text": "Head for a fast food restaurant and order an extra large burger and fries.",
@@ -150,6 +154,7 @@ callback( {
       "bg": "blue",
       "bgImg": "",
       "timeImg": "230pm.svg",
+      "timeImgIE": "230pm.png",
       "answers": [
         {
           "text": "Grab an extra strong coffee and wait for the caffeine to kick in.",
@@ -182,6 +187,7 @@ callback( {
       "bg": "blue",
       "bgImg": "",
       "timeImg": "4pm.svg",
+      "timeImgIE": "4pm.png",
       "answers": [
         {
           "text": "Remove all the chairs in the meeting room, hold the meeting standing up or confidently announce “Let’s walk and talk, people.”",
@@ -216,6 +222,7 @@ callback( {
       "bg": "blue",
       "bgImg": "",
       "timeImg": "6pm.svg",
+      "timeImgIE": "6pm.png",
       "answers": [
         {
           "text": "Play Candy Crush. You’re on level 250 and your friend is only one level above you. Winning is everything.",
@@ -248,6 +255,7 @@ callback( {
       "bg": "pink",
       "bgImg": "pattern-dots.svg",
       "timeImg": "1030pm.svg",
+      "timeImgIE": "1030pm.png",
       "answers": [
         {
           "text": "Get out your laptop or smartphone and get ahead with some work.",

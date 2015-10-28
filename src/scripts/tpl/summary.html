@@ -76,20 +76,32 @@
                         <% if (i > 0) { %>
                         <span class="prev">
                             <img src="img/arrow-left.svg">
+                            <% if (ie9) { %>
+                            <img src="img/times/png/<%= questions[i-1].timeImgIE %>">
+                            <% } else { %>
                             <img src="img/times/<%= questions[i-1].timeImg %>">
+                            <% } %>
                         </span>
                         <% } %>
 
                         <% if (i < questions.length-1) { %>
                         <span class="next">
+                            <% if (ie9) { %>
+                            <img src="img/times/png/<%= questions[i+1].timeImgIE %>">
+                            <% } else { %>
                             <img src="img/times/<%= questions[i+1].timeImg %>">
+                            <% } %>
                             <img src="img/arrow-right.svg">
                         </span>
                         <% } %>
 
                         <% if (i >= userAnswers.length-1) { %>
                         <span class="restart">
+                            <% if (ie9) { %>
+                            <img src="img/restart.png">
+                            <% } else { %>
                             <img src="img/restart.svg">
+                            <% } %>
                         </span>
                         <% } %>
 

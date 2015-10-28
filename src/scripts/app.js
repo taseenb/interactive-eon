@@ -31,7 +31,7 @@ define( function ( require ) {
   App.supportTransitions = $html.hasClass( 'csstransitions' ); // used to determine if we are on a modern browser (> IE9)
   App.isTouch = $html.hasClass( 'touch' );
   App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
-  App.isIE = $html.hasClass( '.no-smil' );
+  App.isIE = $html.hasClass( 'no-smil' );
   App.isFirefox = navigator.userAgent.toLowerCase().indexOf( 'firefox' ) > -1; // Firefox does not support transform-origin on SVG elements, so we have to disable transform on the graph nodes
 
   $html.addClass( (App.isFirefox ? '' : 'no-') + 'firefox' );

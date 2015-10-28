@@ -32,7 +32,7 @@ define( function ( require ) {
 
     render: function ( callback ) {
 
-      var ie9 = !App.supportTransitions;
+      var ie9 = App.isIE;
       var imageFile = App.data.questions[this.idx].animationName + '.svg';
 
       if ( ie9 ) {

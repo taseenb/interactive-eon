@@ -31,6 +31,7 @@ define( function ( require ) {
       //App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
 
       this.html = this.template( {
+        ie9: App.isIE,
         data: App.data,
         questions: App.data.questions,
         copy: App.data.copy,
