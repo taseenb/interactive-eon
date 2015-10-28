@@ -22,8 +22,8 @@ define( function ( require ) {
 
 
   // Responsive
-  App.mainBreakpoint = 920;
-  App.maxSummaryHeight = 728; //
+  App.mainBreakpoint = 940;
+  App.maxSummaryHeight = 728;
 
 
   // Support

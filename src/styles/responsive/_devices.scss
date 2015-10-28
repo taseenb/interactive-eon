@@ -1,6 +1,6 @@
 
-$tablet: 'only screen and (min-width : 740px) and (max-width : 979px)';
-$above-tablet: 'only screen and (min-width : 980px)';
+$tablet: 'only screen and (min-width : 740px) and (max-width : #{$mainBreakpoint}-1px)';
+$above-tablet: 'only screen and (min-width : #{$mainBreakpoint})'; //
 
 
 .only-tablet,

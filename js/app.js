@@ -13414,8 +13414,8 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
 
 
   // Responsive
-  App.mainBreakpoint = 920;
-  App.maxSummaryHeight = 728; //
+  App.mainBreakpoint = 940;
+  App.maxSummaryHeight = 728;
 
 
   // Support
