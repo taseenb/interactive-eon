@@ -12675,11 +12675,11 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     scrollToIframeTop: function () {
 
-      iframeMessenger.scrollTo( 0, 0 );
+      //iframeMessenger.scrollTo( 0, 0 );
 
       iframeMessenger.getPositionInformation( function ( obj ) {
 
-        //console.log( 'position: ', obj.iframeTop );
+        console.log( 'position: ', obj.iframeTop );
 
         var y = Math.abs( obj.iframeTop ) - 20;
         iframeMessenger.scrollTo( 0, y );
@@ -13441,6 +13441,9 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
   App.isTouch = $html.hasClass( 'touch' );
   App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
   App.isIE = $html.hasClass( '.no-smil' );
+  App.isFirefox = navigator.userAgent.toLowerCase().indexOf( 'firefox' ) > -1; // Firefox does not support transform-origin on SVG elements, so we have to disable transform on the graph nodes
+
+  $html.addClass( (App.isFirefox ? '' : 'no-') + 'firefox' );
 
 
   // Hack for mobile safari

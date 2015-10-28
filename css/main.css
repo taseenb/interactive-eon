@@ -2677,22 +2677,22 @@ footer {
           .result-header .result-overview .graph-wrapper .graph > svg .ct-point {
             display: none; }
           .result-header .result-overview .graph-wrapper .graph > svg .node {
-            -webkit-transform-origin: 50% 50%;
-            -khtml-transform-origin: 50% 50%;
-            -moz-transform-origin: 50% 50%;
-            -ms-transform-origin: 50% 50%;
-            -o-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
+            -webkit-transform-origin: center center;
+            -khtml-transform-origin: center center;
+            -moz-transform-origin: center center;
+            -ms-transform-origin: center center;
+            -o-transform-origin: center center;
+            transform-origin: center center;
             cursor: pointer;
             overflow: visible; }
             .result-header .result-overview .graph-wrapper .graph > svg .node .group-rotate,
             .result-header .result-overview .graph-wrapper .graph > svg .node .group-scale {
-              -webkit-transform-origin: 50% 50%;
-              -khtml-transform-origin: 50% 50%;
-              -moz-transform-origin: 50% 50%;
-              -ms-transform-origin: 50% 50%;
-              -o-transform-origin: 50% 50%;
-              transform-origin: 50% 50%;
+              -webkit-transform-origin: center center;
+              -khtml-transform-origin: center center;
+              -moz-transform-origin: center center;
+              -ms-transform-origin: center center;
+              -o-transform-origin: center center;
+              transform-origin: center center;
               -webkit-transition-duration: 0.3s;
               -khtml-transition-duration: 0.3s;
               -moz-transition-duration: 0.3s;
@@ -2711,26 +2711,26 @@ footer {
               -ms-transform: scale(1, 1);
               -o-transform: scale(1, 1);
               transform: scale(1, 1); }
-            .result-header .result-overview .graph-wrapper .graph > svg .node:hover .group-scale {
-              -webkit-transform-origin: 50% 50%;
-              -khtml-transform-origin: 50% 50%;
-              -moz-transform-origin: 50% 50%;
-              -ms-transform-origin: 50% 50%;
-              -o-transform-origin: 50% 50%;
-              transform-origin: 50% 50%;
+            .no-firefox .result-header .result-overview .graph-wrapper .graph > svg .node:hover .group-scale {
+              -webkit-transform-origin: center center;
+              -khtml-transform-origin: center center;
+              -moz-transform-origin: center center;
+              -ms-transform-origin: center center;
+              -o-transform-origin: center center;
+              transform-origin: center center;
               -webkit-transform: scale(1.15, 1.15);
               -khtml-transform: scale(1.15, 1.15);
               -moz-transform: scale(1.15, 1.15);
               -ms-transform: scale(1.15, 1.15);
               -o-transform: scale(1.15, 1.15);
               transform: scale(1.15, 1.15); }
-            .result-header .result-overview .graph-wrapper .graph > svg .node.current .group-scale {
-              -webkit-transform-origin: 50% 50%;
-              -khtml-transform-origin: 50% 50%;
-              -moz-transform-origin: 50% 50%;
-              -ms-transform-origin: 50% 50%;
-              -o-transform-origin: 50% 50%;
-              transform-origin: 50% 50%;
+            .no-firefox .result-header .result-overview .graph-wrapper .graph > svg .node.current .group-scale {
+              -webkit-transform-origin: center center;
+              -khtml-transform-origin: center center;
+              -moz-transform-origin: center center;
+              -ms-transform-origin: center center;
+              -o-transform-origin: center center;
+              transform-origin: center center;
               -webkit-transform: scale(1.3, 1.3);
               -khtml-transform: scale(1.3, 1.3);
               -moz-transform: scale(1.3, 1.3);
