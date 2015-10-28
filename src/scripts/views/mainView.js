@@ -68,7 +68,7 @@ define( function ( require ) {
     renderQuestion: function ( idx ) {
 
       this.questionsViews[idx] = new QuestionView( {parent: '#questions', idx: idx} );
-      this.questionsViews[idx].render();
+      this.questionsViews[idx].render( this.onResize.bind( this ) ); //
 
       setTimeout( this.showQuestion.bind( this, idx ), 250 );
 
@@ -114,7 +114,7 @@ define( function ( require ) {
       }
 
       this.summaryView = new SummaryView( {el: '#summary'} );
-      this.summaryView.render( this.onResize.bind( this ) );
+      this.summaryView.render();
 
     },
 
@@ -213,7 +213,7 @@ define( function ( require ) {
 
     onResize: function () {
 
-      console.log( 'resize fired' );
+      console.log( 'resize fired', new Date() );
 
       setTimeout( function () {
 

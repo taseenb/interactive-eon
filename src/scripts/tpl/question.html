@@ -1,7 +1,6 @@
 <div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %> bg-<%= question.bg %>"
      style="<% if (question.bgImg) { %>background-image: url('img/<%= question.bgImg %>') <% } %>">
 
-    <!--<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %>">-->
     <div id="question-inner-<%= idx %>" class="inner">
 
         <div class="options-wrapper only-tablet-and-below">
@@ -13,8 +12,6 @@
                 </div>
             </h1>
         </div>
-
-        <!--<div class="animation">-->
 
         <div class="animation">
             <img class="preload-image" data-src="<%= imgSrc %>">
@@ -43,8 +40,6 @@
             </div>
 
             <% }); %>
-
-            <!--<a href="#<%= idx-1 %>">Prev</a> - <a href="#<%= idx+1 %>">Next</a>-->
 
         </div>
 
