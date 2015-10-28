@@ -30,7 +30,7 @@ define( function ( require ) {
 
     },
 
-    render: function () {
+    render: function ( callback ) {
 
       var ie9 = !App.supportTransitions;
       var imageFile = App.data.questions[this.idx].animationName + '.svg';
@@ -60,10 +60,56 @@ define( function ( require ) {
 
       this.setElement( this.$parent.find( '#question-' + this.idx ) );
 
-      this.setupElements();
-      this.setupEvents();
+      this.preloadImages( function () {
 
-      //this.onResize();
+        this.setupElements();
+        this.setupEvents();
+
+        if ( _.isFunction( callback ) ) {
+          callback();
+        }
+
+      }.bind( this ) );
+
+
+    },
+
+    preloadImages: function ( callback ) {
+
+      // Preload list images
+      var $imageEl = this.$( '.preload-image' );
+      var imagesCount = $imageEl.length;
+      var loaded = 0;
+
+      $imageEl.each( function ( i, el ) {
+
+        var src = $( el ).data( 'src' );
+
+        el.onload = function () { // always fires the event.
+          loaded += 1;
+          //console.log( 'image ' + src + ' loaded!' );
+
+          if ( imagesCount === loaded ) {
+            //console.log( 'ALL IMAGES LOADED' );
+            //this.onResize();
+            callback();
+          }
+        }.bind( this );
+
+        el.onerror = function () {
+          loaded += 1;
+          //console.log( 'error loading image ' + src );
+
+          if ( imagesCount === loaded ) {
+            //console.log( 'ALL IMAGES LOADED' );
+            //this.onResize();
+            callback();
+          }
+        }.bind( this );
+
+        el.src = src;
+
+      }.bind( this ) );
 
     },
 

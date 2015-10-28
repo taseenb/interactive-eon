@@ -107,24 +107,6 @@ define( function ( require ) {
 
     },
 
-    //updateQuestionsBg: function ( idx ) {
-    //
-    //  //console.log( idx );
-    //
-    //  var bgImg, bgColor;
-    //
-    //  if ( !_.isNaN( idx ) && _.isNumber( idx ) ) {
-    //    bgImg = App.data.questions[idx].bgImg;
-    //    bgColor = App.data.questions[idx].bg;
-    //  }
-    //
-    //  this.$questions.css( {
-    //    'background-image': bgImg ? 'url(img/' + bgImg + ')' : '',
-    //    'background-color': bgColor ? App.data.color[bgColor] : ''
-    //  } );
-    //
-    //},
-
     renderSummary: function () {
 
       if ( !$( '#summary' ).length ) {
@@ -132,7 +114,7 @@ define( function ( require ) {
       }
 
       this.summaryView = new SummaryView( {el: '#summary'} );
-      this.summaryView.render();
+      this.summaryView.render( this.onResize.bind( this ) );
 
     },
 
@@ -178,8 +160,6 @@ define( function ( require ) {
       if ( view instanceof Backbone.View ) {
         view.$el.removeClass( 'hidden' );
         this.currentViewType = view.type;
-        //view.onResize();
-
         this.onResize();
       } else if ( view instanceof jQuery ) {
         view.removeClass( 'hidden' );

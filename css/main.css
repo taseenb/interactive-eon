@@ -2828,15 +2828,15 @@ footer {
       font-weight: bold;
       margin-top: 0;
       font-size: 14px;
-      line-height: 18px;
+      line-height: 19px;
       padding: 15px; }
       @media (min-width: 940px) {
         .result-list .list-item .text-box strong {
           margin-top: 15px; } }
     .result-list .list-item .text-box .tip {
       display: block;
-      font-size: 13px;
-      line-height: 16px;
+      font-size: 14px;
+      line-height: 19px;
       padding: 0 15px 15px 15px; }
     .result-list .list-item .text-box .arrows-wrapper {
       text-align: right;

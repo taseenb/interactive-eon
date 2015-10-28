@@ -4274,7 +4274,7 @@ define('text',['module'], function (module) {
 define('text!tpl/content.html',[],function () { return '<div id="content">\n\n\n    <div id="questions" class="content-element"></div>\n\n    <div id="summary" class="content-element hidden"></div>\n\n    <!--<div class="content-element"></div>-->\n\n\n</div>';});
 
 
-define('text!tpl/question.html',[],function () { return '<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %> bg-<%= question.bg %>"\n     style="<% if (question.bgImg) { %>background-image: url(\'img/<%= question.bgImg %>\') <% } %>">\n\n    <!--<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %>">-->\n    <div id="question-inner-<%= idx %>" class="inner">\n\n        <div class="options-wrapper only-tablet-and-below">\n            <h1 class="options-header">\n                <div class="counter"><%= counterSvg %></div>\n\n                <div class="title-wrapper">\n                    <span class="title"><%= question.text %></span>\n                </div>\n            </h1>\n        </div>\n\n        <!--<div class="animation">-->\n\n        <div class="animation">\n            <img src="<%= imgSrc %>">\n        </div>\n\n        <div class="options-wrapper pink">\n\n            <h1 class="options-header only-above-tablet">\n                <div class="counter"><%= counterSvg %></div>\n\n                <div class="title-wrapper">\n                    <span class="title"><%= question.text %></span>\n                </div>\n            </h1>\n\n            <% question.answers.forEach(function(answer, i) { %>\n\n            <div class="answer" data-value="<%= answer.value %>" data-idx="<%= i %>">\n\n                <%= alphabet[i] %>\n\n                <span class="text" style="background-color: <%= questionColor[i] %>"><%= answer.text %></span>\n\n                <span class="bottom" style="background-color: <%= questionColor[i] %>"></span>\n\n            </div>\n\n            <% }); %>\n\n            <!--<a href="#<%= idx-1 %>">Prev</a> - <a href="#<%= idx+1 %>">Next</a>-->\n\n        </div>\n\n    </div>\n\n</div>';});
+define('text!tpl/question.html',[],function () { return '<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %> bg-<%= question.bg %>"\n     style="<% if (question.bgImg) { %>background-image: url(\'img/<%= question.bgImg %>\') <% } %>">\n\n    <!--<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %>">-->\n    <div id="question-inner-<%= idx %>" class="inner">\n\n        <div class="options-wrapper only-tablet-and-below">\n            <h1 class="options-header">\n                <div class="counter"><%= counterSvg %></div>\n\n                <div class="title-wrapper">\n                    <span class="title"><%= question.text %></span>\n                </div>\n            </h1>\n        </div>\n\n        <!--<div class="animation">-->\n\n        <div class="animation">\n            <img class="preload-image" data-src="<%= imgSrc %>">\n        </div>\n\n        <div class="options-wrapper pink">\n\n            <h1 class="options-header only-above-tablet">\n                <div class="counter"><%= counterSvg %></div>\n\n                <div class="title-wrapper">\n                    <span class="title"><%= question.text %></span>\n                </div>\n            </h1>\n\n            <% question.answers.forEach(function(answer, i) { %>\n\n            <div class="answer" data-value="<%= answer.value %>" data-idx="<%= i %>">\n\n                <%= alphabet[i] %>\n\n                <span class="text" style="background-color: <%= questionColor[i] %>"><%= answer.text %></span>\n\n                <span class="bottom" style="background-color: <%= questionColor[i] %>"></span>\n\n            </div>\n\n            <% }); %>\n\n            <!--<a href="#<%= idx-1 %>">Prev</a> - <a href="#<%= idx+1 %>">Next</a>-->\n\n        </div>\n\n    </div>\n\n</div>';});
 
 
 define('text!letter-a',[],function () { return '<svg class="letter" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\r\n\t width="52.5px" height="52.5px" viewBox="0 0 52.5 52.5" enable-background="new 0 0 52.5 52.5" xml:space="preserve">\r\n<g>\r\n\t<g id="XMLID_1_">\r\n\t\t<g>\r\n\t\t\t<path class="circle"  d="M26.25,1.25c13.809,0,25,11.192,25,25.003c0,13.808-11.191,24.996-25,24.996\r\n\t\t\t\tc-13.808,0-25-11.188-25-24.996C1.25,12.442,12.442,1.25,26.25,1.25z"/>\r\n\t\t</g>\r\n\t\t<g>\r\n\t\t\t\r\n\t\t\t\t<path fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="\r\n\t\t\t\tM51.25,26.253c0,13.808-11.191,24.996-25,24.996c-13.808,0-25-11.188-25-24.996c0-13.811,11.192-25.003,25-25.003\r\n\t\t\t\tC40.059,1.25,51.25,12.442,51.25,26.253z"/>\r\n\t\t</g>\r\n\t</g>\r\n\t<g id="XMLID_2_">\r\n\t\t<g>\r\n\t\t\t<path fill="#FFFFFF" d="M29.758,11.496l7.363,28.479H30.76l-2.23-10.719h-5.688l-2.214,10.719h-6.229l7.452-28.479H29.758z\r\n\t\t\t\t M27.627,23.69l-1.981-6.262L23.96,23.69H27.627z"/>\r\n\t\t\t<polygon fill="#92C1E9" points="25.646,17.429 27.627,23.69 23.96,23.69 \t\t\t"/>\r\n\t\t</g>\r\n\t\t<g>\r\n\t\t\t\r\n\t\t\t\t<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="\r\n\t\t\t\t14.399,39.975 21.851,11.496 29.758,11.496 37.121,39.975 30.76,39.975 28.529,29.256 22.842,29.256 20.628,39.975 \t\t\t"/>\r\n\t\t\t\r\n\t\t\t\t<polygon fill="none" stroke="#43193C" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="\r\n\t\t\t\t23.96,23.69 25.646,17.429 27.627,23.69 \t\t\t"/>\r\n\t\t</g>\r\n\t</g>\r\n</g>\r\n</svg>\r\n';});
@@ -4320,7 +4320,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
     },
 
-    render: function () {
+    render: function ( callback ) {
 
       var ie9 = !App.supportTransitions;
       var imageFile = App.data.questions[this.idx].animationName + '.svg';
@@ -4350,10 +4350,56 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
       this.setElement( this.$parent.find( '#question-' + this.idx ) );
 
-      this.setupElements();
-      this.setupEvents();
+      this.preloadImages( function () {
 
-      //this.onResize();
+        this.setupElements();
+        this.setupEvents();
+
+        if ( _.isFunction( callback ) ) {
+          callback();
+        }
+
+      }.bind( this ) );
+
+
+    },
+
+    preloadImages: function ( callback ) {
+
+      // Preload list images
+      var $imageEl = this.$( '.preload-image' );
+      var imagesCount = $imageEl.length;
+      var loaded = 0;
+
+      $imageEl.each( function ( i, el ) {
+
+        var src = $( el ).data( 'src' );
+
+        el.onload = function () { // always fires the event.
+          loaded += 1;
+          //console.log( 'image ' + src + ' loaded!' );
+
+          if ( imagesCount === loaded ) {
+            //console.log( 'ALL IMAGES LOADED' );
+            //this.onResize();
+            callback();
+          }
+        }.bind( this );
+
+        el.onerror = function () {
+          loaded += 1;
+          //console.log( 'error loading image ' + src );
+
+          if ( imagesCount === loaded ) {
+            //console.log( 'ALL IMAGES LOADED' );
+            //this.onResize();
+            callback();
+          }
+        }.bind( this );
+
+        el.src = src;
+
+      }.bind( this ) );
 
     },
 
@@ -12550,24 +12596,6 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     },
 
-    //updateQuestionsBg: function ( idx ) {
-    //
-    //  //console.log( idx );
-    //
-    //  var bgImg, bgColor;
-    //
-    //  if ( !_.isNaN( idx ) && _.isNumber( idx ) ) {
-    //    bgImg = App.data.questions[idx].bgImg;
-    //    bgColor = App.data.questions[idx].bg;
-    //  }
-    //
-    //  this.$questions.css( {
-    //    'background-image': bgImg ? 'url(img/' + bgImg + ')' : '',
-    //    'background-color': bgColor ? App.data.color[bgColor] : ''
-    //  } );
-    //
-    //},
-
     renderSummary: function () {
 
       if ( !$( '#summary' ).length ) {
@@ -12575,7 +12603,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       }
 
       this.summaryView = new SummaryView( {el: '#summary'} );
-      this.summaryView.render();
+      this.summaryView.render( this.onResize.bind( this ) );
 
     },
 
@@ -12621,8 +12649,6 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       if ( view instanceof Backbone.View ) {
         view.$el.removeClass( 'hidden' );
         this.currentViewType = view.type;
-        //view.onResize();
-
         this.onResize();
       } else if ( view instanceof jQuery ) {
         view.removeClass( 'hidden' );
