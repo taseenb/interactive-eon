@@ -2533,15 +2533,18 @@ footer {
         display: block;
         padding: 15px;
         margin-left: 20px;
-        font-size: 13px;
+        font-size: 14px;
+        line-height: 18px;
         border: 2px solid #333; }
         @media (min-width: 660px) {
           .question .options-wrapper .answer .text {
-            font-size: 14px; } }
+            font-size: 15px;
+            line-height: 20px; } }
         @media (min-width: 940px) {
           .question .options-wrapper .answer .text {
             padding: 20px;
-            font-size: 15px; } }
+            font-size: 16px;
+            line-height: 21px; } }
       .question .options-wrapper .answer .bottom {
         display: block;
         height: 15px;
@@ -2784,7 +2787,7 @@ footer {
     position: relative;
     border: 2px solid #333;
     background-color: #92C1E9; }
-    @media (min-width: 940px) {
+    @media (min-width: 1140px) {
       .result-list .list-item .text-box {
         width: 62%; } }
     .result-list .list-item .text-box .img-wrapper {
@@ -2821,22 +2824,25 @@ footer {
             display: block;
             position: absolute;
             height: 80px;
-            right: -40px;
+            right: 20px;
             top: -20px; } }
+        @media (min-width: 1140px) {
+          .result-list .list-item .text-box .img-wrapper .deco {
+            right: -40px; } }
     .result-list .list-item .text-box strong {
       display: block;
       font-weight: bold;
       margin-top: 0;
-      font-size: 14px;
-      line-height: 19px;
+      font-size: 18px;
+      line-height: 23px;
       padding: 15px; }
       @media (min-width: 940px) {
         .result-list .list-item .text-box strong {
           margin-top: 15px; } }
     .result-list .list-item .text-box .tip {
       display: block;
-      font-size: 14px;
-      line-height: 19px;
+      font-size: 16px;
+      line-height: 21px;
       padding: 0 15px 15px 15px; }
     .result-list .list-item .text-box .arrows-wrapper {
       text-align: right;
@@ -2872,7 +2878,7 @@ footer {
       .result-list .list-item .text-box .arrows-wrapper .next {
         float: right; }
 
-@media (min-width: 940px) {
+@media (min-width: 1140px) {
   .result-list {
     background-image: url("../img/summary/bundle-3.png");
     background-position: 100% 0%;

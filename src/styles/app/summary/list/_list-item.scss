@@ -11,7 +11,12 @@
     border: 2px solid #333;
     background-color: $bgBlue;
 
+
     @media(min-width: $mainBreakpoint) {
+      //width: 100%;
+    }
+
+    @media(min-width: 1140px) {
       width: 62%;
     }
 
@@ -56,9 +61,14 @@
           display: block;
           position: absolute;
           height: 80px;
-          right: -40px;
+          right: 20px;
           top: -20px;
         }
+
+        @media(min-width: 1140px) {
+          right: -40px;
+        }
+
       }
     }
 
@@ -67,8 +77,8 @@
       font-weight: bold;
       //margin-bottom: 15px;
       margin-top: 0;
-      font-size: 14px;
-      line-height: 19px;
+      font-size: 18px;
+      line-height: 23px;
       padding: 15px;
 
       @media(min-width: $mainBreakpoint) {
@@ -78,8 +88,8 @@
 
     .tip {
       display: block;
-      font-size: 14px;
-      line-height: 19px;
+      font-size: 16px;
+      line-height: 21px;
       padding: 0 15px 15px 15px;
     }
 

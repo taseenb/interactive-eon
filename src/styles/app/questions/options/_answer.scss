@@ -2,38 +2,24 @@
 
   position: relative;
   margin-top: 35px;
-  margin-bottom: 0; //25px;
+  margin-bottom: 0;
   cursor: pointer;
 
   &:first-of-type {
     margin-top: 15px;
   }
 
-  //&:last-of-type {
-  //  margin-bottom: 0;
-  //}
-
-  //.no-touch & {
-    &:hover {
-      .letter {
-        @include transform(scale(1.15, 1.15));
-      }
-
-      //.bottom {
-      //  height: 5px;
-      //}
+  &:hover {
+    .letter {
+      @include transform(scale(1.15, 1.15));
     }
-  //}
+  }
 
   &.selected {
 
     .letter {
       @include transform(scale(1.15, 1.15));
     }
-
-    //.text {
-    //  font-weight: bold;
-    //}
 
   }
 
@@ -57,16 +43,19 @@
     display: block;
     padding: 15px;
     margin-left: 20px;
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 18px;
     border: 2px solid #333;
 
     @media(min-width: 660px) {
-      font-size: 14px;
+      font-size: 15px;
+      line-height: 20px;
     }
 
     @media(min-width: $mainBreakpoint) {
       padding: 20px;
-      font-size: 15px;
+      font-size: 16px;
+      line-height: 21px;
     }
   }
 
@@ -79,9 +68,6 @@
     margin-left: 20px;
 
     background-image: url('#{$img-path}dots.png');
-
-    //@include css3-prefix(transition-duration, 0.4s);
-    //@include css3-prefix(transition-property, height);
 
   }
 

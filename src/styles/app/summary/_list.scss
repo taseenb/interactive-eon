@@ -2,8 +2,11 @@
 
   @import 'list/list-item';
 
-
   @media(min-width: $mainBreakpoint) {
+
+  }
+
+  @media(min-width: 1140px) {
     background-image: url('#{$img-path}summary/bundle-3.png');
     background-position: 100% 0%;
     background-repeat: no-repeat;

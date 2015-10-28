@@ -2,6 +2,8 @@ define( function ( require ) {
 
   'use strict';
 
+  var ieDebug = false; // disable all console.log in IE9 if false
+
   // Create App global
   window.App = window.App || {};
 
@@ -23,7 +25,7 @@ define( function ( require ) {
 
   // Responsive
   App.mainBreakpoint = 940;
-  App.maxSummaryHeight = 748;
+  App.maxSummaryHeight = 768;
 
 
   // Support
@@ -34,11 +36,11 @@ define( function ( require ) {
 
 
   // Disable console.log on IE 9
-  //if ( !App.supportTransitions ) {
-  //  window.console = {
-  //    log: $.noop()
-  //  };
-  //}
+  if ( !App.supportTransitions && !ieDebug ) {
+    window.console = {
+      log: $.noop()
+    };
+  }
 
   // Get data and start main view
   $.ajax( {
