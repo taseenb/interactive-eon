@@ -21,6 +21,11 @@ define( function ( require ) {
   resizeEvent.initialize();
 
 
+  // Responsive
+  App.mainBreakpoint = 920;
+  App.maxSummaryHeight = 728; //
+
+
   // Support
   var $html = $( 'html' );
   App.supportTransitions = $html.hasClass( 'csstransitions' ); // used to determine if we are on a modern browser (> IE9)

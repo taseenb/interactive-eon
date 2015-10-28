@@ -114,12 +114,12 @@ define( function ( require ) {
 
       // Add points images
       setTimeout( function () {
-        this.addGraphIcons();
+        this.renderGraphNodes();
       }.bind( this ), 0 );
 
     },
 
-    addGraphIcons: function () {
+    renderGraphNodes: function () {
 
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $points = $svg.find( '[class~=ct-point]' );
@@ -133,11 +133,9 @@ define( function ( require ) {
       $points.each( function ( i, el ) {
 
         var $el = $( el );
-
         var side = 24;
         var x = parseFloat( $el.attr( 'x1' ) ) - side / 2;
         var y = parseFloat( $el.attr( 'y1' ) ) - side / 2;
-
         var quality = App.data.questions[i].answers[App.user.answers[i].chosenAnswer].eval;
 
         nodeData.push( {
@@ -196,8 +194,6 @@ define( function ( require ) {
 
         this.updateNodes();
 
-        //this.graphRendered = true;
-
       }.bind( this ), 250 );
 
       // Add event
@@ -235,12 +231,19 @@ define( function ( require ) {
      */
     updateNodes: function ( e ) {
 
+      if ( App.width < App.mainBreakpoint ) {
+        return;
+      }
+
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $nodes = $svg.find( '[class~=node]' );
       var index = e ? e.activeIndex : 0;
 
-      this.setCurrentNode( $nodes, index );
+      if ( !$svg || !$nodes || !$nodes[index] ) {
+        return;
+      }
 
+      this.setCurrentNode( $nodes, index );
       this.setDoneNode( $nodes, index );
 
     },
@@ -296,7 +299,6 @@ define( function ( require ) {
 
       e.preventDefault();
 
-      App.mediator.remove( 'resize', this.onResize );
       this.$restart.off();
 
       App.router.restart();
@@ -304,15 +306,6 @@ define( function ( require ) {
     },
 
     //onResize: function ( e ) {
-    //
-    //  if ( this.graphRendered ) {
-    //    this.addGraphIcons();
-    //  }
-    //
-    //  var height = this.$el.outerHeight( true );
-    //  iframeMessenger.resize( height );
-    //
-    //  console.log( 'summary height', height );
     //
     //  // console.log(e.width, e.height);
     //

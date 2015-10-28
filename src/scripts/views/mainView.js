@@ -233,20 +233,22 @@ define( function ( require ) {
 
     onResize: function () {
 
+      console.log( 'resize fired' );
+
       setTimeout( function () {
 
         var height = 0;
 
         if ( this.currentViewType === 'summary' && this.summaryView ) {
 
-          //if ( this.summaryView.graphRendered ) {
-            this.summaryView.addGraphIcons();
-          //}
+          if ( this.$( '#graph' ) ) {
+            this.summaryView.renderGraphNodes();
+          }
 
-          if ( App.width < 980 ) {
+          if ( App.width < App.mainBreakpoint ) {
             height = this.summaryView.$el.outerHeight( true );
           } else {
-            height = 768;
+            height = App.maxSummaryHeight;
           }
 
         } else if ( this.currentViewType === 'question' && this.questionsViews.length ) {
@@ -255,7 +257,7 @@ define( function ( require ) {
 
           //console.log( firstQuestion );
 
-          if ( App.width < 980 ) {
+          if ( App.width < App.mainBreakpoint ) {
             height = firstQuestion.$el.outerHeight( true );
           } else {
             height = firstQuestion.$( '.options-wrapper' ).eq( 1 ).outerHeight( true ) + 80; //this.$el.outerHeight( true );

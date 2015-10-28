@@ -10,7 +10,7 @@
     padding-bottom: 50px;
     //height: 100%;
 
-    @media(min-width: 980px) {
+    @media(min-width: $mainBreakpoint) {
       position: inherit;
       padding-bottom: inherit;
     }
@@ -20,7 +20,7 @@
   @import "ui";
   @import 'options/title';
 
-  @media(min-width: 980px) {
+  @media(min-width: $mainBreakpoint) {
     font-size: 0;
     white-space: nowrap;
     height: 100%;
@@ -36,7 +36,7 @@
     //width: 100%;
     position: relative;
 
-    @media(min-width: 980px) {
+    @media(min-width: $mainBreakpoint) {
       padding: 0;
       width: 62%;
       height: 100%;
@@ -50,7 +50,7 @@
       padding: 0 20px;
       box-sizing: border-box;
 
-      @media(min-width: 980px) {
+      @media(min-width: $mainBreakpoint) {
         position: absolute;
         top: 50%;
         @include transform(translateY(-50%));
@@ -65,7 +65,7 @@
     padding: 20px 20px 40px 20px;
     position: relative;
 
-    @media(min-width: 980px) {
+    @media(min-width: $mainBreakpoint) {
       width: 38% !important;
       padding: 20px;
     }
@@ -94,7 +94,7 @@
       width: 62%;
     }
 
-    @media(min-width: 980px) {
+    @media(min-width: $mainBreakpoint) {
       white-space: normal;
       font-size: 14px;
       display: inline-block;

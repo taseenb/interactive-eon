@@ -12239,12 +12239,12 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       // Add points images
       setTimeout( function () {
-        this.addGraphIcons();
+        this.renderGraphNodes();
       }.bind( this ), 0 );
 
     },
 
-    addGraphIcons: function () {
+    renderGraphNodes: function () {
 
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $points = $svg.find( '[class~=ct-point]' );
@@ -12258,11 +12258,9 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
       $points.each( function ( i, el ) {
 
         var $el = $( el );
-
         var side = 24;
         var x = parseFloat( $el.attr( 'x1' ) ) - side / 2;
         var y = parseFloat( $el.attr( 'y1' ) ) - side / 2;
-
         var quality = App.data.questions[i].answers[App.user.answers[i].chosenAnswer].eval;
 
         nodeData.push( {
@@ -12321,8 +12319,6 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
         this.updateNodes();
 
-        //this.graphRendered = true;
-
       }.bind( this ), 250 );
 
       // Add event
@@ -12360,12 +12356,19 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
      */
     updateNodes: function ( e ) {
 
+      if ( App.width < App.mainBreakpoint ) {
+        return;
+      }
+
       var $svg = this.$( '#graph' ).find( 'svg' );
       var $nodes = $svg.find( '[class~=node]' );
       var index = e ? e.activeIndex : 0;
 
-      this.setCurrentNode( $nodes, index );
+      if ( !$svg || !$nodes || !$nodes[index] ) {
+        return;
+      }
 
+      this.setCurrentNode( $nodes, index );
       this.setDoneNode( $nodes, index );
 
     },
@@ -12421,7 +12424,6 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
 
       e.preventDefault();
 
-      App.mediator.remove( 'resize', this.onResize );
       this.$restart.off();
 
       App.router.restart();
@@ -12429,15 +12431,6 @@ define( 'views/summaryView.js',['require','backbone','swiper','chartist','charti
     },
 
     //onResize: function ( e ) {
-    //
-    //  if ( this.graphRendered ) {
-    //    this.addGraphIcons();
-    //  }
-    //
-    //  var height = this.$el.outerHeight( true );
-    //  iframeMessenger.resize( height );
-    //
-    //  console.log( 'summary height', height );
     //
     //  // console.log(e.width, e.height);
     //
@@ -12683,20 +12676,22 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     onResize: function () {
 
+      console.log( 'resize fired' );
+
       setTimeout( function () {
 
         var height = 0;
 
         if ( this.currentViewType === 'summary' && this.summaryView ) {
 
-          //if ( this.summaryView.graphRendered ) {
-            this.summaryView.addGraphIcons();
-          //}
+          if ( this.$( '#graph' ) ) {
+            this.summaryView.renderGraphNodes();
+          }
 
-          if ( App.width < 980 ) {
+          if ( App.width < App.mainBreakpoint ) {
             height = this.summaryView.$el.outerHeight( true );
           } else {
-            height = 768;
+            height = App.maxSummaryHeight;
           }
 
         } else if ( this.currentViewType === 'question' && this.questionsViews.length ) {
@@ -12705,7 +12700,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
           //console.log( firstQuestion );
 
-          if ( App.width < 980 ) {
+          if ( App.width < App.mainBreakpoint ) {
             height = firstQuestion.$el.outerHeight( true );
           } else {
             height = firstQuestion.$( '.options-wrapper' ).eq( 1 ).outerHeight( true ) + 80; //this.$el.outerHeight( true );
@@ -13416,6 +13411,11 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
   // Resize event (published by mediator on every window resize)
   var resizeEvent = require( 'resize' );
   resizeEvent.initialize();
+
+
+  // Responsive
+  App.mainBreakpoint = 920;
+  App.maxSummaryHeight = 728; //
 
 
   // Support

@@ -8,7 +8,7 @@
 
   min-height: 0 !important;
 
-  @media(min-width: 980px) {
+  @media(min-width: $mainBreakpoint) {
     height: 100%;
   }
 
@@ -29,7 +29,7 @@
     //  width: 62%;
     //}
 
-    @media(min-width: 980px) {
+    @media(min-width: $mainBreakpoint) {
       max-width: 1024px;
       position: absolute;
       top: 50%;

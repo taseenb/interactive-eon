@@ -64,7 +64,7 @@
       font-size: 14px;
     }
 
-    @media(min-width: 980px) {
+    @media(min-width: $mainBreakpoint) {
       padding: 20px;
       font-size: 15px;
     }
