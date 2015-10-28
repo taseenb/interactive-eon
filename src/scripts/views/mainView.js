@@ -185,11 +185,12 @@ define( function ( require ) {
 
     scrollToIframeTop: function () {
 
-      //iframeMessenger.scrollTo( 0, 0 );
+      iframeMessenger.scrollTo( 0, 0 );
 
       iframeMessenger.getPositionInformation( function ( obj ) {
 
-        console.log( 'position: ', obj.iframeTop );
+        //console.log( 'iframe position: ', obj.iframeTop );
+        //console.log( 'scroll position: ', window.parent.scrollY );
 
         var y = Math.abs( obj.iframeTop ) - 20;
         iframeMessenger.scrollTo( 0, y );
