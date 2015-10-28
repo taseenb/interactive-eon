@@ -1,4 +1,4 @@
-/*! app / v0.0.1October 28, 2015 */
+/*! app / v0.0.1 - October 28, 2015 */
 /**
  * @license almond 0.3.1 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -12626,7 +12626,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       this.show( this.summaryView );
 
       // Scroll
-      this.scrollToTop();
+      //this.scrollToTop();
       this.scrollToIframeTop();
 
       // Display:none for the questions
@@ -12679,7 +12679,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       iframeMessenger.getPositionInformation( function ( obj ) {
 
-        console.log( 'position: ', obj.iframeTop );
+        //console.log( 'position: ', obj.iframeTop );
 
         var y = Math.abs( obj.iframeTop ) - 20;
         iframeMessenger.scrollTo( 0, y );
@@ -12818,8 +12818,6 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
       this.question();
 
-      //this.mainView.scrollToIframeTop();
-
     },
 
     validate: function ( idx ) {
@@ -12832,20 +12830,7 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
       return validIdx;
 
-    },
-
-    //scrollTop: function () {
-    //
-    //  iframeMessenger.scrollTo( 0, 0 );
-    //
-    //  iframeMessenger.getPositionInformation( function ( obj ) {
-    //
-    //    var y = Math.abs( obj.iframeTop );
-    //    iframeMessenger.scrollTo( 0, y );
-    //
-    //  } );
-    //
-    //}
+    }
 
   } );
 
@@ -13500,4 +13485,4 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
 } );
 
 require(["app"]);
-/* start */
+/* thank you for visiting! */

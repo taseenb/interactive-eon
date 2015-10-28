@@ -136,7 +136,7 @@ define( function ( require ) {
       this.show( this.summaryView );
 
       // Scroll
-      this.scrollToTop();
+      //this.scrollToTop();
       this.scrollToIframeTop();
 
       // Display:none for the questions
@@ -189,7 +189,7 @@ define( function ( require ) {
 
       iframeMessenger.getPositionInformation( function ( obj ) {
 
-        console.log( 'position: ', obj.iframeTop );
+        //console.log( 'position: ', obj.iframeTop );
 
         var y = Math.abs( obj.iframeTop ) - 20;
         iframeMessenger.scrollTo( 0, y );

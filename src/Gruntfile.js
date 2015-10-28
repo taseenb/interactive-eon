@@ -72,8 +72,8 @@ module.exports = function ( grunt ) {
           name: "../node_modules/almond/almond",
           out: '../js/app.js',
           wrap: {
-            start: '/*! app / v' + pkg.version + '<%= grunt.template.today("mmmm dd, yyyy") %> */\n',
-            end: '/* start */'
+            start: '/*! app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
+            end: '/* thank you for visiting! */'
           },
           wrapShim: true,
           removeCombined: true,
@@ -94,6 +94,10 @@ module.exports = function ( grunt ) {
       //    name: "../node_modules/almond/almond",
       //    out: '../js/app.min.js',
       //    wrapShim: true,
+      //    wrap: {
+      //      start: '/*! app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
+      //      end: '/* thank you for visiting! */'
+      //    },
       //    removeCombined: true,
       //    useStrict: true,
       //    optimize: 'uglify2',

@@ -62,8 +62,6 @@ define( function ( require ) {
 
       this.question();
 
-      //this.mainView.scrollToIframeTop();
-
     },
 
     validate: function ( idx ) {
@@ -76,20 +74,7 @@ define( function ( require ) {
 
       return validIdx;
 
-    },
-
-    //scrollTop: function () {
-    //
-    //  iframeMessenger.scrollTo( 0, 0 );
-    //
-    //  iframeMessenger.getPositionInformation( function ( obj ) {
-    //
-    //    var y = Math.abs( obj.iframeTop );
-    //    iframeMessenger.scrollTo( 0, y );
-    //
-    //  } );
-    //
-    //}
+    }
 
   } );
 
