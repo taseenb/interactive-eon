@@ -58,13 +58,13 @@ callback( {
           "text": "Immediately whip out your phone and start replying to emails, while waiting for your computer to log in.",
           "value": 2,
           "introTip": "You answered that you immediately check your emails. Looking busy doesn’t necessarily make you productive. Re-focus with a spot of mindfulness meditation",
-          "eval": "medium"
+          "eval": "bad"
         },
         {
           "text": "Relax, close your eyes, focus on your breath and feel totally Zen.",
-          "value": 1,
+          "value": 3,
           "introTip": "You answered that you relax and focus on your breath. Mindfulness has been shown to improve concentration. Put that focus to good use by prioritising work",
-          "eval": "bad"
+          "eval": "medium"
         },
         {
           "text": "You focus and become mindful of the present moment, then spend some time prioritising tasks for the day.",
@@ -78,7 +78,7 @@ callback( {
 
     {
       "idx": 2,
-      "title": "11:30",
+      "title": "11:00",
       "text": "It’s been the morning from hell - and it’s still only 11am. Do you...",
       "animationName": "Q3",
       "ui": "blue",
@@ -101,7 +101,7 @@ callback( {
         },
         {
           "text": "Stretch and smile, remembering all the great reasons why you wanted to start a business in the first place.",
-          "value": 4,
+          "value": 5,
           "introTip": "You answered that you would stretch and smile. Grinning will tell your brain to be happy but try doing it while on a quick coffee break.",
           "eval": "good"
         }
@@ -123,7 +123,7 @@ callback( {
           "text": "Head for a fast food restaurant and order an extra large burger and fries.",
           "value": 2,
           "introTip": "You answered that you would spend lunch at fast food restaurant. While it’s good you are eating something, it’s called junk food for a reason. Try some fresh fruit and salad instead.",
-          "eval": "medium"
+          "eval": "bad"
         },
         {
           "text": "Skip lunch altogether, replacing food with the nourishment of hard work.",
@@ -155,7 +155,7 @@ callback( {
           "text": "Grab an extra strong coffee and wait for the caffeine to kick in.",
           "value": 2,
           "introTip": "You answered that you would have a strong coffee to wake up. While the caffeine might give you a quick kick, a short nap will give you more energy for longer.",
-          "eval": "medium"
+          "eval": "bad"
         },
         {
           "text": "Put your head down and take a power nap. You’ll feel better after closing your eyes for a while.",
@@ -185,23 +185,23 @@ callback( {
       "answers": [
         {
           "text": "Remove all the chairs in the meeting room, hold the meeting standing up or confidently announce “Let’s walk and talk, people.”",
-          "value": 2,
+          "value": 5,
           "introTip": "You answered that you would hold the meeting standing up.You have been doing your research.",
-          "eval": "bad"
-        },
-        {
-          "text": "Hide under your desk until it’s all over and you can go home. Meetings are a drag.",
-          "value": 4,
-          "introTip": "You answered that you would hide under your desk. If you hate meetings, try something different like going for a group walk."
-          ,
           "eval": "good"
         },
         {
+          "text": "Hide under your desk until it’s all over and you can go home. Meetings are a drag.",
+          "value": 1,
+          "introTip": "You answered that you would hide under your desk. If you hate meetings, try something different like going for a group walk."
+          ,
+          "eval": "bad"
+        },
+        {
           "text": "Breath a heavy sigh then take your seat for an hour’s meeting that in the end feels like an eternity.",
-          "value": 3,
+          "value": 2,
           "introTip": "You answered that you would reluctantly attend the meeting. How about trying a new format?"
           ,
-          "eval": "medium"
+          "eval": "bad"
         }
       ],
       "tip": "It may sound silly, but holding a meeting where everyone stands could be just the ticket to getting your creative juices flowing and energising your team. Research from Washington University suggests <a href='http://spp.sagepub.com/content/early/2014/06/12/1948550614538463.abstract'>standing improves group performance</a>, while a different report from Stanford University showed that walking also boosts creativity."
@@ -219,15 +219,15 @@ callback( {
       "answers": [
         {
           "text": "Play Candy Crush. You’re on level 250 and your friend is only one level above you. Winning is everything.",
-          "value": 5,
+          "value": 1,
           "introTip": "You answered that you would play Candy Crush. While it’s a fun time waster, you might want to spend the time completing some short tasks.",
-          "eval": "good"
+          "eval": "bad"
         },
         {
           "text": "Decide to use the journey to tie up a few loose ends at work. Each task will only take two minutes of your time anyway.",
-          "value": 2,
+          "value": 5,
           "introTip": "You answered that you would work on short, two minute tasks. Great plan! This is a good opportunity to tie up any loose ends.",
-          "eval": "bad"
+          "eval": "good"
         },
         {
           "text": "Have another nap. It’s been a long day after all and work can wait.",
@@ -257,7 +257,7 @@ callback( {
         },
         {
           "text": "Put your feet up, relax with a cup of camomile tea binge watching House of Cards then get some shut eye.",
-          "value": 4,
+          "value": 5,
           "introTip": "You answered that you would relax and go to sleep. This is the best way to recharge and be as productive as possible the next day.",
           "eval": "good"
         },

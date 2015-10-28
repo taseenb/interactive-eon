@@ -68,7 +68,7 @@ define( function ( require ) {
     renderQuestion: function ( idx ) {
 
       this.questionsViews[idx] = new QuestionView( {parent: '#questions', idx: idx} );
-      this.questionsViews[idx].render( this.onResize.bind( this ) ); //
+      this.questionsViews[idx].render( this.onResize.bind( this ) );
 
       setTimeout( this.showQuestion.bind( this, idx ), 250 );
 
@@ -98,8 +98,8 @@ define( function ( require ) {
       }.bind( this ) );
 
       // Scroll
-      if ( this.notFirstTime ) {
-        this.scrollToTop();
+      if ( this.notFirstTime || (App.width < App.mainBreakpoint || idx === 0) ) {
+        //this.scrollToTop();
         this.scrollToIframeTop();
       }
 
@@ -189,6 +189,8 @@ define( function ( require ) {
 
       iframeMessenger.getPositionInformation( function ( obj ) {
 
+        console.log( 'position: ', obj.iframeTop );
+
         var y = Math.abs( obj.iframeTop ) - 20;
         iframeMessenger.scrollTo( 0, y );
 
@@ -213,7 +215,7 @@ define( function ( require ) {
 
     onResize: function () {
 
-      console.log( 'resize fired', new Date() );
+      //console.log( 'resize fired on ', new Date() );
 
       setTimeout( function () {
 
@@ -235,7 +237,7 @@ define( function ( require ) {
 
           var firstQuestion = this.questionsViews[0];
 
-          //console.log( firstQuestion );
+          //console.log( firstQuestion ); //
 
           if ( App.width < App.mainBreakpoint ) {
             height = firstQuestion.$el.outerHeight( true );
@@ -245,9 +247,12 @@ define( function ( require ) {
 
         }
 
-        //console.log( 'height ' + this.currentViewType, height );
 
-        iframeMessenger.resize( height );
+        // Update iframe height
+        if ( height && this.currentViewType ) {
+          //console.log( 'iframe height (' + this.currentViewType + ') ', height );
+          iframeMessenger.resize( height );
+        }
 
       }.bind( this ), 0 );
 

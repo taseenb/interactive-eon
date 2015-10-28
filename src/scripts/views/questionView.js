@@ -158,6 +158,7 @@ define( function ( require ) {
 
       this.done = false;
       this.$answers.removeClass( 'selected' );
+
       App.user.answers[this.idx].chosenAnswer = null;
       App.user.answers[this.idx].value = null;
 

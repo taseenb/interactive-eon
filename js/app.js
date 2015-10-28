@@ -4448,6 +4448,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
       this.done = false;
       this.$answers.removeClass( 'selected' );
+
       App.user.answers[this.idx].chosenAnswer = null;
       App.user.answers[this.idx].value = null;
 
@@ -12557,7 +12558,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
     renderQuestion: function ( idx ) {
 
       this.questionsViews[idx] = new QuestionView( {parent: '#questions', idx: idx} );
-      this.questionsViews[idx].render( this.onResize.bind( this ) ); //
+      this.questionsViews[idx].render( this.onResize.bind( this ) );
 
       setTimeout( this.showQuestion.bind( this, idx ), 250 );
 
@@ -12587,8 +12588,8 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
       }.bind( this ) );
 
       // Scroll
-      if ( this.notFirstTime ) {
-        this.scrollToTop();
+      if ( this.notFirstTime || (App.width < App.mainBreakpoint || idx === 0) ) {
+        //this.scrollToTop();
         this.scrollToIframeTop();
       }
 
@@ -12678,6 +12679,8 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
       iframeMessenger.getPositionInformation( function ( obj ) {
 
+        console.log( 'position: ', obj.iframeTop );
+
         var y = Math.abs( obj.iframeTop ) - 20;
         iframeMessenger.scrollTo( 0, y );
 
@@ -12702,7 +12705,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
     onResize: function () {
 
-      console.log( 'resize fired', new Date() );
+      //console.log( 'resize fired on ', new Date() );
 
       setTimeout( function () {
 
@@ -12724,7 +12727,7 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
           var firstQuestion = this.questionsViews[0];
 
-          //console.log( firstQuestion );
+          //console.log( firstQuestion ); //
 
           if ( App.width < App.mainBreakpoint ) {
             height = firstQuestion.$el.outerHeight( true );
@@ -12734,9 +12737,12 @@ define( 'views/mainView',['require','underscore','backbone','text!tpl/content.ht
 
         }
 
-        //console.log( 'height ' + this.currentViewType, height );
 
-        iframeMessenger.resize( height );
+        // Update iframe height
+        if ( height && this.currentViewType ) {
+          //console.log( 'iframe height (' + this.currentViewType + ') ', height );
+          iframeMessenger.resize( height );
+        }
 
       }.bind( this ), 0 );
 
@@ -12812,7 +12818,7 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
       this.question();
 
-      this.scrollTop();
+      //this.mainView.scrollToIframeTop();
 
     },
 
@@ -12828,18 +12834,18 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
     },
 
-    scrollTop: function () {
-
-      iframeMessenger.scrollTo( 0, 0 );
-
-      iframeMessenger.getPositionInformation( function ( obj ) {
-
-        var y = Math.abs( obj.iframeTop );
-        iframeMessenger.scrollTo( 0, y );
-
-      } );
-
-    }
+    //scrollTop: function () {
+    //
+    //  iframeMessenger.scrollTo( 0, 0 );
+    //
+    //  iframeMessenger.getPositionInformation( function ( obj ) {
+    //
+    //    var y = Math.abs( obj.iframeTop );
+    //    iframeMessenger.scrollTo( 0, y );
+    //
+    //  } );
+    //
+    //}
 
   } );
 
@@ -13420,8 +13426,6 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
 
   'use strict';
 
-  var ieDebug = false; // disable all console.log in IE9 if false
-
   // Create App global
   window.App = window.App || {};
 
@@ -13451,6 +13455,7 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
   App.supportTransitions = $html.hasClass( 'csstransitions' ); // used to determine if we are on a modern browser (> IE9)
   App.isTouch = $html.hasClass( 'touch' );
   App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
+  App.isIE = $html.hasClass( '.no-smil' );
 
 
   // Hack for mobile safari
@@ -13461,9 +13466,11 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
   }
 
   // Disable console.log on IE 9
-  if ( !App.supportTransitions && !ieDebug ) {
-    window.console = {
-      log: $.noop()
+  if ( !window.console ) {
+    window.console = {};
+  }
+  if ( !console.log ) {
+    console.log = function () {
     };
   }
 

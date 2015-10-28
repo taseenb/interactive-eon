@@ -2,8 +2,6 @@ define( function ( require ) {
 
   'use strict';
 
-  var ieDebug = false; // disable all console.log in IE9 if false
-
   // Create App global
   window.App = window.App || {};
 
@@ -33,6 +31,7 @@ define( function ( require ) {
   App.supportTransitions = $html.hasClass( 'csstransitions' ); // used to determine if we are on a modern browser (> IE9)
   App.isTouch = $html.hasClass( 'touch' );
   App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
+  App.isIE = $html.hasClass( '.no-smil' );
 
 
   // Hack for mobile safari
@@ -43,9 +42,11 @@ define( function ( require ) {
   }
 
   // Disable console.log on IE 9
-  if ( !App.supportTransitions && !ieDebug ) {
-    window.console = {
-      log: $.noop()
+  if ( !window.console ) {
+    window.console = {};
+  }
+  if ( !console.log ) {
+    console.log = function () {
     };
   }
 
