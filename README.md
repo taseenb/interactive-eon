@@ -1,4 +1,4 @@
-# EON
+# E.ON
 The Guardian - E.ON
 
 
