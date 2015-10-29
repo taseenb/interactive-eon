@@ -1,5 +1,5 @@
 # EON
-The Guardian - EON
+The Guardian - E.ON
 
 
 ## Pushing your commits to `master` and `gh-pages`
