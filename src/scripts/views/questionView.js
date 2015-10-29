@@ -33,13 +33,18 @@ define( function ( require ) {
     render: function ( callback ) {
 
       var ie9 = App.isIE; // || App.isFirefox;
+      var safari = App.isSafari;
       var imageFile = App.data.questions[this.idx].animationName + '.svg';
 
       if ( ie9 ) {
         imageFile = 'png/' + App.data.questions[this.idx].animationName + '.png';
+      } else if ( safari && this.idx === 6 && !App.isTouch ) {
+        // fix for bug on Safari: svg mask animation has visual glitches
+        imageFile = 'png/' + App.data.questions[this.idx].animationName + '.png';
       }
 
       this.html = this.template( {
+        safari: safari,
         ie9: ie9,
         idx: this.idx,
         question: App.data.questions[parseInt( this.idx )],

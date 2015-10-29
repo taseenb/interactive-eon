@@ -33,6 +33,7 @@ define( function ( require ) {
   App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
   App.isIE = $html.hasClass( 'no-smil' );
   App.isFirefox = navigator.userAgent.toLowerCase().indexOf( 'firefox' ) > -1; // Firefox does not support transform-origin on SVG elements, so we have to disable transform on the graph nodes
+  App.isSafari = navigator.userAgent.toLowerCase().indexOf( 'safari' ) > -1;
 
   $html.addClass( (App.isFirefox ? '' : 'no-') + 'firefox' );
 
