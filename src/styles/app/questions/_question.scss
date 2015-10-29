@@ -8,7 +8,6 @@
   &:first-of-type {
     position: relative !important; // make the first question relative so it sets the height of the container
     padding-bottom: 50px;
-    //height: 100%;
 
     @media(min-width: $mainBreakpoint) {
       position: inherit;

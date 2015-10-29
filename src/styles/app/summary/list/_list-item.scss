@@ -98,6 +98,7 @@
       margin: 0 15px 15px 15px;
       font-size: 0;
       overflow: auto;
+      white-space: nowrap;
 
       .restart,
       .prev,
@@ -106,8 +107,9 @@
         display: inline-block;
         padding: 0;
         font-size: 0;
-        //margin-left: 15px;
+        margin: 0;
         height: 34px;
+        white-space: nowrap;
 
         @media(min-width: $mainBreakpoint) {
           height: 44px;
@@ -130,7 +132,7 @@
 
       .restart,
       .next {
-        float: right;
+        //float: right;
       }
 
     }

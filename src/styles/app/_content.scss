@@ -33,7 +33,7 @@
 
     //height:auto !important;
 
-    .no-touch {
+    .no-touch & {
       @include css3-prefix(transition-duration, 1s);
       @include css3-prefix(transition-property, (opacity));
     }

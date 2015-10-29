@@ -101,7 +101,7 @@
             &.current {
               .group-scale {
                 @include css3-prefix(transform-origin, center center);
-                @include transform(scale(1.3, 1.3));
+                @include transform(scale(1.5, 1.5));
               }
             }
           }

@@ -1,34 +1,40 @@
 .no-touch & {
 
   .inner {
-    //@include css3-prefix(transition-delay, 0s);
+    @include css3-prefix(transition-delay, 0.5s);
     @include css3-prefix(transition-duration, 1s);
     @include css3-prefix(transition-property, (transform));
     @include transform(translateY(0));
 
-    .options-wrapper {
+    .animation {
+      @include css3-prefix(transition-delay, 0.8s);
       @include css3-prefix(transition-duration, 0.8s);
-      @include css3-prefix(transition-delay, 0.5s);
+      opacity: 1;
+    }
+
+    .options-wrapper {
+      @include css3-prefix(transition-delay, 0.8s);
+      @include css3-prefix(transition-duration, 0.8s);
       @include css3-prefix(transition-property, (transform, opacity));
       @include transform(translateY(0));
       opacity: 1;
 
       .answer {
         opacity: 1;
-        @include css3-prefix(transition-duration, 0.4s);
+        @include css3-prefix(transition-duration, 1.2s);
         @include css3-prefix(transition-property, (transform, opacity));
         @include transform(translateY(0));
 
         &:first-of-type {
-          @include css3-prefix(transition-delay, 0.3s);
-        }
-
-        &:nth-of-type(2) {
           @include css3-prefix(transition-delay, 0.6s);
         }
 
-        &:last-of-type {
+        &:nth-of-type(2) {
           @include css3-prefix(transition-delay, 0.9s);
+        }
+
+        &:last-of-type {
+          @include css3-prefix(transition-delay, 1.2s);
         }
 
       }
@@ -40,8 +46,14 @@
   &.hidden {
 
     .inner {
-
+      @include css3-prefix(transition-delay, 0.0s);
       @include transform(translateY(-2%));
+
+      .animation {
+        //@include css3-prefix(transition-delay, 0.5s);
+        //@include css3-prefix(transition-duration, 0.8s);
+        opacity: 0;
+      }
 
       .options-wrapper {
         @include transform(translateY(-5%));

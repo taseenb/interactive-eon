@@ -13,7 +13,6 @@ var require = {
     "chartist.plugins.tooltips": "vendors/chartist-plugin-tooltip",
 
     "analytics": "analytics",
-    //"swiper": "vendors/idangerous.swiper-2.7.6",
 
     // Events
     "resize": "events/resize",
