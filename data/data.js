@@ -14,7 +14,7 @@ callback( {
   "questions": [
     {
       "idx": 0,
-      "title": "07:00",
+      "title": "7am",
       "text": "It’s 7am and your alarm is blaring. Do you...",
       "animationName": "Q1",
       "ui": "blue",
@@ -47,7 +47,7 @@ callback( {
 
     {
       "idx": 1,
-      "title": "09:00",
+      "title": "9am",
       "text": "You arrive at work. While you wait for the computer to log you in, you...",
       "animationName": "Q2",
       "ui": "green",
@@ -80,7 +80,7 @@ callback( {
 
     {
       "idx": 2,
-      "title": "11:00",
+      "title": "11am",
       "text": "It’s been the morning from hell - and it’s still only 11am. Do you...",
       "animationName": "Q3",
       "ui": "blue",
@@ -114,7 +114,7 @@ callback( {
 
     {
       "idx": 3,
-      "title": "13:00",
+      "title": "1pm",
       "text": "It’s time for lunch and you’re famished. Do you...",
       "animationName": "Q4",
       "ui": "green",
@@ -147,7 +147,7 @@ callback( {
 
     {
       "idx": 4,
-      "title": "14:30",
+      "title": "2.30pm",
       "text": "It’s the post-lunch slump and you’re feeling sleepy. Do you...",
       "animationName": "Q5",
       "ui": "green",
@@ -180,7 +180,7 @@ callback( {
 
     {
       "idx": 5,
-      "title": "16:00",
+      "title": "4pm",
       "text": "It’s 4pm, you’re feeling drained but it’s time for a team meeting. Do you...",
       "animationName": "Q6",
       "ui": "green",
@@ -215,7 +215,7 @@ callback( {
 
     {
       "idx": 6,
-      "title": "18:00",
+      "title": "6pm",
       "text": "You are on the commuter train home. Do you...",
       "animationName": "Q7",
       "ui": "green",
@@ -248,7 +248,7 @@ callback( {
 
     {
       "idx": 7,
-      "title": "22:30",
+      "title": "10.3pm",
       "text": "It’s been a long day, but it’s finally time for bed. Do you...",
       "animationName": "Q8",
       "ui": "blue",
