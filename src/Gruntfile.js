@@ -64,49 +64,49 @@ module.exports = function ( grunt ) {
     },
     requirejs: {
 
-      unmin: {
-        options: {
-          baseUrl: 'scripts',
-          mainConfigFile: "scripts/config.js",
-          include: ['app'], // assumes a production build using almond
-          name: "../node_modules/almond/almond",
-          out: '../js/app.js',
-          wrap: {
-            start: '/*! app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
-            end: '/* thank you for visiting! */'
-          },
-          wrapShim: true,
-          removeCombined: true,
-          useStrict: true,
-          optimize: 'none',
-          generateSourceMaps: false,
-          preserveLicenseComments: true,
-          findNestedDependencies: true,
-          insertRequire: ['app']
-        }
-      },
-
-      //min: {
+      //unmin: {
       //  options: {
       //    baseUrl: 'scripts',
       //    mainConfigFile: "scripts/config.js",
       //    include: ['app'], // assumes a production build using almond
       //    name: "../node_modules/almond/almond",
-      //    out: '../js/app.min.js',
-      //    wrapShim: true,
+      //    out: '../js/app.js',
       //    wrap: {
-      //      start: '/*! app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
-      //      end: '/* thank you for visiting! */'
+      //      start: '/*! interactive app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
+      //      end: '/* thank you! */'
       //    },
+      //    wrapShim: true,
       //    removeCombined: true,
       //    useStrict: true,
-      //    optimize: 'uglify2',
-      //    //generateSourceMaps: true,
-      //    preserveLicenseComments: false,
+      //    optimize: 'none',
+      //    generateSourceMaps: false,
+      //    preserveLicenseComments: true,
       //    findNestedDependencies: true,
       //    insertRequire: ['app']
       //  }
-      //}
+      //},
+
+      min: {
+        options: {
+          baseUrl: 'scripts',
+          mainConfigFile: "scripts/config.js",
+          include: ['app'], // assumes a production build using almond
+          name: "../node_modules/almond/almond",
+          out: '../js/app.min.js',
+          wrapShim: true,
+          wrap: {
+            start: '/*! interactive app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
+            end: '/* thank you! */'
+          },
+          removeCombined: true,
+          useStrict: true,
+          optimize: 'uglify2',
+          generateSourceMaps: true,
+          preserveLicenseComments: false,
+          findNestedDependencies: true,
+          insertRequire: ['app']
+        }
+      }
     }
 
   } );

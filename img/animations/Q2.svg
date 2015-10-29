@@ -1,27 +1,23 @@
-<svg version="1.0" id="Q2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100%" height="100%" viewBox="0 0 460 460" enable-background="new 0 0 460 460" xml:space="preserve">
     
 
 <style>
 
-    .phone {
-        transform: translate(1px,1px);
-        animation: phone 4s infinite linear;
-        transform-origin: center;
-        -webkit-transform-origin: top left;
-        -webkit-animation: phone 4s infinite linear;
-    }
     
     .fix {
         transform: translate(-1px,-1px);
     }
     
     #speech {
-        animation: speech1 4s infinite linear, speech2 8s infinite linear;
+        animation: speech2 8s infinite linear;
         transform-origin: center;
         -webkit-transform-origin: center;
         -moz-transform-origin: center;                    
-        -webkit-animation: speech1 4s infinite linear, speech2 8s infinite linear;
+        -webkit-animation: speech2 8s infinite linear;
     }
     
     #loading {
@@ -90,42 +86,6 @@
             transform: translate(0) rotate(0deg);
         }    
     }    
-    
-    @keyframes speech1 {
-        0% {
-            transform: translate(0);
-        }
-        25% {
-            transform: translate(15px,7px);
-        }
-        50% {
-            transform: translate(35px,0px);
-        }
-        75% {
-            transform: translate(15px,7px);
-        }
-        100% {
-            transform: translate(0);
-        }    
-    }
-    
-    @-webkit-keyframes speech1 {
-        0% {
-            transform: translate(0);
-        }
-        25% {
-            transform: translate(15px,7px);
-        }
-        50% {
-            transform: translate(35px,0px);
-        }
-        75% {
-            transform: translate(15px,7px);
-        }
-        100% {
-            transform: translate(0);
-        }    
-    }
     
     @keyframes speech2 {
         0% {
@@ -2022,8 +1982,6 @@
 	<path id="cable1" fill="none" stroke="#3D0F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="
 		M338.687,222.156c1.861,0.291,3.305,1.89,3.959,3.657c0.654,1.767,0.663,3.698,0.664,5.583c0.01,15.733,0.02,31.466,0.029,47.199
 		c0.002,3.731-0.002,7.511-0.959,11.117s-2.993,7.077-6.21,8.968">
-    
-
     
     </path>
 	<g >
