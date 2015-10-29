@@ -38,9 +38,23 @@ define( function ( require ) {
 
         this.mainView.showSummary();
 
+        window.ga( 'send', {
+          'hitType': 'event',          // Required.
+          'eventCategory': 'view summary',   // Required.
+          'eventAction': 'click',  // Required.
+          'eventLabel': 'back to menu'
+        } );
+
       } else {
 
         this.mainView.openQuestion( this.currentQuestion );
+
+        window.ga( 'send', {
+          'hitType': 'event',          // Required.
+          'eventCategory': 'view question',   // Required.
+          'eventAction': 'click',  // Required.
+          'eventLabel': 'question ' + this.currentQuestion
+        } );
 
       }
 
@@ -61,6 +75,13 @@ define( function ( require ) {
       this.currentQuestion = 0;
 
       this.question();
+
+      window.ga( 'send', {
+        'hitType': 'event',          // Required.
+        'eventCategory': 'restart',   // Required.
+        'eventAction': 'click',  // Required.
+        'eventLabel': 'back to first question'
+      } );
 
     },
 

@@ -4322,7 +4322,7 @@ define( 'views/questionView.js',['require','backbone','text!tpl/question.html','
 
     render: function ( callback ) {
 
-      var ie9 = App.isIE || App.isFirefox;
+      var ie9 = App.isIE; // || App.isFirefox;
       var imageFile = App.data.questions[this.idx].animationName + '.svg';
 
       if ( ie9 ) {
@@ -12796,9 +12796,23 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
 
         this.mainView.showSummary();
 
+        window.ga( 'send', {
+          'hitType': 'event',          // Required.
+          'eventCategory': 'view summary',   // Required.
+          'eventAction': 'click',  // Required.
+          'eventLabel': 'back to menu'
+        } );
+
       } else {
 
         this.mainView.openQuestion( this.currentQuestion );
+
+        window.ga( 'send', {
+          'hitType': 'event',          // Required.
+          'eventCategory': 'view question',   // Required.
+          'eventAction': 'click',  // Required.
+          'eventLabel': 'question ' + this.currentQuestion
+        } );
 
       }
 
@@ -12819,6 +12833,13 @@ define( 'router',['require','backbone','views/mainView'],function ( require ) {
       this.currentQuestion = 0;
 
       this.question();
+
+      window.ga( 'send', {
+        'hitType': 'event',          // Required.
+        'eventCategory': 'restart',   // Required.
+        'eventAction': 'click',  // Required.
+        'eventLabel': 'back to first question'
+      } );
 
     },
 
@@ -13252,6 +13273,29 @@ define( 'resize',['require','underscore'],function ( require ) {
   return new Event();
 
 } );
+define( 'analytics',[],
+  function () {
+
+    (function ( i, s, o, g, r, a, m ) {
+      i.GoogleAnalyticsObject = r;
+      i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push( arguments );
+        };
+      i[r].l = 1 * new Date();
+      a = s.createElement( o );
+      m = s.getElementsByTagName( o )[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore( a, m );
+    })( window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga' );
+
+    ga( 'create', 'UA-69348543-1', 'auto' );
+    ga( 'send', 'pageview' );
+
+    return ga;
+
+  } );
+
 define( 'models/userModel',['require','backbone'],function ( require ) {
 
   'use strict';
@@ -13409,7 +13453,7 @@ define( 'models/userModel',['require','backbone'],function ( require ) {
 
 } );
 
-define( 'app',['require','backbone','router','mediator-js','resize','models/userModel'],function ( require ) {
+define( 'app',['require','backbone','router','mediator-js','resize','analytics','models/userModel'],function ( require ) {
 
   'use strict';
 
@@ -13463,6 +13507,11 @@ define( 'app',['require','backbone','router','mediator-js','resize','models/user
     console.log = function () {
     };
   }
+
+
+  // Analytics
+  require( 'analytics' );
+
 
   // Get data and start main view
   $.ajax( {

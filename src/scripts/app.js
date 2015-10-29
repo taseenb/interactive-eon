@@ -53,6 +53,11 @@ define( function ( require ) {
     };
   }
 
+
+  // Analytics
+  require( 'analytics' );
+
+
   // Get data and start main view
   $.ajax( {
     url: 'data/data.js',
