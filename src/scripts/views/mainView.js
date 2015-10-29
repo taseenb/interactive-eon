@@ -12,9 +12,6 @@ define( function ( require ) {
   var QuestionView = require( 'views/questionView.js' );
   var SummaryView = require( 'views/summaryView.js' );
 
-  // Google Analytics
-  //var ga = require( 'analytics' );
-
 
   var View = Backbone.View.extend( {
 
@@ -91,14 +88,13 @@ define( function ( require ) {
           this.hide( view );
         } else {
 
-          //this.updateQuestionsBg( idx );
           this.show( view );
         }
 
       }.bind( this ) );
 
       // Scroll
-      if ( this.notFirstTime && idx === 0 ) {
+      if ( this.notFirstTime && (App.isTouch || idx === 0) ) {
         //this.scrollToTop();
         this.scrollToIframeTop();
       }
