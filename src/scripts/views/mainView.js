@@ -98,7 +98,7 @@ define( function ( require ) {
       }.bind( this ) );
 
       // Scroll
-      if ( this.notFirstTime || (App.width < App.mainBreakpoint || idx === 0) ) {
+      if ( this.notFirstTime && idx === 0 ) {
         //this.scrollToTop();
         this.scrollToIframeTop();
       }
