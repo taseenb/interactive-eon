@@ -31,12 +31,11 @@ define( function ( require ) {
   App.supportTransitions = $html.hasClass( 'csstransitions' ); // used to determine if we are on a modern browser (> IE9)
   App.isTouch = $html.hasClass( 'touch' );
   App.isPhone = App.isTouch && (App.width < 481 || App.height < 481);
-  App.isIE = $html.hasClass( 'no-smil' );
+  App.isIE = $html.hasClass( 'no-smil' ); // ie 9, 10, 11 + Edge //
   App.isFirefox = navigator.userAgent.toLowerCase().indexOf( 'firefox' ) > -1; // Firefox does not support transform-origin on SVG elements, so we have to disable transform on the graph nodes
   App.isSafari = navigator.userAgent.toLowerCase().indexOf( 'safari' ) > -1;
 
   $html.addClass( (App.isFirefox ? '' : 'no-') + 'firefox' );
-
 
   // Hack for mobile safari
   // See: https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/

@@ -75,10 +75,12 @@
 
                         <% if (i > 0) { %>
                         <span class="prev">
-                            <img src="img/arrow-left.svg">
+
                             <% if (ie9) { %>
+                            <img src="img/arrow-left.png">
                             <img src="img/times/png/<%= questions[i-1].timeImgIE %>">
                             <% } else { %>
+                            <img src="img/arrow-left.svg">
                             <img src="img/times/<%= questions[i-1].timeImg %>">
                             <% } %>
                         </span>
@@ -88,10 +90,12 @@
                         <span class="next">
                             <% if (ie9) { %>
                             <img src="img/times/png/<%= questions[i+1].timeImgIE %>">
+                            <img src="img/arrow-right.png">
                             <% } else { %>
                             <img src="img/times/<%= questions[i+1].timeImg %>">
-                            <% } %>
                             <img src="img/arrow-right.svg">
+                            <% } %>
+
                         </span>
                         <% } %>
 
