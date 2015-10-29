@@ -227,7 +227,8 @@ define( function ( require ) {
           if ( App.width < App.mainBreakpoint ) {
             height = this.summaryView.$el.outerHeight( true );
           } else {
-            height = App.maxSummaryHeight;
+            var innerHeight = this.summaryView.$el.find( '.inner' ).outerHeight( true );
+            height = Math.max( innerHeight, App.maxSummaryHeight );
           }
 
         } else if ( this.currentViewType === 'question' && this.questionsViews.length ) {
@@ -247,7 +248,7 @@ define( function ( require ) {
 
         // Update iframe height
         if ( height && this.currentViewType ) {
-          //console.log( 'iframe height (' + this.currentViewType + ') ', height );
+          console.log( 'iframe height (' + this.currentViewType + ') ', height );
           iframeMessenger.resize( height );
         }
 
