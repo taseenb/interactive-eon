@@ -42,7 +42,7 @@ define( function ( require ) {
           'hitType': 'event',          // Required.
           'eventCategory': 'view summary',   // Required.
           'eventAction': 'click',  // Required.
-          'eventLabel': 'back to menu'
+          'eventLabel': 'summary'
         } );
 
       } else {
@@ -53,7 +53,7 @@ define( function ( require ) {
           'hitType': 'event',          // Required.
           'eventCategory': 'view question',   // Required.
           'eventAction': 'click',  // Required.
-          'eventLabel': 'question ' + this.currentQuestion
+          'eventLabel': 'question ' + (this.currentQuestion + 1)
         } );
 
       }
