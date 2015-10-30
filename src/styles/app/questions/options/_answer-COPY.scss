@@ -1,55 +1,25 @@
 .answer {
 
   position: relative;
-  margin-top: 15px;
-  padding-top: 20px;
+  margin-top: 35px;
   margin-bottom: 0;
   cursor: pointer;
-  overflow: hidden;
-
-  &:after {
-    content: '';
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    background-color: #333;
-    z-index: 10;
-    width: 100%;
-  }
-
-  .answer-inner {
-    position: relative;
-    overflow: visible;
-    @include css3-prefix(transition-duration, 0.4s);
-    @include css3-prefix(transition-property, transform);
-    @include transform(translateY(0));
-  }
 
   &:first-of-type {
-    padding-top: 20px;
+    margin-top: 15px;
   }
 
   &:hover {
-
-    .answer-inner {
-      @include transform(translateY(10px));
+    .letter {
+      @include transform(scale(1.15, 1.15));
     }
-
-    //.letter {
-    //  @include transform(scale(1.15, 1.15));
-    //}
   }
 
   &.selected {
 
-    .answer-inner {
-      @include transform(translateY(10px));
+    .letter {
+      @include transform(scale(1.15, 1.15));
     }
-
-    //.letter {
-    //  @include transform(scale(1.15, 1.15));
-    //}
 
   }
 
@@ -57,9 +27,8 @@
     position: absolute;
     display: block;
     text-align: center;
-    top: -20px; //
-    //top: 0;
-    left: 0;
+    top: -20px;
+    left: 0px;
     width: 40px;
     height: 40px;
     //border: 2px solid #333;
@@ -68,10 +37,6 @@
 
     @include css3-prefix(transition-duration, 0.3s);
     @include css3-prefix(transition-property, transform);
-
-    &:first-of-type {
-      //top: 0;
-    }
   }
 
   .text {
@@ -97,7 +62,7 @@
   .bottom {
     display: block;
     height: 15px;
-    //border-bottom: 2px solid #333;
+    border-bottom: 2px solid #333;
     border-left: 2px solid #333;
     border-right: 2px solid #333;
     margin-left: 20px;

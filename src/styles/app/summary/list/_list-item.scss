@@ -11,7 +11,6 @@
     border: 2px solid #333;
     background-color: $bgBlue;
 
-
     @media(min-width: $mainBreakpoint) {
       //width: 100%;
     }
@@ -72,6 +71,8 @@
       }
     }
 
+    .final-title,
+    .introTip,
     strong {
       display: block;
       font-weight: bold;
@@ -86,11 +87,31 @@
       }
     }
 
+    .final-text,
     .tip {
       display: block;
       font-size: 16px;
       line-height: 21px;
       padding: 0 15px 15px 15px;
+    }
+
+    .restart-wrapper {
+      position: relative;
+      display: inline-block;
+      height: 34px;
+      text-align: center;
+      padding: 0 15px 15px 15px;
+
+      @media(min-width: $mainBreakpoint) {
+        height: 44px;
+      }
+
+      img.restart {
+        display: inline-block;
+        position: relative;
+        max-height: 100%;
+        cursor: pointer;
+      }
     }
 
     .arrows-wrapper {
@@ -100,7 +121,7 @@
       overflow: auto;
       white-space: nowrap;
 
-      .restart,
+      .finish,
       .prev,
       .next {
         cursor: pointer;
@@ -130,7 +151,7 @@
         float: left;
       }
 
-      .restart,
+      .finish,
       .next {
         //float: right;
       }

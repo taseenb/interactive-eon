@@ -70,7 +70,7 @@ module.exports = function ( grunt ) {
       //    mainConfigFile: "scripts/config.js",
       //    include: ['app'], // assumes a production build using almond
       //    name: "../node_modules/almond/almond",
-      //    out: '../js/app.js',
+      //    out: '../js/app.min.js',
       //    wrap: {
       //      start: '/*! interactive app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
       //      end: '/* thank you! */'
@@ -94,10 +94,6 @@ module.exports = function ( grunt ) {
           name: "../node_modules/almond/almond",
           out: '../js/app.min.js',
           wrapShim: true,
-          wrap: {
-            start: '/*! interactive app / v' + pkg.version + ' - <%= grunt.template.today("mmmm dd, yyyy") %> */\n',
-            end: '/* thank you! */'
-          },
           removeCombined: true,
           useStrict: true,
           optimize: 'uglify2',

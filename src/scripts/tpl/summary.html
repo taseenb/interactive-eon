@@ -10,7 +10,7 @@
             <div class="intro">
                 <strong>Here's how your day looks</strong>
 
-                <span class="click-message">Click on the nodes to reveal more</span>
+                <span class="click-message">Click on the sticky nodes to reveal more</span>
 
                 <span class="swipe-message">Swipe left to reveal more</span>
             </div>
@@ -100,11 +100,11 @@
                         <% } %>
 
                         <% if (i >= userAnswers.length-1) { %>
-                        <span class="restart">
+                        <span class="finish">
                             <% if (ie9) { %>
-                            <img src="img/restart.png">
+                            <img src="img/finish.png">
                             <% } else { %>
-                            <img src="img/restart.svg">
+                            <img src="img/finish.svg">
                             <% } %>
                         </span>
                         <% } %>
@@ -117,7 +117,47 @@
             </div>
             <% }); %>
 
+
+            <!--FINAL SLIDE-->
+            <div id="result-list-item-final" class="list-item swiper-slide swiper-slide-final">
+
+                <div class="text-box">
+
+                    <strong class="final-title">
+                        <%= copy.summaryFinal.title %>
+                    </strong>
+
+                    <span class="final-text">
+                        <%= copy.summaryFinal.text %>
+                    </span>
+
+                    <div class="restart-wrapper">
+                        <% if (ie9) { %>
+                        <img src="img/restart.png" class="restart">
+                        <% } else { %>
+                        <img src="img/restart.svg" class="restart">
+                        <% } %>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
+
+        <div class="result-share">
+
+            <div class="share-icons-wrapper">
+
+                <img src="img/share-twitter.svg" class="share-twitter share-icon" data-source="twitter">
+                <img src="img/share-linkedin.svg" class="share-linkedin share-icon" data-source="linkedin">
+                <a href="mailto:?subject=<%= copy.share.emailSubject %>&body=<%= copy.share.emailBody %>"><img src="img/share-email.svg" class="share-email share-icon" data-source="email"></a>
+
+            </div>
+
+        </div>
+
 
     </div>
 

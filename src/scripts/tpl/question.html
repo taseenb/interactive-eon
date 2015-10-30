@@ -1,4 +1,5 @@
-<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %> bg-<%= question.bg %>" style="<% if (question.bgImg) { %>background-image: url('img/<%= question.bgImg %>') <% } %>">
+<div id="question-<%= idx %>" class="question content-element hidden ui-<%= question.ui %> bg-<%= question.bg %>"
+     style="<% if (question.bgImg) { %>background-image: url('img/<%= question.bgImg %>') <% } %>">
 
     <div id="question-inner-<%= idx %>" class="inner">
 
@@ -29,13 +30,14 @@
             <% question.answers.forEach(function(answer, i) { %>
 
             <div class="answer" data-value="<%= answer.value %>" data-idx="<%= i %>">
+                <div class="answer-inner">
+                    <%= alphabet[i] %>
 
-                <%= alphabet[i] %>
+                    <span class="text" style="background-color: <%= questionColor[i] %>"><%= answer.text %></span>
 
-                <span class="text" style="background-color: <%= questionColor[i] %>"><%= answer.text %></span>
+                    <span class="bottom" style="background-color: <%= questionColor[i] %>"></span>
 
-                <span class="bottom" style="background-color: <%= questionColor[i] %>"></span>
-
+                </div>
             </div>
 
             <% }); %>

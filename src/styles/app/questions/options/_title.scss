@@ -34,6 +34,10 @@
   position: relative;
   margin-bottom: 40px;
 
+  @media(min-width: $mainBreakpoint) {
+    margin-bottom: 20px;
+  }
+
   .counter {
     position: absolute;
     left: 0;

@@ -18,7 +18,7 @@ define( function ( require ) {
 
     initialize: function () {
 
-      console.log( App.data );
+      //console.log( App.data );
       //console.log( App.width, App.height );
 
       this.questionsCount = App.data.questions.length;

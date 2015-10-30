@@ -286,6 +286,7 @@ define( function ( require ) {
     setupElements: function () {
 
       this.$restart = this.$( '.restart' );
+      this.$finish = this.$( '.finish' );
 
     },
 
@@ -293,6 +294,57 @@ define( function ( require ) {
 
       var click = App.isTouch ? 'touchstart' : 'click';
       this.$restart.on( click, this.restart.bind( this ) );
+      this.$finish.on( click, this.finish.bind( this ) );
+
+      // Share buttons
+      this.$el.on( 'click', '.share-icon', this.share.bind( this ) );
+
+    },
+
+    share: function (e) {
+      var copy = App.data.copy.share;
+
+      var twitterBaseUrl = copy.twitterBaseUrl;
+      //var facebookBaseUrl = copy.facebookBaseUrl;
+      var linkedinBaseUrl = copy.linkedinBaseUrl;
+
+      var sharemessage = copy.shareMessage + " ";
+      var network = $( e.currentTarget ).attr( 'data-source' );
+      var shareWindow = "";
+      //var img = copy.pageUrl + 'assets/imgs/' + copy.sharePageImg;
+      var guardianUrl = copy.pageUrl;
+
+
+      if ( network === "twitter" ) {
+        shareWindow =
+          twitterBaseUrl +
+          encodeURIComponent( sharemessage ) +
+          "%20" +
+          encodeURIComponent( guardianUrl )
+
+      } else if ( network === "facebook" ) {
+        shareWindow =
+          facebookBaseUrl +
+          encodeURIComponent( guardianUrl ) +
+          "&picture=" +
+          encodeURIComponent( img ) +
+          "&redirect_uri=http://www.theguardian.com";
+      } else if ( network === "linkedin" ) {
+        shareWindow =
+          linkedinBaseUrl +
+          "?title=" +
+          encodeURIComponent( sharemessage ) +
+          "&mini=true" +
+          "&url=" +
+          encodeURIComponent( guardianUrl )
+      }
+      window.open( shareWindow, network + "share", "width=640, height=320" );
+
+    },
+
+    finish: function () {
+
+      this.swiper.slideTo( this.swiper.slides.length - 1 );
 
     },
 

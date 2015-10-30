@@ -1,7 +1,5 @@
 .result-share {
 
-  width: 62%;
-
   .separator {
     height: 2px;
     background-color: #333;
@@ -17,12 +15,16 @@
 
   .share-icons-wrapper {
     font-size: 0;
+    position: relative;
+    overflow: visible;
+    text-align: center;
     
     .share-icon {
       display: inline-block;
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       margin-right: 10px;
+      cursor: pointer;
 
       &:last-of-type {
         margin-right: 0 !important;
@@ -31,6 +33,12 @@
   }
 
   @media(min-width: $mainBreakpoint) {
+
+    //width: 62%;
+
+    .share-icons-wrapper {
+      text-align: left;
+    }
 
   }
 

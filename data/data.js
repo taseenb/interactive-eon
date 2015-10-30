@@ -7,15 +7,28 @@ callback( {
   "copy": {
     "summaryTitle": {
       "bad": "Your efficiency levels are running a bit low. But there are a few simple ways to give them a boost.",
-      "medium": "You're quite efficient... but there’s room for improvement.",
-      "good": "You're super efficient, well done! But there are always new ways to improve your productivity."
+      "medium": "You're quite efficient ... but there’s room for improvement.",
+      "good": "You're super efficient, well done! But there are always ways to improve your productivity."
+    },
+    "summaryFinal": {
+      "title": "Final recommendations and stuff... behave!",
+      "text": "Take care. Bye."
+    },
+    "share": {
+      "twitterBaseUrl": "https://twitter.com/home?status=",
+      "facebookBaseUrl": "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=",
+      "linkedinBaseUrl": "https://www.linkedin.com/shareArticle",
+      "shareMessage": "Share this! ",
+      "pageUrl": "",
+      "emailSubject": "Subject here",
+      "emailBody": "Body text here"
     }
   },
   "questions": [
     {
       "idx": 0,
       "title": "7am",
-      "text": "It’s 7am and your alarm is blaring. Do you...",
+      "text": "It’s 7am and your alarm is blaring. Do you ...",
       "animationName": "Q1",
       "ui": "blue",
       "bg": "green",
@@ -26,12 +39,12 @@ callback( {
         {
           "text": "Growl, press snooze and drift back to sleep until the alarm finally shakes you out of bed 15 minutes later.",
           "value": 1,
-          "introTip": "You answered that you press the snooze button. You’d be better off getting up and leaving time for breakfast.",
+          "introTip": "You answered that hit the snooze button. You’d be better off getting up and leaving time for breakfast.",
           "eval": "bad"
         },
         {
           "text": "Crawl out of bed, put the kettle on and take 20 minutes to enjoy a healthy breakfast.",
-          "value": 3,
+          "value": 4,
           "introTip": "You answered that you enjoy a healthy breakfast. Well done, breakfast really is the most important meal of the day. Try working in a quick run or bike ride before.",
           "eval": "medium"
         },
@@ -42,13 +55,13 @@ callback( {
           "eval": "good"
         }
       ],
-      "tip": "How you start your day can have an impact on levels of concentration. Eating a nutritious breakfast is one way to ensure you have enough energy to keep your body and brain fully charged until lunchtime. Nutritionist Dr Emma Derbyshire suggests either a bowl of high fibre multigrain cereals or eggs which have been found to <a href='http://www.livestrong.com/article/547888-brain-food-and-egg-yolks/'>boost brain function</a>. Research also shows that <a href='http://www.health.harvard.edu/press_releases/regular-exercise-releases-brain-chemicals-key-for-memory-concentration-and-mental-sharpness/'>regular exercise boosts energy levels and sharpens focus</a>."
+      "tip": "How you start your day can have an impact on levels of concentration. Eating a nutritious breakfast is one way to ensure you have enough energy to keep your body and brain fully charged until lunchtime, which will help to keep you on top of daily business decisions. Nutritionist Dr Emma Derbyshire suggests either a bowl of high fibre multigrain cereals or eggs which have been found to <a href='http://www.livestrong.com/article/547888-brain-food-and-egg-yolks/'>boost brain function</a>. Research also shows that <a href='http://www.health.harvard.edu/press_releases/regular-exercise-releases-brain-chemicals-key-for-memory-concentration-and-mental-sharpness/'>regular exercise boosts energy levels and sharpens focus</a>."
     },
 
     {
       "idx": 1,
       "title": "9am",
-      "text": "You arrive at work. While you wait for the computer to log you in, you...",
+      "text": "You arrive at work. While you wait for the computer to log you in, you ...",
       "animationName": "Q2",
       "ui": "green",
       "bg": "blue",
@@ -75,13 +88,13 @@ callback( {
           "eval": "good"
         }
       ],
-      "tip": "Constantly checking your emails might make you look hard working, but it doesn’t necessarily mean you are being productive. <a href='http://news.ubc.ca/2014/12/03/check-less-to-reduce-email-stress/'>Research [PDF]</a> from the University of British Columbia suggests that reducing the number of times you check your inbox can lessen stress. Working in some mindfulness meditation throughout the day will also help you stay calm and focused. While multi-tasking is also a no-no, according to psychologists. It is more <a href='http://www.apa.org/research/action/multitask.aspx'>productive to do one task at a time</a>."
+      "tip": "As a business leader it can be tempting to constantly check your emails, but it doesn’t necessarily mean you are being productive. <a href='http://news.ubc.ca/2014/12/03/check-less-to-reduce-email-stress/'>Research [PDF]</a> from the University of British Columbia suggests that reducing the number of times you check your inbox can lessen stress. Working in some <a href='http://www.theguardian.com/small-business-network/2015/oct/15/office-staff-relax-pets-plants-meditation-busines'>mindfulness meditation</a> throughout the day will also help you stay calm and focused. Meanwhile, multi-tasking is also a no-no, according to psychologists. It is more <a href='http://www.apa.org/research/action/multitask.aspx'>productive to do one task at a time</a>."
     },
 
     {
       "idx": 2,
       "title": "11am",
-      "text": "It’s been the morning from hell - and it’s still only 11am. Do you...",
+      "text": "It’s been the morning from hell - and it’s still only 11am. Do you ...",
       "animationName": "Q3",
       "ui": "blue",
       "bg": "pink",
@@ -115,7 +128,7 @@ callback( {
     {
       "idx": 3,
       "title": "1pm",
-      "text": "It’s time for lunch and you’re famished. Do you...",
+      "text": "It’s time for lunch and you’re famished. Do you ...",
       "animationName": "Q4",
       "ui": "green",
       "bg": "pink",
@@ -148,7 +161,7 @@ callback( {
     {
       "idx": 4,
       "title": "2.30pm",
-      "text": "It’s the post-lunch slump and you’re feeling sleepy. Do you...",
+      "text": "It’s the post-lunch slump and you’re feeling sleepy. Do you ...",
       "animationName": "Q5",
       "ui": "green",
       "bg": "blue",
@@ -175,13 +188,13 @@ callback( {
           "eval": "bad"
         }
       ],
-      "tip": "If you’re feeling tired during the afternoon, don’t fight it. Power naps are an 80s cliche but high-powered investment bankers take them for a reason. A small study in the journal Personality and Individual Differences showed that napping not only reduces tiredness, but the <a href='http://www.sciencedirect.com/science/article/pii/S0191886915003943'>impulsive decision-making and short-temperedness</a> that goes along with it. Keep it short though, advises Stuart Martin – a consultant at the Work Psychology Group – as anything more than two hours can lead to grogginess. He says even <a href='http://www.ncbi.nlm.nih.gov/pubmed/21075238'>a brief nap of seven to 10 minutes can have immediate benefits</a>  lasting up to three hours and is more effective than caffeine in increasing alertness."
+      "tip": "If you’re feeling tired during the afternoon, don’t fight it. According to a <a href='http://www.inc.com/news/articles/200604/overworked.html'>poll</a>, small business owners work at least 50 hours a week, but the downsides of <a href='http://www.theguardian.com/small-business-network/2015/sep/25/office-full-of-workaholics-policies-presenteeism-business'>workaholism</a> are well-documented. Power naps are an 80s cliche but high-powered investment bankers take them for a reason. A small study in the journal Personality and Individual Differences showed that napping not only reduces tiredness, but the <a href='http://www.sciencedirect.com/science/article/pii/S0191886915003943'>impulsive decision-making and short-temperedness</a> that goes along with it. Keep it short though, advises Stuart Martin – a consultant at the Work Psychology Group – as anything more than two hours can lead to grogginess. He says even <a href='http://www.ncbi.nlm.nih.gov/pubmed/21075238'>a brief nap of seven to 10 minutes can have immediate benefits</a>  lasting up to three hours and is more effective than caffeine in increasing alertness."
     },
 
     {
       "idx": 5,
       "title": "4pm",
-      "text": "It’s 4pm, you’re feeling drained but it’s time for a team meeting. Do you...",
+      "text": "It’s 4pm, you’re feeling drained but it’s time for a team meeting. Do you ...",
       "animationName": "Q6",
       "ui": "green",
       "bg": "blue",
@@ -196,27 +209,27 @@ callback( {
           "eval": "good"
         },
         {
-          "text": "Hide under your desk until it’s all over and you can go home. Meetings are a drag.",
+          "text": "Hide under your desk until it's all over and you can go home. Meetings are a drag. Your small business team can deal with the nitty gritty, while you focus on the big picture.",
           "value": 1,
           "introTip": "You answered that you would hide under your desk. If you hate meetings, try something different like going for a group walk."
           ,
           "eval": "bad"
         },
         {
-          "text": "Breath a heavy sigh then take your seat for an hour’s meeting that in the end feels like an eternity.",
+          "text": "Breathe a heavy sigh then take your seat for an hour’s meeting that in the end feels like an eternity.",
           "value": 2,
           "introTip": "You answered that you would reluctantly attend the meeting. How about trying a new format?"
           ,
           "eval": "bad"
         }
       ],
-      "tip": "It may sound silly, but holding a meeting where everyone stands could be just the ticket to getting your creative juices flowing and energising your team. Research from Washington University suggests <a href='http://spp.sagepub.com/content/early/2014/06/12/1948550614538463.abstract'>standing improves group performance</a>, while a different report from Stanford University showed that walking also boosts creativity."
+      "tip": "It may sound silly, but holding a meeting where everyone stands could be just the ticket to getting your creative juices flowing and energising your team. Research from Washington University suggests <a href='http://spp.sagepub.com/content/early/2014/06/12/1948550614538463.abstract'>standing improves group performance</a>, while a different report from Stanford University showed that walking also boosts creativity. As an entrepreneur, find opportunities for you and your staff to <a href='http://www.theguardian.com/small-business-network/2015/aug/28/wellness-workplace-health-initiatives-boost-staff-productivity'>get active</a> – exercise releases endorphins and serotonin, which help to regulate concentration and motivation."
     },
 
     {
       "idx": 6,
       "title": "6pm",
-      "text": "You are on the commuter train home. Do you...",
+      "text": "You are on the commuter train home. Do you ...",
       "animationName": "Q7",
       "ui": "green",
       "bg": "blue",
@@ -237,19 +250,18 @@ callback( {
           "eval": "good"
         },
         {
-          "text": "Have another nap. It’s been a long day after all and work can wait.",
+          "text": "Have another nap. You've had a packed day after all and work can wait.",
           "value": 3,
           "introTip": "You answered that would take another nap. A short doze is great for recharging the body and mind, but working on short two-minute tasks would be more productive.",
           "eval": "medium"
         }
       ],
-      "tip": "Ever heard of <a href='http://www.success.com/article/1-on-1-david-allens-two-minute-rule'>the two minute rule</a>? Time management consultant David Allen claims that if a task only takes a couple of minutes then you should just do it rather than wasting time reviewing and organising to complete it later. However, Rebecca Mossman, HR director at HireRight, warns to be careful when choosing which emails to respond to when out of the office. While some only require a simple answer, others may mean having to create more work for yourself by engaging in lengthy conversations and follow-up phone calls."
+      "tip": "Ever heard of <a href='http://www.success.com/article/1-on-1-david-allens-two-minute-rule'>the two minute rule</a>? Time management consultant David Allen claims that if a task only takes a couple of minutes then you should just do it rather than wasting time reviewing and organising to complete it later. However, Rebecca Mossman, HR director at HireRight, warns to be careful when choosing which emails to respond to when out of the office. While some only require a simple answer, others may mean having to create more work for yourself by engaging in lengthy conversations and follow-up phone calls. Of course, when you're heading up a business, you don't want to miss out on potential leads. <a href='http://www.theguardian.com/small-business-network/2015/may/29/five-tech-productivity-apps-to-save-time-and-organise-your-day'>Productivity apps</a> can help, such as those that allow you to schedule meetings more simply."
     },
-
     {
       "idx": 7,
       "title": "10.30pm",
-      "text": "It’s been a long day, but it’s finally time for bed. Do you...",
+      "text": "It’s been a long day, but it’s finally time for bed. Do you ...",
       "animationName": "Q8",
       "ui": "blue",
       "bg": "pink",
@@ -264,13 +276,13 @@ callback( {
           "eval": "bad"
         },
         {
-          "text": "Put your feet up, relax with a cup of camomile tea binge watching House of Cards then get some shut eye.",
+          "text": "Put your feet up, relax with a cup of camomile tea while binge watching House of Cards, then get some shut eye.",
           "value": 5,
           "introTip": "You answered that you would relax and go to sleep. This is the best way to recharge and be as productive as possible the next day.",
           "eval": "good"
         },
         {
-          "text": "Go to bed but you can’t resist the temptation to read some final emails before sleeping and start planning the next day.",
+          "text": "Go to bed. But you can't resist the temptation to read some final emails and start planning the next day before sleeping.",
           "value": 2,
           "introTip": "You answered that you would go to bed but read a few emails. While it might not seem like a huge task, it’s important to spend time away from work before sleeping.",
           "eval": "bad"
