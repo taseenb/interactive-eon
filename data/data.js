@@ -18,11 +18,10 @@ callback( {
       "twitterBaseUrl": "https://twitter.com/intent/tweet?text=",
       "facebookBaseUrl": "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=",
       "linkedinBaseUrl": "https://www.linkedin.com/shareArticle",
-      "shortMessage": "See how your small business team fare, or test out your friends",
+      "shortMessage": "Find out how much you procrastinate and how to win back time",
       "tweetMessage": "Test out your workplace efficiency levels and get tips on time-management and improving wellbeing. How do you score?",
-      "pageUrl": "http://www.theguardian.com/uk",
-      "emailSubject": "See how your small business team fare, or test out your friends",
-      "emailBody": ""
+      "pageUrl": "http://www.theguardian.com/small-business-network/ng-interactive/2015/nov/02/find-out-how-much-you-procrastinate-and-how-to-win-back-time",
+      "emailSubject": "Find out how much you procrastinate and how to win back time"
     }
   },
   "questions": [
