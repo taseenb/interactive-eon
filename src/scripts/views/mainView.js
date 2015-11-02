@@ -52,7 +52,7 @@ define( function ( require ) {
 
       if ( !this.questionsViews[idx] ) {
 
-        this.renderQuestion( idx );
+        this.renderQuestion( idx ); //
 
       } else {
 

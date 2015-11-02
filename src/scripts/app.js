@@ -37,11 +37,17 @@ define( function ( require ) {
 
   $html.addClass( (App.isFirefox ? '' : 'no-') + 'firefox' );
 
-  // Hack for mobile safari
-  // See: https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+  // Touch hacks
   if ( App.isTouch ) {
+
+    // Hack for mobile safari
+    // See: https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
     document.addEventListener( "touchstart", function () {
     }, true );
+
+    // Fastclick
+    var FastClick = require( 'fastclick' );
+    FastClick.attach( document.body );
   }
 
   // Disable console.log on IE 9

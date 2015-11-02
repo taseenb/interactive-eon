@@ -58,7 +58,7 @@ define( function ( require ) {
 
     addTargetBlank: function () {
 
-      this.$( '.list-item a' ).attr( 'target', '_blank' );
+      this.$( '.list-item a:not(.share-icon)' ).attr( 'target', '_blank' );
 
     },
 
@@ -297,18 +297,19 @@ define( function ( require ) {
       this.$finish.on( click, this.finish.bind( this ) );
 
       // Share buttons
-      this.$el.on( 'click', '.share-icon', this.share.bind( this ) );
+      this.$el.on( 'click', '.share-icon:not(.no-popup)', this.share.bind( this ) );
 
     },
 
-    share: function (e) {
+    share: function ( e ) {
       var copy = App.data.copy.share;
 
       var twitterBaseUrl = copy.twitterBaseUrl;
       //var facebookBaseUrl = copy.facebookBaseUrl;
       var linkedinBaseUrl = copy.linkedinBaseUrl;
-
-      var sharemessage = copy.shareMessage + " ";
+      var tweetMessage = copy.tweetMessage + " ";
+      var shortMessage = copy.shortMessage + " ";
+      //var sharemessage = copy.shareMessage + " ";
       var network = $( e.currentTarget ).attr( 'data-source' );
       var shareWindow = "";
       //var img = copy.pageUrl + 'assets/imgs/' + copy.sharePageImg;
@@ -316,31 +317,39 @@ define( function ( require ) {
 
 
       if ( network === "twitter" ) {
+
         shareWindow =
           twitterBaseUrl +
-          encodeURIComponent( sharemessage ) +
+          encodeURIComponent( tweetMessage ) +
           "%20" +
           encodeURIComponent( guardianUrl )
 
       } else if ( network === "facebook" ) {
+
         shareWindow =
           facebookBaseUrl +
           encodeURIComponent( guardianUrl ) +
           "&picture=" +
           encodeURIComponent( img ) +
           "&redirect_uri=http://www.theguardian.com";
+
       } else if ( network === "linkedin" ) {
+
         shareWindow =
           linkedinBaseUrl +
           "?title=" +
-          encodeURIComponent( sharemessage ) +
+          encodeURIComponent( shortMessage ) +
           "&mini=true" +
           "&url=" +
           encodeURIComponent( guardianUrl )
+
       }
       window.open( shareWindow, network + "share", "width=640, height=320" );
 
     },
+
+    //<a href="https://twitter.com/share" class="twitter-share-button" data-text="share this!" data-via="taseenb" data-count="none">Tweet</a>
+    //<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
     finish: function () {
 

@@ -11,16 +11,17 @@ callback( {
       "good": "You're super efficient, well done! But there are always ways to improve your productivity."
     },
     "summaryFinal": {
-      "title": "Final recommendations and stuff... behave!",
-      "text": "Take care. Bye."
+      "title": "You've made it to the end. Now put the advice into action, or start again",
+      "text": "Find out more on improving your <a href='http://www.theguardian.com/small-business-network/efficiency'>efficiency</a> in business – from what your <a href='http://www.theguardian.com/small-business-network/2015/aug/11/what-body-language-say-about-you-obama'>body language</a> says about you to <a href='http://www.theguardian.com/small-business-network/2015/oct/09/awake-3am-entrepreneurs-biphasic-sleep-insomnia'>how to get a better night’s sleep</a>.<br><br><div class='share-icons-title'>Could your small business team use their time more efficiently? Challenge your workmates and friends.</div>"
     },
     "share": {
-      "twitterBaseUrl": "https://twitter.com/home?status=",
+      "twitterBaseUrl": "https://twitter.com/intent/tweet?text=",
       "facebookBaseUrl": "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=",
       "linkedinBaseUrl": "https://www.linkedin.com/shareArticle",
-      "shareMessage": "Share this! ",
-      "pageUrl": "",
-      "emailSubject": "Subject here",
+      "shortMessage": "See how your small business team fare, or test out your friends",
+      "tweetMessage": "Test out your workplace efficiency levels and get tips on time-management and improving wellbeing. How do you score?",
+      "pageUrl": "http://www.theguardian.com/uk",
+      "emailSubject": "See how your small business team fare, or test out your friends",
       "emailBody": "Body text here"
     }
   },
@@ -28,7 +29,7 @@ callback( {
     {
       "idx": 0,
       "title": "7am",
-      "text": "It’s 7am and your alarm is blaring. Do you ...",
+      "text": "It’s 7am and your alarm is blaring. Do&nbsp;you&nbsp;...",
       "animationName": "Q1",
       "ui": "blue",
       "bg": "green",
@@ -39,7 +40,7 @@ callback( {
         {
           "text": "Growl, press snooze and drift back to sleep until the alarm finally shakes you out of bed 15 minutes later.",
           "value": 1,
-          "introTip": "You answered that hit the snooze button. You’d be better off getting up and leaving time for breakfast.",
+          "introTip": "You answered that you hit the snooze button. You’d be better off getting up and leaving time for breakfast.",
           "eval": "bad"
         },
         {
@@ -55,13 +56,13 @@ callback( {
           "eval": "good"
         }
       ],
-      "tip": "How you start your day can have an impact on levels of concentration. Eating a nutritious breakfast is one way to ensure you have enough energy to keep your body and brain fully charged until lunchtime, which will help to keep you on top of daily business decisions. Nutritionist Dr Emma Derbyshire suggests either a bowl of high fibre multigrain cereals or eggs which have been found to <a href='http://www.livestrong.com/article/547888-brain-food-and-egg-yolks/'>boost brain function</a>. Research also shows that <a href='http://www.health.harvard.edu/press_releases/regular-exercise-releases-brain-chemicals-key-for-memory-concentration-and-mental-sharpness/'>regular exercise boosts energy levels and sharpens focus</a>."
+      "tip": "How you start your day can have an impact on levels of concentration. Eating a nutritious breakfast is one way to ensure you have enough energy to keep your body and brain fully charged until lunchtime, which will help to keep you on top of daily business decisions. Nutritionist Dr Emma Derbyshire suggests either a bowl of high fibre multigrain cereals or eggs, which have been found to <a href='http://www.livestrong.com/article/547888-brain-food-and-egg-yolks/'>boost brain function</a>. Research also shows that <a href='http://www.health.harvard.edu/press_releases/regular-exercise-releases-brain-chemicals-key-for-memory-concentration-and-mental-sharpness/'>regular exercise boosts energy levels and sharpens focus</a>."
     },
 
     {
       "idx": 1,
       "title": "9am",
-      "text": "You arrive at work. While you wait for the computer to log you in, you ...",
+      "text": "You arrive at work. While you wait for the computer to log you in, you&nbsp;...",
       "animationName": "Q2",
       "ui": "green",
       "bg": "blue",
@@ -70,7 +71,7 @@ callback( {
       "timeImgIE": "9am.png",
       "answers": [
         {
-          "text": "Immediately whip out your phone and start replying to emails, while waiting for your computer to log in.",
+          "text": "Immediately whip out your phone and start replying to emails.",
           "value": 2,
           "introTip": "You answered that you immediately check your emails. Looking busy doesn’t necessarily make you productive. Re-focus with a spot of mindfulness meditation",
           "eval": "bad"
@@ -82,19 +83,19 @@ callback( {
           "eval": "medium"
         },
         {
-          "text": "You focus and become mindful of the present moment, then spend some time prioritising tasks for the day.",
+          "text": "Focus and become mindful of the present moment, then spend some time prioritising tasks for the day.",
           "value": 5,
           "introTip": "You said you become mindful of the moment, before prioritising tasks –  you are the master of calm and efficiency, and nothing can phase you now",
           "eval": "good"
         }
       ],
-      "tip": "As a business leader it can be tempting to constantly check your emails, but it doesn’t necessarily mean you are being productive. <a href='http://news.ubc.ca/2014/12/03/check-less-to-reduce-email-stress/'>Research [PDF]</a> from the University of British Columbia suggests that reducing the number of times you check your inbox can lessen stress. Working in some <a href='http://www.theguardian.com/small-business-network/2015/oct/15/office-staff-relax-pets-plants-meditation-busines'>mindfulness meditation</a> throughout the day will also help you stay calm and focused. Meanwhile, multi-tasking is also a no-no, according to psychologists. It is more <a href='http://www.apa.org/research/action/multitask.aspx'>productive to do one task at a time</a>."
+      "tip": "As a business leader it can be tempting to constantly check your emails, but it doesn’t necessarily mean you are being productive. <a href='http://news.ubc.ca/2014/12/03/check-less-to-reduce-email-stress/'>Research [PDF]</a> from the University of British Columbia suggests that reducing the number of times you check your inbox can lessen stress. Working in some <a href='http://www.theguardian.com/small-business-network/2015/oct/15/office-staff-relax-pets-plants-meditation-business'>mindfulness meditation</a> throughout the day will also help you stay calm and focused. Meanwhile, multi-tasking is also a no-no, according to psychologists. It is more <a href='http://www.apa.org/research/action/multitask.aspx'>productive to do one task at a time</a>."
     },
 
     {
       "idx": 2,
       "title": "11am",
-      "text": "It’s been the morning from hell - and it’s still only 11am. Do you ...",
+      "text": "It’s been the morning from hell – and it’s still only 11am. Do&nbsp;you&nbsp;...",
       "animationName": "Q3",
       "ui": "blue",
       "bg": "pink",
@@ -122,13 +123,13 @@ callback( {
           "eval": "good"
         }
       ],
-      "tip": "Time is precious for most entrepreneurs, so the idea of pushing through the day without any breaks is tempting. Working full-throttle isn’t going to improve productivity, however. Psychologists at the University of Illinois found that <a href='https://news.illinois.edu/websandthumbs/lleras,alejandro/lleras_sdarticle-17.pdf'>taking short, regular breaks [PDF]</a> has been found to increase focus. While simply telling your face to smile can improve your happiness and <a href='http://pss.sagepub.com/content/early/2012/09/23/0956797612445312'>reduce stress at work</a> thanks the release of <a href='https://www.psychologytoday.com/blog/cutting-edge-leadership/201206/there-s-magic-in-your-smile/'>neuropeptides</a>."
+      "tip": "Time is precious for most entrepreneurs, so the idea of pushing through the day without any breaks is tempting. Working full-throttle isn’t going to improve productivity, however. Psychologists at the University of Illinois found that <a href='https://news.illinois.edu/websandthumbs/lleras,alejandro/lleras_sdarticle-17.pdf'>taking brief breaks [PDF]</a> has been found to increase focus. While simply telling your face to smile can improve your happiness and <a href='http://pss.sagepub.com/content/early/2012/09/23/0956797612445312'>reduce stress at work</a> thanks the release of <a href='https://www.psychologytoday.com/blog/cutting-edge-leadership/201206/there-s-magic-in-your-smile/'>neuropeptides</a>."
     },
 
     {
       "idx": 3,
       "title": "1pm",
-      "text": "It’s time for lunch and you’re famished. Do you ...",
+      "text": "It’s time for lunch and you’re famished. Do&nbsp;you&nbsp;...",
       "animationName": "Q4",
       "ui": "green",
       "bg": "pink",
@@ -161,7 +162,7 @@ callback( {
     {
       "idx": 4,
       "title": "2.30pm",
-      "text": "It’s the post-lunch slump and you’re feeling sleepy. Do you ...",
+      "text": "It’s the post-lunch slump and you’re feeling sleepy. Do&nbsp;you&nbsp;...",
       "animationName": "Q5",
       "ui": "green",
       "bg": "blue",
@@ -182,19 +183,19 @@ callback( {
           "eval": "good"
         },
         {
-          "text": "Power through hoping the drowsiness will pass in time for the last train home.",
+          "text": "Power through, hoping the drowsiness will pass in time for the last train home.",
           "value": 1,
           "introTip": "You answered that you would keep going until home time. You need to take a break – a power nap can make the world of difference.",
           "eval": "bad"
         }
       ],
-      "tip": "If you’re feeling tired during the afternoon, don’t fight it. According to a <a href='http://www.inc.com/news/articles/200604/overworked.html'>poll</a>, small business owners work at least 50 hours a week, but the downsides of <a href='http://www.theguardian.com/small-business-network/2015/sep/25/office-full-of-workaholics-policies-presenteeism-business'>workaholism</a> are well-documented. Power naps are an 80s cliche but high-powered investment bankers take them for a reason. A small study in the journal Personality and Individual Differences showed that napping not only reduces tiredness, but the <a href='http://www.sciencedirect.com/science/article/pii/S0191886915003943'>impulsive decision-making and short-temperedness</a> that goes along with it. Keep it short though, advises Stuart Martin – a consultant at the Work Psychology Group – as anything more than two hours can lead to grogginess. He says even <a href='http://www.ncbi.nlm.nih.gov/pubmed/21075238'>a brief nap of seven to 10 minutes can have immediate benefits</a>  lasting up to three hours and is more effective than caffeine in increasing alertness."
+      "tip": "If you’re feeling tired during the afternoon, don’t fight it. According to a <a href='http://www.inc.com/news/articles/200604/overworked.html'>New York Enterprise Report poll</a>, small business owners work at least 50 hours a week, but the downsides of <a href='http://www.theguardian.com/small-business-network/2015/sep/25/office-full-of-workaholics-policies-presenteeism-business'>workaholism</a> are well-documented. Power naps are an 80s cliche but high-powered investment bankers take them for a reason. A small study in the journal Personality and Individual Differences showed that napping not only reduces tiredness, but the <a href='http://www.sciencedirect.com/science/article/pii/S0191886915003943'>impulsive decision-making and short-temperedness</a> that goes along with it. Keep it short though, advises Stuart Martin – a consultant at the Work Psychology Group – as anything more than two hours can lead to grogginess. He says even <a href='http://www.ncbi.nlm.nih.gov/pubmed/21075238'>a brief nap of seven to 10 minutes can have immediate benefits</a>  lasting up to three hours and is more effective than caffeine in increasing alertness."
     },
 
     {
       "idx": 5,
       "title": "4pm",
-      "text": "It’s 4pm, you’re feeling drained but it’s time for a team meeting. Do you ...",
+      "text": "It’s 4pm, you’re feeling drained but it’s time for a team meeting. Do&nbsp;you&nbsp;...",
       "animationName": "Q6",
       "ui": "green",
       "bg": "blue",
@@ -203,7 +204,7 @@ callback( {
       "timeImgIE": "4pm.png",
       "answers": [
         {
-          "text": "Remove all the chairs in the meeting room, hold the meeting standing up or confidently announce “Let’s walk and talk, people.”",
+          "text": "Remove all the chairs in the meeting room and hold the meeting standing up or confidently announce: “Let’s walk and talk, people.”",
           "value": 5,
           "introTip": "You answered that you would hold the meeting standing up.You have been doing your research.",
           "eval": "good"
@@ -229,7 +230,7 @@ callback( {
     {
       "idx": 6,
       "title": "6pm",
-      "text": "You are on the commuter train home. Do you ...",
+      "text": "You are on the commuter train home. Do&nbsp;you&nbsp;...",
       "animationName": "Q7",
       "ui": "green",
       "bg": "blue",
@@ -261,7 +262,7 @@ callback( {
     {
       "idx": 7,
       "title": "10.30pm",
-      "text": "It’s been a long day, but it’s finally time for bed. Do you ...",
+      "text": "It’s been a long day, but it’s finally time for bed. Do&nbsp;you&nbsp;...",
       "animationName": "Q8",
       "ui": "blue",
       "bg": "pink",
@@ -288,7 +289,7 @@ callback( {
           "eval": "bad"
         }
       ],
-      "tip": "Getting a good night’s sleep is important for recharging the body and mind. That’s why Stuart Martin, a consultant at the Work Psychology Group, advises busy entrepreneurs to moderate the amount of hours worked in one day. “It is tempting to keep crashing on until you fall asleep but your performance will decline,” he warns. Indeed, <a href='http://blogs.wsj.com/atwork/2014/02/06/smartphones-make-you-tired-and-unproductive-study-says/'>research suggests that reading and sending work emails</a> on a smartphone late into the evening has a detrimental effect on productivity. You will actually feel more exhausted by morning and disengaged by the next afternoon."
+      "tip": "Getting a good night’s sleep is important for recharging the body and mind. That’s why Stuart Martin, from the Work Psychology Group, advises busy entrepreneurs to moderate the amount of hours worked in one day. “It is tempting to keep crashing on until you fall asleep but your performance will decline,” he warns. Indeed, <a href='http://blogs.wsj.com/atwork/2014/02/06/smartphones-make-you-tired-and-unproductive-study-says/'>research suggests that reading and sending work emails</a> on a smartphone late into the evening has a detrimental effect on productivity. You will actually feel more exhausted by morning and disengaged by the next afternoon."
     }
 
   ]

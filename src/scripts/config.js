@@ -11,6 +11,7 @@ var require = {
     "swiper": "vendors/swiper.jquery",
     "chartist": "vendors/chartist",
     "chartist.plugins.tooltips": "vendors/chartist-plugin-tooltip",
+    "fastclick": "vendors/fastclick",
 
     "analytics": "analytics",
 
