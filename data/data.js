@@ -22,7 +22,7 @@ callback( {
       "tweetMessage": "Test out your workplace efficiency levels and get tips on time-management and improving wellbeing. How do you score?",
       "pageUrl": "http://www.theguardian.com/uk",
       "emailSubject": "See how your small business team fare, or test out your friends",
-      "emailBody": "Body text here"
+      "emailBody": ""
     }
   },
   "questions": [
