@@ -20,7 +20,7 @@ callback( {
       "linkedinBaseUrl": "https://www.linkedin.com/shareArticle",
       "shortMessage": "Find out how much you procrastinate and how to win back time",
       "tweetMessage": "Test out your workplace efficiency levels and get tips on time-management and improving wellbeing. How do you score?",
-      "pageUrl": "http://www.theguardian.com/small-business-network/ng-interactive/2015/nov/02/find-out-how-much-you-procrastinate-and-how-to-win-back-time",
+      "pageUrl": "http://www.theguardian.com/small-business-network/ng-interactive/2015/nov/16/find-out-how-much-you-procrastinate-and-how-to-win-back-time",
       "emailSubject": "Find out how much you procrastinate and how to win back time"
     }
   },
